@@ -27,6 +27,13 @@
 
 ## Références
 
+### Anti-sèches
+
+* [Git Commands and Best Practices Cheat Sheet](https://zeroturnaround.com/rebellabs/git-commands-and-best-practices-cheat-sheet/)
+
+### Liens
+
+* <https://guillaumebriday.fr/comment-jutilise-git-mes-astuces-et-bonnes-pratiques>
 * <https://wiki.resel.fr/Guides/bonnes-pratiques/git>
 * <https://danielkummer.github.io/git-flow-cheatsheet/index.fr_FR.html>
 * <http://blog.soat.fr/2016/12/avoir-une-bonne-strategie-avec-git-flow/>
