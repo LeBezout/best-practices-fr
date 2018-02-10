@@ -27,11 +27,11 @@
 
 ## Références
 
-### Anti-sèches
+### Anti-sèches
 
 * [Git Commands and Best Practices Cheat Sheet](https://zeroturnaround.com/rebellabs/git-commands-and-best-practices-cheat-sheet/)
 
-### Liens
+### Liens
 
 * <https://guillaumebriday.fr/comment-jutilise-git-mes-astuces-et-bonnes-pratiques>
 * <https://wiki.resel.fr/Guides/bonnes-pratiques/git>
