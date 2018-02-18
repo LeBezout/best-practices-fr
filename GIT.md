@@ -1,16 +1,16 @@
-# Bonne pratiques d'utilisation de GIT
+# Bonnes pratiques d'utilisation de GIT
 
 ## La configuration utilisateur
 
 * Chaque utilisateur doit avoir un fichier `.gitconfig` correctement renseigné (à minima avec `user.name` et `user.email`)
 
-## Le dépôt
+## L'initialisation du dépôt
 
 * Chaque dépôt doit contenir à la racine un fichier `README.md` permettant de décrire celui-ci
 * Chaque dépôt doit contenir à la racine un fichier `.gitignore` permettant de na pas remonter n'importe quoi dans le système
 * Chaque dépôt doit contenir à la racine un fichier `.gitattributes` permettant de gérer correctement le format des fichiers (binaire ou texte, windows ou unix)
 
-## Les fichiers
+## Le format des fichiers
 
 * Toujours terminer ses fichiers par une ligne vide
 * Préférer les espaces (2 à 4) par rapport aux tabulations
