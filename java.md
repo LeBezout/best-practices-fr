@@ -25,3 +25,11 @@
 * Eviter l'utilisation de `NativeQueries`
 * Les champs de type date doivent être précisés à l’aide de l’annotation `@Temporal`
 * Pour limiter le nombre de résulats d'une requête utiliser `query.setMaxResults(max);`
+
+## Injection de dépendances
+
+* Favoriser l'injection par constructeur dont les avantages sont :
+  * Plus facilement testable
+  * Le membre de classe peut être déclaré `final`, la classe peut devenir immuable
+  * C'est également le pattern appliqué dans Angular
+  * L'annotation (`@Autowired`) devient optionnelle
