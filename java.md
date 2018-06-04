@@ -11,7 +11,7 @@
 
 ## Favoriser le typage fort
 
-* Très dangereux en cas de _refactoring_
+* Très dangereux sinon en cas de _refactoring_
 * Utiliser des `enum` plutôt que des `String` ou des `int`
 
 ## Java 8 "Optional"
@@ -33,3 +33,7 @@
   * Le membre de classe peut être déclaré `final`, la classe peut devenir immuable
   * C'est également le pattern appliqué dans Angular
   * L'annotation (`@Autowired`) devient optionnelle
+
+## Divers
+
+* Comparator vs Comparable  : On utilise en général `Comparable` pour l'ordre naturel et l'on écrit un ou plusieurs `Comparator` pour les autres besoins, où si l'on est pas le propriétaire de la classe
