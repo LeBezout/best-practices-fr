@@ -1,5 +1,20 @@
 # Bonnes pratiques Java
 
+## Styles
+
+* Utiliser les conventions de _Sun_ les créateurs du langage [Sun Java Coding Style Guide](https://www.oracle.com/technetwork/java/javase/overview/codeconvtoc-136057.html)
+* Ne pas utiliser d'outil du type `Format on Save`
+* Utiliser `EditorConfig`
+* Eviter les parenthèses inutiles
+* Ajouter toujours une javadoc aux composants publics (classes, méthodes, constantes, enum, ...)
+* Soigner l'ordre de déclaration des éléments dans une classe : membres statiques -> membres -> méthodes statiques -> constructeur(s) -> méthodes d'instance (_Java Coding Style Guide de Sun_)
+* Limiter la taille des méthodes
+* Les classes générées doivent être dans des modules séparés
+
+## Généralités
+
+* Favoriser l'utilisation des interfaces (`List`, `Map`, `Set`, ...) pour déclarer les objets : `List<String> l = new ArrayList<>();` plutôt que `ArrayList<String> l = new ArrayList<>();`
+
 ## Constantes
 
 * Il ne faut rendre `public` que des constantes qui le sont réellement (utilisées par plusieurs classes) sinon elles doivent être déclarées comme `private` dans les classes qui les utilisent.
@@ -21,10 +36,12 @@
 
 ## JPA
 
+* Favoriser l’utilisation de JPQL / HQL par rapport au SQL et l'API `Criteria`
 * Favoriser l'utilisation de `NamedQueries`
 * Eviter l'utilisation de `NativeQueries`
 * Les champs de type date doivent être précisés à l’aide de l’annotation `@Temporal`
 * Pour limiter le nombre de résulats d'une requête utiliser `query.setMaxResults(max);`
+* Pour les clefs composites favoriser l'utilisation du couple `@Embeddable` / `@EmbeddedId ` plutôt que le couple `@Id` / `IdClass`
 
 ## Injection de dépendances
 
