@@ -10,6 +10,10 @@
 * Soigner l'ordre de déclaration des éléments dans une classe : membres statiques -> membres -> méthodes statiques -> constructeur(s) -> méthodes d'instance (_Java Coding Style Guide de Sun_)
 * Limiter la taille des méthodes
 * Les classes générées doivent être dans des modules séparés
+* Soigner le nommage
+  * Un nom doit expliquer ce que fait / ce qu'est l'élément nommé mais pas comment il le fait
+  * Eviter les prefixes et suffixes
+* Le code doit être assez clair pour se passer de commentaires. Limiter leur utilisation car ils deviennent vite obsolète ou éronnés
 
 ## Généralités
 
@@ -23,11 +27,18 @@
 ## Exceptions
 
 * Ne jamais masquer un problème, les exceptions sont typiquement faites pour identifier ou alerter sur quelque chose d'exceptionel
+* Ne pas attraper `java.lang.Exception` / `java.lang.RuntimeException` / `java.lang.Error` / `java.lang.Throwable`
+* Toujours s'assurer de la fermeture des ressources ouvertes
+* Utiliser "try-with-resources" (depuis Java 7)
+* Ne pas utiliser d'instruction `return` dans un bloc `finally`
+* Ne pas lever d'exception dans un bloc `finally`
+* Ne pas lever d'exception pour l'attraper immédiatement
+* Ne pas attraper une exception juste pour la logguer (log & re-throw)
 
 ## Favoriser le typage fort
 
-* Très dangereux sinon en cas de _refactoring_
 * Utiliser des `enum` plutôt que des `String` ou des `int`
+* Très dangereux sinon en cas de _refactoring_
 
 ## Java 8 "Optional"
 
