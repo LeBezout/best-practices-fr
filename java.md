@@ -65,3 +65,4 @@
 ## Divers
 
 * Comparator vs Comparable  : On utilise en général `Comparable` pour l'ordre naturel et l'on écrit un ou plusieurs `Comparator` pour les autres besoins, où si l'on est pas le propriétaire de la classe
+* Ne jamais utiliser la méthode `close` sur un objet `Scanner`initialisé avec `System.in` (sinon celui-ci deviendra inutilisable jusqu'à l'arrêt de la JVM)
