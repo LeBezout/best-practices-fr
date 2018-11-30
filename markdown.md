@@ -1,5 +1,17 @@
 # Bonnes pratiques de rédaction en Markdown
 
+## Avant-propos : pourquoi utiliser Markdown ?
+
+* Contrairement à d'autres langages de balisage (comme HTML) son apprentissage est très facile et rapide, voire quasi immédiat.
+* Partage simple et rapide de la documentation pour les développeurs car elle est directement intégrée et interprétée par GitHub ou GitLab.
+* Profiter du versionning GIT car c'est un format textuel.
+* La documentation produite peut être ensuite facilement exportée vers d'autres formats : PDF, HTML, ...
+* C'est un bon début et un pré-requis pour appréhender un langage plus évolué comme le standard AsciiDoc.
+* Pouvoir faire abstraction complètement de la mise en forme qui est une tâche hautement chronophage.
+* La mise en forme des blocs de code indiqués en exemple est automatique (rapide, lisible).
+* L'édition est rapide (soit directement depuis GitHub, GitLab) ou via n'importe quel éditeur de texte.
+* La syntaxe _Markdown_ est également connue et interprétée dans différents outils : Mattermost, Trello, ... ou d'autres qui s'en rapprochent : Slack, Jira/Confluence, ...
+
 ## Utiliser un éditeur évolué
 
 Un éditeur évolué propose :
@@ -10,9 +22,9 @@ Un éditeur évolué propose :
 
 Par exemple _Visual Studio Code_ qui propose quelques extensions :
 
-* **indispensable** : `davidanson.vscode-markdownlint` Markdown linting and style checking for Visual Studio Code
-* `yzane.markdown-pdf` Convert Markdown to PDF
-* `bierner.markdown-preview-github-styles` Changes VS Code's built-in markdown preview to match Github's style
+* **indispensable** : `davidanson.vscode-markdownlint` _Markdown linting and style checking for Visual Studio Code_
+* `yzane.markdown-pdf` _Convert Markdown to PDF_
+* `bierner.markdown-preview-github-styles` _Changes VS Code's built-in markdown preview to match Github's style_
 
 Autres outils :
 
@@ -32,17 +44,16 @@ Disponible sous forme de _command-line_ ou d'extensions :
 
 ## Normaliser
 
-* Favoriser le plus possible la syntaxe standard.
-* Éviter les syntaxes alternatives (par exemple la syntaxe `Setext` et les blocs de code via indentation).
+* Favoriser le plus possible la syntaxe standard en évitant les syntaxes alternatives (par exemple la syntaxe `Setext` et les blocs de code via indentation).
 * Partager vos conventions entre tous les membres de l'équipe.
-* Configurer votre fichier `.editorconfig` pour gérer vos normes `[*.md]`
+* Configurer votre fichier `.editorconfig` pour gérer vos normes en rajoutant un bloc`[*.md]`.
 
 ## Améliorer la lisibilité du document
 
 * Découper en sections et sous-sections.
 * Utiliser les mises en formes gras ou italiques ou les citations pour mettre en évidence des éléments.
-* Agrémenter vos publications de petites icônes : information :information_source:, warning :warning:, astuce :bulb:, etc... Elles sont exprimées sous la forme `:code:` et directement interprétées par GitLab ou GitHub.
-* Les liens doivent toujours être être encadrés de balises, soit `<lien>` soit `[libellé](lien)`.
+* Agrémenter vos publications de petites icônes (mais sans en absuer) : information :information_source:, warning :warning:, astuce :bulb:, etc... Elles sont exprimées sous la forme `:code:` et directement interprétées par GitLab ou GitHub.
+* Les liens doivent toujours être encadrés de balises, soit `<lien>` soit `[libellé](lien)`.
 * Éviter les tabulations.
 * Favoriser les blocs de code multi-lignes. Réserver la syntaxe `code` pour mettre en évidence un nom de fichier, une commande, ...
 * Spécifier toujours le langage dans les blocs de code multi-lignes : `shell`, `java`, `json`, `xml`, ..., par défaut utiliser `text`.
