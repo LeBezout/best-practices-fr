@@ -58,7 +58,7 @@
 
 ## Injection de dépendances
 
-* Favoriser l'injection par constructeur dont les avantages sont :
+* **Spring :** Favoriser l'injection par constructeur dont les avantages sont :
   * Plus facilement testable
   * Le membre de classe peut être déclaré `final`, la classe peut devenir immuable
   * C'est également le pattern appliqué dans Angular
@@ -68,7 +68,7 @@
 
 :uk: [Java API Design Best Practices](https://jonathangiles.net/presentations/java-api-design-best-practices/)
 
-* Considérer l'utilsiation des _Static Factory Methods_ (Joshua Bloch's Effective Java)
+* Considérer l'utilisation des _Static Factory Methods_ (Joshua Bloch's Effective Java)
   * Les noms des méthodes sont plus parlant sur les intentions que les constructeurs
   * Celles-ci peuvent retourner différents types
   * Celles-ci peuvent encapsuler la logique nécessaire à la création des instances, par exemple on peut utiliser un simple `Objects.requireNonNull(param, "message")`
@@ -76,8 +76,8 @@
 
 ## Ne pas faire apparaître les éléments implicites
 
-* Ne pas initialsier inutilement un objet à `null`
-* Ne pas initialiser un type primitif à sa vleur par défaut :  `0`, `0L`, `0d`, `false`
+* Ne pas initialiser inutilement un objet à `null`
+* Ne pas initialiser un type primitif à sa valeur par défaut :  `0`, `0L`, `0d`, `false`
 * Ne pas déclarer de méthodes `public` dans une interface (elles le sont obligatoirement)
 * Ne pas déclarer de constantes `public static final` dans une interface (elles le sont obligatoirement)
 * Ne pas spécifier que le constructeur de l'`enum` est `private` (il y est obligatoirement)
