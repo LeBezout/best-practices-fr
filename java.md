@@ -13,7 +13,8 @@
 * Soigner le nommage
   * Un nom doit expliquer ce que fait / ce qu'est l'élément nommé mais pas comment il le fait
   * Eviter les prefixes et suffixes
-* Le code doit être assez clair pour se passer de commentaires. Limiter leur utilisation car ils deviennent vite obsolète ou éronnés
+* Le code doit être assez clair pour se passer de commentaires. Limiter leur utilisation car ils deviennent vite obsolètes ou éronnés
+* Les commentaire sous la forme `/** xxx */` (avec 2 \*) sont exclusivement réservés à la Javadoc. Dans le code il faut utiliser soit `//` soit `/* xxx */` (avec 1 \*)
 
 ## Généralités
 
