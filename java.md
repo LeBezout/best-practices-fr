@@ -35,6 +35,8 @@
 * Ne pas lever d'exception pour l'attraper immédiatement
 * Ne pas attraper une exception juste pour la logguer (log & re-throw)
 
+:uk: [Best (and Worst) Java Exception Handling Practices](https://able.bio/DavidLandup/best-and-worst-java-exception-handling-practices--18h55kh)
+
 ## Favoriser le typage fort
 
 * Utiliser des `enum` plutôt que des `String` ou des `int`
@@ -62,7 +64,28 @@
   * C'est également le pattern appliqué dans Angular
   * L'annotation (`@Autowired`) devient optionnelle
 
+## Conception d'API
+
+:uk: [Java API Design Best Practices](https://jonathangiles.net/presentations/java-api-design-best-practices/)
+
+* Considérer l'utilsiation des _Static Factory Methods_ (Joshua Bloch's Effective Java)
+  * Les noms des méthodes sont plus parlant sur les intentions que les constructeurs
+  * Celles-ci peuvent retourner différents types
+  * Celles-ci peuvent encapsuler la logique nécessaire à la création des instances, par exemple on peut utiliser un simple `Objects.requireNonNull(param, "message")`
+  * Celles-ci permettent de contrôler les instanciations, voire les limiter
+
+## Ne pas faire apparaître les éléments implicites
+
+* Ne pas initialsier inutilement un objet à `null`
+* Ne pas initialiser un type primitif à sa vleur par défaut :  `0`, `0L`, `0d`, `false`
+* Ne pas déclarer de méthodes `public` dans une interface (elles le sont obligatoirement)
+* Ne pas déclarer de constantes `public static final` dans une interface (elles le sont obligatoirement)
+* Ne pas spécifier que le constructeur de l'`enum` est `private` (il y est obligatoirement)
+* Ne pas mettre de `;` à la fin d'une déclaration des élements d'une `enum` : `VALEUR1, VALEUR2, VALEUR3,`
+* Ne pas mettre de `;` à la fin d'une déclaration des élements d'un bloc `try-with-resource` : `try (element = new Element())`
+* Ne pas tester le `null` avant d'utiliser une instruction `instanceof` (qui retourne `false` si l'élément est `null`)
+
 ## Divers
 
 * Comparator vs Comparable  : On utilise en général `Comparable` pour l'ordre naturel et l'on écrit un ou plusieurs `Comparator` pour les autres besoins, où si l'on est pas le propriétaire de la classe
-* Ne jamais utiliser la méthode `close` sur un objet `Scanner`initialisé avec `System.in` (sinon celui-ci deviendra inutilisable jusqu'à l'arrêt de la JVM)
+* Ne jamais utiliser la méthode `close` sur un objet `Scanner` initialisé avec `System.in` (sinon celui-ci deviendra inutilisable jusqu'à l'arrêt de la JVM)
