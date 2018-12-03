@@ -48,13 +48,13 @@ Disponible sous forme de _command-line_ ou d'extensions :
 
 * Favoriser le plus possible la syntaxe standard en évitant les syntaxes alternatives (par exemple la syntaxe `Setext` et les blocs de code via indentation).
 * Partager vos conventions entre tous les membres de l'équipe.
-* Configurer votre fichier `.editorconfig` pour gérer vos normes en rajoutant un bloc`[*.md]`.
+* Ajouter ou configurer un fichier `.editorconfig` pour gérer vos normes en rajoutant un bloc `[*.md]`.
 
 ## Améliorer la lisibilité du document
 
 * Découper en sections et sous-sections.
 * Utiliser les mises en formes gras ou italiques ou les citations pour mettre en évidence des éléments.
-* Agrémenter vos publications de petites icônes (mais sans en absuer) : information :information_source:, warning :warning:, astuce :bulb:, etc... Elles sont exprimées sous la forme `:code:` et directement interprétées par GitLab ou GitHub.
+* Agrémenter vos publications de petites icônes (mais sans en abuser) : information :information_source:, warning :warning:, astuce :bulb:, etc... Elles sont exprimées sous la forme `:code:` et directement interprétées par GitLab ou GitHub.
 * Les liens doivent toujours être encadrés de balises, soit `<lien>` soit `[libellé](lien)`.
 * Éviter les tabulations.
 * Favoriser les blocs de code multi-lignes. Réserver la syntaxe `code` pour mettre en évidence un nom de fichier, une commande, ...
