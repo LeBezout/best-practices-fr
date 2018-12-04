@@ -77,6 +77,7 @@
 
 ## Ne pas faire apparaître les éléments implicites
 
+* Ne pas utiliser inutilement `this`
 * Ne pas initialiser inutilement un objet à `null`
 * Ne pas initialiser un type primitif à sa valeur par défaut :  `0`, `0L`, `0d`, `false`
 * Ne pas déclarer de méthodes `public` dans une interface (elles le sont obligatoirement)
