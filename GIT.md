@@ -45,4 +45,4 @@
 * [[Devoxx 2016] Git : tips & tricks](https://www.youtube.com/watch?v=B5F1tU9dFOo)
 * [[Devoxx 2015] Comment git a sauvé notre projet ou presque](https://www.youtube.com/watch?v=WVZKzFnfii4)
 * [[Grafikart.fr] Comprendre Git](https://www.youtube.com/watch?v=D5QGiIM1j20)
-* [[DevFest Nantes 2018] Git Dammit !](https://www.youtube.com/watch?v=Rnh5QK__pLA)
+* [[DevFest Nantes 2018] Git Dammit !](https://www.youtube.com/watch?v=Rnh5QK__pLA) - [Présentation](https://mghignet.github.io/git-dammit-talk/)
