@@ -39,6 +39,10 @@
 * <http://blog.soat.fr/2016/12/avoir-une-bonne-strategie-avec-git-flow/>
 * <https://www.grafikart.fr/formations/git/git-flow>
 * <http://nvie.com/posts/a-successful-git-branching-model/>
-* <https://www.youtube.com/watch?v=B5F1tU9dFOo>
-* <https://www.youtube.com/watch?v=WVZKzFnfii4>
-* <https://www.youtube.com/watch?v=D5QGiIM1j20>
+
+### Vidéos
+
+* [[Devoxx 2016] Git : tips & tricks](https://www.youtube.com/watch?v=B5F1tU9dFOo)
+* [[Devoxx 2015] Comment git a sauvé notre projet ou presque](https://www.youtube.com/watch?v=WVZKzFnfii4)
+* [[Grafikart.fr] Comprendre Git](https://www.youtube.com/watch?v=D5QGiIM1j20)
+* [[DevFest Nantes 2018] Git Dammit !](https://www.youtube.com/watch?v=Rnh5QK__pLA)
