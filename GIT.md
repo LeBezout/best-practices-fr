@@ -1,6 +1,6 @@
 # Bonnes pratiques d'utilisation de GIT
 
-## Rappel des conceots
+## Rappel des concepts
 
 ![concept](git_concepts_en.png)
 
