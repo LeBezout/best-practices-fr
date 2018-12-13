@@ -1,5 +1,9 @@
 # Bonnes pratiques d'utilisation de GIT
 
+## Rappel des conceots
+
+![concept](git_concepts_en.png)
+
 ## La configuration utilisateur
 
 * Chaque utilisateur doit avoir un fichier `.gitconfig` correctement renseigné (à minima avec `user.name` et `user.email`)
