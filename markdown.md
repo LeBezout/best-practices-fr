@@ -59,6 +59,7 @@ Disponible sous forme de _command-line_ ou d'extensions :
 * Éviter les tabulations.
 * Favoriser les blocs de code multi-lignes. Réserver la syntaxe `code` pour mettre en évidence un nom de fichier, une commande, ...
 * Spécifier toujours le langage dans les blocs de code multi-lignes : `shell`, `java`, `json`, `xml`, ..., par défaut utiliser `text`.
+* Ajouter des schémas explicatifs, soit sous forme d'image référencée (PNG de préréfence) ou directement avec la syntaxe [mermaid](https://mermaidjs.github.io/) connue et directement interprétée par GitLab ou GitHub.
 
 ## Attention aux fonctionnalités avancées
 
