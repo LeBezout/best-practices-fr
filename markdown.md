@@ -30,7 +30,7 @@ Par exemple _Visual Studio Code_ qui propose quelques extensions :
 
 Autres outils :
 
-* Sous Windows [MarkdownPad](http://markdownpad.com/)
+* Sous Windows [MarkdownPad](http://markdownpad.com/) (la version gratuite se limite à la syntaxe standard, pas de tableaux par exemple)
 * Sous MacOS [Mou](http://mouapp.com/) ou [MarkdownNote](http://www.codingrobots.com/markdownnote/)
 * Sous Gnome [Builder](https://wiki.gnome.org/Apps/Builder)
 * en ligne [StackEdit!](https://stackedit.io/app#) ou [Dillinger](https://dillinger.io/)
