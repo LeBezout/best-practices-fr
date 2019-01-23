@@ -37,6 +37,7 @@
 
 ### Liens
 
+* [Lean Git Branching - site d'entrainement](https://pcottle.github.com/learnGitBranching/?demo)
 * <https://guillaumebriday.fr/comment-jutilise-git-mes-astuces-et-bonnes-pratiques>
 * <https://wiki.resel.fr/Guides/bonnes-pratiques/git>
 * <https://danielkummer.github.io/git-flow-cheatsheet/index.fr_FR.html>
