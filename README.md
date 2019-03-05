@@ -6,3 +6,4 @@ Tour d'horizon de bonnes pratiques de développement en français
 * [Java](java.md)
 * [Markdown](markdown.md)
 * [Liquibase](liquibase.md)
+* [Maven](maven.md)
