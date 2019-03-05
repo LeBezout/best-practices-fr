@@ -16,7 +16,7 @@
 * Utiliser des blocs `dependencyManagement` et `pluginManagement` pour gérer vos versions
 * Ne jamais positionner les fichiers de configuration externalisables (par environnement) dans `src/main/resources`
 * Ne déployer dans le référentiel d'entreprise que le strict nécessaire (un war, un ear, un zip n'a souvent aucune utilité dans le référentiel)
-* Monter régulièrement les versions de vos dépendances et contrôler les failles de sécurité potentielles via l'outil **OWASP Dependency Check**
+* Monter régulièrement les versions de vos dépendances et contrôler les failles de sécurité potentielles via l'outil **[OWASP Dependency Check](https://jeremylong.github.io/DependencyCheck/dependency-check-maven/index.html)**
 * Générer et déployer sources et Javadoc pour vos composants communautaires / partagés
 * Gérer correctement vos versions et utiliser judicieusement les "SNAPSHOT"
 * Le code généré doit être dans le dossier `target` et isolé dans un module dédié (avec son propre cycle de vie et gestion de version)
