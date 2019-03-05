@@ -28,3 +28,4 @@
 
 * [Versions History](https://maven.apache.org/docs/history.html)
 * [Lyfecycle](https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html)
+* [List of predefined Maven properties](https://github.com/cko/predefined_maven_properties/blob/master/README.md)
