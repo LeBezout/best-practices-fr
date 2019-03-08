@@ -13,7 +13,9 @@ Un éditeur évolué propose :
 
 :link: <https://www.shellcheck.net/>
 
-Soit en ligne (par copier-coller) doit directement intégré à l'IDE, par MS Visual Studio Code installer l'extension `timonwong.shellcheck`.
+_ShellCheck_ est un outil de contrôle de la syntaxe comportant un jeu de règles consutable en ligne.
+
+Cet outil est utilisable soit en ligne (par copier-coller du script) doit directement intégré à l'IDE, par exemple pour _MS Visual Studio Code_ installer l'extension [`timonwong.shellcheck`](https://github.com/timonwong/vscode-shellcheck).
 
 :link: <https://github.com/koalaman/shellcheck#in-your-editor>
 
@@ -27,6 +29,7 @@ Sur postes Windows utiliser des machines virtuelles pour tester les scripts sur 
 * `man <commande>`
 * Outil en ligne comme [cheat.sh](https://cheat.sh/)
 * ou en ligne de commandes `curl http://cht.sh/<command>`
+* CheatSheets disponibles sur Internet
 * etc ....
 
 ## Normaliser
