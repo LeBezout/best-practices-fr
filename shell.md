@@ -6,10 +6,10 @@ Un éditeur évolué propose :
 
 * la coloration syntaxique
 * les contrôles de validation syntaxique
-* de l'outillage annexe
+* de l'outillage annexe (shellcheck par exemple)
 * un éventuel terminal intégré
 
-## Suivre les recommendations de _ShellCCheck_
+## Suivre les recommendations de _ShellCheck_
 
 :link: <https://www.shellcheck.net/>
 
@@ -26,13 +26,13 @@ Sur postes Windows utiliser des machines virtuelles pour tester les scripts sur 
 * `<commande> --help`
 * `man <commande>`
 * Outil en ligne comme [cheat.sh](https://cheat.sh/)
-* Ou en ligne de commande `curl http://cht.sh/<command>`
+* ou en ligne de commandes `curl http://cht.sh/<command>`
 * etc ....
 
 ## Normaliser
 
 * Partager les conventions
 * Utiliser les mêmes en-tête et le même style de commentaires et de descritpion des fonctions
+* Ajouter ou configurer un fichier `.editorconfig` pour gérer vos normes en rajoutant un bloc `[*.sh]`.
 
-
-__in progress__
+__à compléter__
