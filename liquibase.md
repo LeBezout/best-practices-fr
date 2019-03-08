@@ -2,7 +2,7 @@
 
 :bulb: [Site officiel - Page des _Best Practices_](http://www.liquibase.org/bestpractices.html)
 
-## Rappel des notions clefs
+## Avant-propos : rappel des notions clefs
 
 ### Changelog
 
