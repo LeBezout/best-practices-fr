@@ -1,4 +1,4 @@
-# Bonnes pratiques de développement scripts Shell Unix/Linux
+# Bonnes pratiques de développement de scripts Shell Unix/Linux
 
 ## Utiliser un éditeur évolué
 
@@ -29,13 +29,13 @@ Sur postes Windows utiliser des machines virtuelles pour tester les scripts sur 
 * `man <commande>`
 * Outil en ligne comme [cheat.sh](https://cheat.sh/)
 * ou en ligne de commandes `curl http://cht.sh/<command>`
-* CheatSheets disponibles sur Internet
+* des _cheat sheets_ disponibles sur Internet
 * etc ....
 
 ## Normaliser
 
-* Partager les conventions
+* Partager les conventions entre tous les développeurs et les rendre facilement consultables
 * Utiliser les mêmes en-tête et le même style de commentaires et de descritpion des fonctions
-* Ajouter ou configurer un fichier `.editorconfig` pour gérer vos normes en rajoutant un bloc `[*.sh]`.
+* Ajouter et configurer un fichier `.editorconfig` pour gérer vos normes en rajoutant un bloc `[*.sh]`.
 
 __à compléter__
