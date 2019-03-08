@@ -24,6 +24,17 @@
 * Utiliser des blocs `dependencyManagement` et `pluginManagement` pour gérer vos versions
 * Isoler les fonctionnalités (packaging par exemple) dans des profils séparés pour optimiser les exécutions (sans en abuser)
 
+## Tester
+
+* Evidemment, ne pas désactiver les tests
+* Implémenter des tests d'intégration
+
+## Optimiser vos automatisations
+
+* Utiliser `--batch-mode` pour s'assurer qu'aucune intéraction avec un utilisateur ne soit demandée
+* Utiliser `--quiet` pour réduire la verbosité
+* Utiliser `--fail-fast` ou `--fail-at-end` en fonction de vos besoins
+
 ## Maîtriser vos artefacts
 
 * Ne jamais positionner les fichiers de configuration externalisables (par environnement) dans `src/main/resources`
