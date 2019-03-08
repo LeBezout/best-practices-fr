@@ -28,7 +28,7 @@ Sur postes Windows utiliser des machines virtuelles pour tester les scripts sur 
 * `<commande> --help`
 * `man <commande>`
 * Outil en ligne comme [cheat.sh](https://cheat.sh/)
-* ou en ligne de commandes `curl http://cht.sh/<command>`
+* ou en ligne de commandes `curl http://cht.sh/<commande>`
 * des _cheat sheets_ disponibles sur Internet
 * etc ....
 
@@ -38,4 +38,4 @@ Sur postes Windows utiliser des machines virtuelles pour tester les scripts sur 
 * Utiliser les mêmes en-tête et le même style de commentaires et de descritpion des fonctions
 * Ajouter et configurer un fichier `.editorconfig` pour gérer vos normes en rajoutant un bloc `[*.sh]`.
 
-__à compléter__
+_à compléter_
