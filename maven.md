@@ -17,6 +17,7 @@
   * `target/generated-sources`
 * Configurer le fichier `settings.xml`
   * Accès aux référentiels internes
+* Utiliser les variables pré-définies, par exemple au lieu de `target` (en dur) utiliser `${project.build.directory}`
 
 ## Mutualiser
 
