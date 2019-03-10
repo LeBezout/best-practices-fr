@@ -1,6 +1,7 @@
 # Bonnes pratiques d'utilisation de Maven
 
-## Grandes versions
+## Avant-propos : historique des grandes versions
+
 * Maven `1.0` : 07/2004 -> 1.1 : 06/2007
 * Maven `2.0` : 10/2005 -> 2.2.1 : 11/2009
 * Maven `3.0` : 10/2010
@@ -54,7 +55,7 @@
 
 * Aucun secret ne doit apparaître en clair (... ou en base64) dans vos fichiers de configurations ou filtres
 * Monter régulièrement les versions de vos dépendances
-* Contrôler les failles de sécurité potentielles via le plugin **[OWASP Dependency Check](https://jeremylong.github.io/DependencyCheck/dependency-check-maven/index.html)**
+* Contrôler les failles de sécurité potentielles via le plugin [**OWASP Dependency Check**](https://jeremylong.github.io/DependencyCheck/dependency-check-maven/index.html)
 * N'utiliser pas de versions de Maven trop anciennes (Maven 2.X par exemple)
 
 ## Liens utiles
