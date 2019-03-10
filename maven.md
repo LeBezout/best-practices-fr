@@ -24,7 +24,7 @@
 
 * Utiliser un pom parent commun à vos modules (pour mutualiser les informations et les versions)
 * Utiliser des blocs `dependencyManagement` et `pluginManagement` pour gérer vos versions
-* Isoler les fonctionnalités (packaging par exemple) dans des profils séparés pour optimiser les exécutions (sans en abuser)
+* Générer vos modules depuis un archetype `mvn archetype:generate ...`
 
 ## Tester
 
@@ -36,6 +36,7 @@
 * Utiliser `--batch-mode` pour s'assurer qu'aucune intéraction avec un utilisateur ne soit demandée
 * Utiliser `--quiet` pour réduire la verbosité
 * Utiliser `--fail-fast` ou `--fail-at-end` en fonction de vos besoins
+* Isoler les fonctionnalités (packaging par exemple) dans des profils séparés pour optimiser les exécutions (sans en abuser)
 
 ## Maîtriser vos artefacts
 
@@ -45,16 +46,20 @@
 * Gérer correctement vos versions et utiliser judicieusement les "SNAPSHOT"
 * Le code généré doit être dans le dossier `target` et isolé dans un module dédié (avec son propre cycle de vie et gestion de version)
 * Utiliser les fonctionnalités avancées telles que les filtres, les profils, les "assembly"
+* Comme pour les _packages_ Java favoriser l'utilisation des minuscules pour le nommage des artefacts (`groupId`, `artefactId`)
+* Ne répéter pas le `groupId` dans les `artefactId`
+* Analyser vos dépendances avec `mvn dependency:analyze`
 
 ## Assurer un build reproductible
 
 * Spécifier toujours une version sur chacun des plugins utilisés, ne laisser pas Maven décider (build reproductible)
 * Eviter autant que possible l'utilisation d'outils externes via différents plugins (ant, nodejs, exec, ...)
+* Se baser uniquement sur le référentiel d'entreprise (toutes les dépendances nécessaires doivent y être présentes)
 
 ## Sécuriser
 
 * Aucun secret ne doit apparaître en clair (... ou en base64) dans vos fichiers de configurations ou filtres
-* Monter régulièrement les versions de vos dépendances
+* Mettre à jour régulièrement vers des versions plus récentes vos dépendances
 * Contrôler les failles de sécurité potentielles via le plugin [**OWASP Dependency Check**](https://jeremylong.github.io/DependencyCheck/dependency-check-maven/index.html)
 * N'utiliser pas de versions de Maven trop anciennes (Maven 2.X par exemple)
 
