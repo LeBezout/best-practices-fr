@@ -35,7 +35,7 @@ Sur postes Windows utiliser des machines virtuelles pour tester les scripts sur 
 ## Normaliser
 
 * Partager les conventions entre tous les développeurs et les rendre facilement consultables
-* Utiliser les mêmes en-tête et le même style de commentaires et de descritpion des fonctions
+* Utiliser les mêmes en-tête et le même style de commentaires et de description des fonctions
 * Ajouter et configurer un fichier `.editorconfig` pour gérer vos normes en rajoutant un bloc `[*.sh]`.
 
 _à compléter_
