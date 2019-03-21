@@ -24,6 +24,7 @@ Les contextes sont des **étiquettes** permettant de contrôler les changements 
 * **Intégrité et cohérence** : cohérence dans l'application des changements et suivi des versions applicatives
 * **Reproductibilité :** solution reproductible d'un environnement à l'autre à l'identique
 * **Sécurité :** mise à niveau d'un schéma, possibilité de retour à un état précédent, ...
+* ... et est **indépendant** de la typologie du projet ou des langages utilisés (java, .Net, ...), besoin uniquement d'une JVM pour s'exécuter (API JDBC)
 
 :bulb: Son utilisation est fortement conseillée et est même indispensable dans un contexte DevOps.
 
@@ -53,3 +54,18 @@ Les contextes sont des **étiquettes** permettant de contrôler les changements 
 * Utiliser un projet (voire même un dépôt GIT) dédié pour stocker les sources des _changelogs_ et packager celui-ci sous forme d'un module Maven.
 * Ecrire une classe de test utilisant une base de données "in memory" (H2 par exemple) permettant de valider les fichiers _changelogs_, y compris le rollback.
 * Implémenter un élément (une servlet, un webservice, ...) permettant de connaître l'état de la base de données (_liquibase status_).
+
+## Annexe : versioning Liquibase
+
+| Version Liquibase | Version minimale Java | Dépendances obligatoires | Dépendances optionnelles |
+|-------------------|-----------------------|--------------------------|--------------------------|
+| `3.5.3` | Java 6 | | snakeyaml (1.17), spring (2.0.6), servlet-api (2.4) |
+| `3.5.4` | Java 6 | | snakeyaml (1.17), spring (2.0.6), servlet-api (2.4) |
+| `3.5.5` | Java 6 | | snakeyaml (1.17), spring (2.0.6), servlet-api (2.4) |
+| `3.6.0` | Java 7 | slf4j-api (1.7.25), logback-classic (1.2.3) | snakeyaml (1.18), spring-core, spring-beans, spring-context (4.3.8.RELEASE), servlet-api (2.4) |
+| `3.6.1` | Java 7 | slf4j-api (1.7.25), logback-classic (1.2.3) | snakeyaml (1.18), spring-core, spring-beans, spring-context (4.3.8.RELEASE), servlet-api (2.4) |
+| `3.6.2` | Java 7 | slf4j-api (1.7.25), logback-classic (1.2.3) | snakeyaml (1.18), spring-core, spring-beans, spring-context (4.3.8.RELEASE), servlet-api (2.4) |
+| `3.6.3` | Java 7 | slf4j-api (1.7.25), logback-classic (1.2.3) | snakeyaml (1.18), spring-core, spring-beans, spring-context (4.3.8.RELEASE), servlet-api (2.4) |
+| `3.7.0` | Java 8 | slf4j-api (1.7.25), logback-classic (1.2.3) | snakeyaml (1.23), spring-core, spring-beans, spring-context (4.3.8.RELEASE), servlet-api (2.4) |
+
+> :warning: Liquibase 3.6.x is binary api-incompatible with 3.5.x
