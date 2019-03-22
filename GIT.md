@@ -22,11 +22,13 @@
 ## Méthodologies
 
 * Travailler dans ses propres branches (et les mettre à jour régulièrement via merge pour éviter d'avoir trop de conflits à résoudre lors du merge final)
-* Favoriser l'utilisation de _Pull Requests_ (github) ou _Merge Requests_ (gitlab) et de revues collégiales
+* Favoriser l'utilisation de _Pull Requests_ (GitHub) ou _Merge Requests_ (GitLab) et de revues collégiales
+* Utiliser une méthode du type GitFlow, JGit-Flow, GitHub Flow, GitLab Flow, etc...
 
 ## Les commits
 
 * Ecrire de bons messages de commits comme expliqué ici <https://chris.beams.io/posts/git-commit/>
+* Ne pas mélanger différentes choses : un commit = une fonctionnalité / une correction
 * Préciser les numéros des Issues, des Tickets ou autres tâches (JIRA, ...) dans le message du commit (1 commit par tâche)
 
 ## Références
