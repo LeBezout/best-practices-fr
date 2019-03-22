@@ -48,6 +48,7 @@ Sur postes Windows utiliser des machines virtuelles pour tester les scripts sur 
 * Utiliser les mêmes en-tête et le même style de commentaires et de description des fonctions
 * Ajouter et configurer un fichier `.editorconfig` pour gérer vos normes en rajoutant un bloc `[*.sh]`
 * Nommer les constantes en majuscules
+* Préférer la syntaxe `${variable}` plutôt que `$variable` et s'y tenir partout
 
 ## Etre explicite
 
