@@ -13,17 +13,27 @@ Comme pour un langage comme Java ou C#, ... il est inconcevable de ne pas utilis
 
 :bulb: [Microsoft _Visual Studio Code_](https://vscodecandothat.com/) est par exemple un bon choix.
 
+## Utiliser les mêmes méthodes de développement qu'un projet classique
+
+> Améliore la maintenabilité et la robustesse
+
+* Evidemment on utilise comme tout projet ou langage un outil de gestion de sources. [GIT](https://git-scm.com/book/fr/v2) est désormais le seul choix qui s'impose
+* Favoriser les pratiques de revues collectives et de _Merge/Pull Request_
+* Tester et utiliser des bouchons ou _mocks_
+
 ## Utiliser une machine virtuelle
 
 > Améliore la robustesse
 
-Sur des postes Windows utiliser des machines virtuelles pour tester les scripts sur un OS le plus proche possible de la cible.
+Sur des postes Windows utiliser des machines virtuelles (via les outils Vagrant + VirtualBox par exemple) permet de tester les scripts sur un OS le plus proche possible de la cible et permet la découverte des défauts au plus tôt (gain de temps).
 
 On peut imaginer se monter un environnement complet de test à l'image des systèmes cibles en profitant des avantages liés aux machines virtuelles :
 
 * **Reproductibilité** : permet de reproduire d'un poste à l'autre à l'identique ou  en cas de crash
 * **Isolation** : permet d'éviter les conflits de versions logicielles, de variables d'environnement, ...
 * **Rapidité** : permet d'initialiser rapidement un nouvel environnement
+
+:bulb: Evidemment on ne travaille pas directement sur les envrionnements cibles.
 
 ## Utiliser la documentation
 
@@ -32,25 +42,25 @@ Celle-ci est accessible de différentes façons :
 * `<commande> --help`
 * `man <commande>`
 * l'outil en ligne https://cheat.sh/[cheat.sh] ou via la ligne de commandes `curl http://cht.sh/<commande>`
-* les différentes _cheat sheets_ disponibles sur Internet
+* les différentes _cheat sheets_ disponibles sur Internet (à imprimer et à garder à portée de main)
 * etc ....
 
 ## Normaliser
 
 > Améliore la maintenabilité et la robustesse
 
-* Partager les conventions entre tous les développeurs et les rendre facilement consultables
-* Utiliser les mêmes en-tête et le même style de commentaires et de description des fonctions
+* Partager les conventions entre tous les développeurs et les rendre facilement consultables (voir modifiables)
+* Utiliser les mêmes en-têtes et le même style de commentaires et de description des fonctions
 * Ajouter et configurer un fichier `.editorconfig` pour gérer vos normes en rajoutant un bloc `[*.sh]`
 * Normaliser le nommage de vos fichiers "bibliothèques" afin de les identifier clairement. Par exemple : `lib_XXX.sh`, `func_XXXX.sh`, etc... 
 * Nommer les constantes en majuscules et les variables en minuscules
 * Préférer la syntaxe `${variable}` plutôt que `$variable` et s'y tenir partout
-* Utiliser des entensions de fichiers appropriées : `.sh` pour les shells standards, `.ksh` si c'est un shell spécifique _Korn Shell_, etc ...
 
 ## Être explicite
 
 > Améliore la maintenabilité et la robustesse
 
+* Utiliser des extensions de fichiers appropriées : `.sh` pour les shells standards, `.ksh` si c'est un shell spécifique _Korn Shell_, etc ...
 * Nommer clairement vos variables, (pseudo-)constantes, fonctions, scripts
 * Quand ils existent utiliser les arguments de scripts ou de commandes avec des **noms longs**, c'est beaucoup plus clair et donc maintenable. Exemples :
   * `mvn clean install --batch-mode --quiet` plutôt que `mvn clean install -B -q`
@@ -62,7 +72,7 @@ Celle-ci est accessible de différentes façons :
 
 :link: <https://www.shellcheck.net/>
 
-_ShellCheck_ est un outil de contrôle de la syntaxe comportant un jeu de règles consutable en ligne.
+_ShellCheck_ est un outil de contrôle de la syntaxe comportant un jeu de règles consultable en ligne.
 
 Cet outil est utilisable soit en ligne (par copier-coller du script) soit directement intégré à l'IDE, par exemple pour _MS Visual Studio Code_ il faut installer l'extension [`timonwong.shellcheck`](https://github.com/timonwong/vscode-shellcheck).
 
