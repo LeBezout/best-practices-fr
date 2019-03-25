@@ -10,6 +10,7 @@ Comme pour un langage comme Java ou C#, ... il est inconcevable de ne pas utilis
 * les contrôles de validation syntaxique
 * de l'outillage annexe (shellcheck par exemple)
 * un éventuel terminal intégré
+* contrôle du bon format de fichier : utiliser l'encodage `UTF-8` (sans BOM) et évidemment les sauts de lignes `LF`
 
 :bulb: [Microsoft _Visual Studio Code_](https://vscodecandothat.com/) est par exemple un bon choix.
 
@@ -17,7 +18,7 @@ Comme pour un langage comme Java ou C#, ... il est inconcevable de ne pas utilis
 
 > Améliore la maintenabilité et la robustesse
 
-* Evidemment on utilise comme tout projet ou langage un outil de gestion de sources. [GIT](https://git-scm.com/book/fr/v2) est désormais le seul choix qui s'impose
+* Évidemment on utilise comme tout projet ou langage un outil de gestion de sources. [GIT](https://git-scm.com/book/fr/v2) est désormais le seul choix qui s'impose, avec un fichier `.gitattributes` correctement renseigné à la racine du dépôt
 * Favoriser les pratiques de revues collectives et de _Merge/Pull Request_
 * Tester et utiliser des bouchons ou _mocks_
 
@@ -33,15 +34,15 @@ On peut imaginer se monter un environnement complet de test à l'image des syst�
 * **Isolation** : permet d'éviter les conflits de versions logicielles, de variables d'environnement, ...
 * **Rapidité** : permet d'initialiser rapidement un nouvel environnement
 
-:bulb: Evidemment on ne travaille pas directement sur les environnements cibles.
+:bulb: Évidemment on ne travaille pas directement sur les environnements cibles.
 
 ## Utiliser la documentation
 
 Celle-ci est accessible de différentes façons :
 
-* `<commande> --help`
-* `man <commande>`
-* l'outil en ligne https://cheat.sh/[cheat.sh] ou via la ligne de commandes `curl http://cht.sh/<commande>`
+* l'aide interne : `<commande> --help`
+* le manuel : `man <commande>`
+* l'outil en ligne [cheat.sh](https://cheat.sh/) ou via la ligne de commandes `curl http://cht.sh/<commande>`
 * les différentes _cheat sheets_ disponibles sur Internet (à imprimer et à garder à portée de main)
 * etc ....
 
@@ -60,7 +61,7 @@ Celle-ci est accessible de différentes façons :
 
 > Améliore la maintenabilité et la robustesse
 
-* Utiliser des extensions de fichiers appropriées : `.sh` pour les shells standards, `.ksh` si c'est un shell spécifique _Korn Shell_, etc ...
+* Utiliser des extensions de fichiers appropriées : `.sh` pour les shells standards, `.ksh` si c'est un shell spécifique _Korn Shell_, etc ... adapter également en conséquence les en-têtes _Shebang_ : `#!/bin/sh`
 * Nommer clairement vos variables, (pseudo-)constantes, fonctions, scripts
 * Quand ils existent utiliser les arguments de scripts ou de commandes avec des **noms longs**, c'est beaucoup plus clair et donc maintenable. Exemples :
   * `mvn clean install --batch-mode --quiet` plutôt que `mvn clean install -B -q`
