@@ -33,7 +33,7 @@ On peut imaginer se monter un environnement complet de test à l'image des syst�
 * **Isolation** : permet d'éviter les conflits de versions logicielles, de variables d'environnement, ...
 * **Rapidité** : permet d'initialiser rapidement un nouvel environnement
 
-:bulb: Evidemment on ne travaille pas directement sur les envrionnements cibles.
+:bulb: Evidemment on ne travaille pas directement sur les environnements cibles.
 
 ## Utiliser la documentation
 
