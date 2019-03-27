@@ -70,7 +70,10 @@ Celle-ci est accessible de différentes façons :
 
 * Utiliser des extensions de fichiers appropriées : `.sh` pour les shells standards, `.ksh` si c'est un shell spécifique _Korn Shell_, etc ... et adapter également en conséquence les en-têtes _Shebang_ : `#!/bin/sh`
 * Nommer clairement vos variables, (pseudo-)constantes, fonctions, scripts
-* Quand ils existent utiliser les arguments de scripts ou de commandes avec des **noms longs**, c'est beaucoup plus clair et donc maintenable. Exemples :
+* Préférer attendre en entrée des arguments nommés :
+  * `monscript --test --param=value` plutôt que `monscript test value` (syntaxe _GNU-style_)
+  * `monscript -p1 value1 -p2 value2` plutôt que `monscript value1 value2` (syntaxe _getopts_)
+* Quand ils existent utiliser les arguments de scripts externes ou de commandes avec des **noms longs**, c'est beaucoup plus clair et donc maintenable. Exemples :
   * `mvn clean install --batch-mode --quiet` plutôt que `mvn clean install -B -q`
   * `curl --request POST --header "content-type: application/json" --data "{\"param\": \"value\"}" http://site.org` plutôt que `curl -X POST -H "content-type: application/json" -d "{\"param\": \"value\"}" http://site.org`
 
@@ -84,6 +87,7 @@ Celle-ci est accessible de différentes façons :
 * Implémenter une aide en ligne : `monscript --help`
   * utile pour l'utilisateur (... si maintenu à jour !)
   * force le développeur à expliquer son programme et donc à se poser des questions
+* Donner des exemples d'utilisation, produire des synoptiques, ...
 * Documenter vos process et normes internes
   * soit au format Markdown dans votre dépôt
   * soit dans _Confluence_
@@ -128,4 +132,6 @@ Cet outil est utilisable soit en ligne (par copier-coller du script) soit direct
 * [ ] Fichier au format `UTF-8` (avec accents) ou `US-ASCII` (sans accents)
 * [ ] Présence de l'en-tête _Shebang_ cohérente avec l'extension
 * [ ] Les variables, fonctions et constantes sont correctement nommées
+* [ ] Le script est documenté (en-tête avec auteur, date, description, ...)
 * [ ] Les fonctions sont documentées (entrées / sorties / effets de bord)
+* [ ] Les contrôles _ShellCheck_ ne relèvent plus de défaut
