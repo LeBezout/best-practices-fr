@@ -8,7 +8,7 @@ Comme pour un langage comme Java ou C#, ... il est inconcevable de ne pas utilis
 
 * la coloration syntaxique
 * les contrôles de validation syntaxique
-* de l'outillage annexe (shellcheck par exemple)
+* de l'outillage annexe (_ShellCheck_ par exemple)
 * un éventuel terminal intégré
 * contrôle du bon format de fichier : utiliser l'encodage `UTF-8` (sans BOM) et évidemment les sauts de lignes `LF`
 
@@ -19,8 +19,11 @@ Comme pour un langage comme Java ou C#, ... il est inconcevable de ne pas utilis
 > Améliore la maintenabilité et la robustesse
 
 * Évidemment on utilise comme tout projet ou langage un outil de gestion de sources. [GIT](https://git-scm.com/book/fr/v2) est désormais le seul choix qui s'impose, avec un fichier `.gitattributes` correctement renseigné à la racine du dépôt
+  * `*.sh   text eol=lf`
+  * `*.ksh   text eol=lf`
+  * `*.bash   text eol=lf`
 * Favoriser les pratiques de revues collectives et de _Merge/Pull Request_
-* Tester et utiliser des bouchons ou _mocks_
+* Tester et utiliser des bouchons ou des _mocks_
 
 ## Utiliser une machine virtuelle
 
@@ -61,7 +64,7 @@ Celle-ci est accessible de différentes façons :
 
 > Améliore la maintenabilité et la robustesse
 
-* Utiliser des extensions de fichiers appropriées : `.sh` pour les shells standards, `.ksh` si c'est un shell spécifique _Korn Shell_, etc ... adapter également en conséquence les en-têtes _Shebang_ : `#!/bin/sh`
+* Utiliser des extensions de fichiers appropriées : `.sh` pour les shells standards, `.ksh` si c'est un shell spécifique _Korn Shell_, etc ... et adapter également en conséquence les en-têtes _Shebang_ : `#!/bin/sh`
 * Nommer clairement vos variables, (pseudo-)constantes, fonctions, scripts
 * Quand ils existent utiliser les arguments de scripts ou de commandes avec des **noms longs**, c'est beaucoup plus clair et donc maintenable. Exemples :
   * `mvn clean install --batch-mode --quiet` plutôt que `mvn clean install -B -q`
@@ -78,3 +81,15 @@ _ShellCheck_ est un outil de contrôle de la syntaxe comportant un jeu de règle
 Cet outil est utilisable soit en ligne (par copier-coller du script) soit directement intégré à l'IDE, par exemple pour _MS Visual Studio Code_ il faut installer l'extension [`timonwong.shellcheck`](https://github.com/timonwong/vscode-shellcheck).
 
 :link: <https://github.com/koalaman/shellcheck#in-your-editor>
+
+## Annexes
+
+### Checklist de contrôle
+
+:pushpin: _Checklist_ utilisable avant de remonter un fichier dans le gestionnaire de sources
+
+* [ ] Extension `.sh` ou `.ksh`, ...
+* [ ] Fichier au format `UTF-8` (avec accents) ou `US-ASCII` (sans accents)
+* [ ] Présence de l'en-tête _Shebang_ cohérente avec l'extension
+* [ ] Les variables, fonctions et constantes sont correctement nommées
+* [ ] Les fonctions sont documentées (entrées / sorties / effets de bord)
