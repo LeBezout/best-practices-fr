@@ -72,6 +72,10 @@ Celle-ci est accessible de différentes façons :
   * `mvn clean install --batch-mode --quiet` plutôt que `mvn clean install -B -q`
   * `curl --request POST --header "content-type: application/json" --data "{\"param\": \"value\"}" http://site.org` plutôt que `curl -X POST -H "content-type: application/json" -d "{\"param\": \"value\"}" http://site.org`
 
+## Documenter
+
+> Améliore la maintenabilité et la robustesse
+
 ## Suivre les recommandations de _ShellCheck_
 
 > Améliore la maintenabilité, l'exploitabilité, la sécurité, la performance et la robustesse
