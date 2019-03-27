@@ -60,7 +60,7 @@ Celle-ci est accessible de différentes façons :
 * Partager les conventions entre tous les développeurs et les rendre facilement consultables (voir modifiables)
 * Utiliser les mêmes en-têtes et le même style de commentaires et de description des fonctions
 * Ajouter et configurer un fichier `.editorconfig` pour gérer vos normes en rajoutant un bloc `[*.sh]`
-* Normaliser le nommage de vos fichiers "bibliothèques" afin de les identifier clairement. Par exemple : `lib_XXX.sh`, `func_XXXX.sh`, etc... 
+* Normaliser le nommage de vos fichiers "bibliothèques" afin de les identifier clairement. Par exemple : `lib_XXX.sh`, `func_XXXX.sh`, etc...
 * Nommer les constantes en majuscules et les variables en minuscules
 * Préférer la syntaxe `${variable}` plutôt que `$variable` et s'y tenir partout
 
@@ -84,7 +84,8 @@ Celle-ci est accessible de différentes façons :
 * Documenter vos sous-programmes et fonctions :
   * les entrées / sorties
   * les effets de bord (altération de données en entrée)
-* Implémenter une aide en ligne : `monscript --help`
+* Implémenter l'affichage de la version du script : `monscript --version` (standard GNU)
+* Implémenter une aide en ligne : `monscript --help` (standard GNU)
   * utile pour l'utilisateur (... si maintenu à jour !)
   * force le développeur à expliquer son programme et donc à se poser des questions
 * Donner des exemples d'utilisation, produire des synoptiques, ...
@@ -92,7 +93,21 @@ Celle-ci est accessible de différentes façons :
   * soit au format Markdown dans votre dépôt
   * soit dans _Confluence_
 
-## Règle 8 : Implémenter un mode d'auto-diagnostic
+## Règle 8 : Gérer les erreurs
+
+:pushpin: Améliore l'exploitabilité et la robustesse
+
+* Un code retour `0` (zéro) doit être renvoyé en cas de succès uniquement. En cas d'échec un code **supérieur** à 0 est renvoyé (on évitera donc les codes négatifs)
+* Utiliser (et documenter) différents codes retours par types d'erreur. Exemples :
+  * `1` ou `1x` pour les erreurs de la ligne de commandes ou arguments attendus en entrée non présents, ...
+  * `2` ou `2x` pour les erreurs de validation (fichier attendu non présent, ...)
+  * etc...
+* Produire les messages d'erreur sur la sortie des erreurs : `echo "[ERREUR] ECHEC : $1" 1>&2;`
+* Produire des messages d'erreur clairs, détaillés et standardisés (par exemple pour pouvoir être analysés par un automate)
+* Tester tous les codes retour (ne pas enchaîner les commandes si une commande est en échec)
+* S'assurer de la fermeture de tous les fichiers ou toutes les connexions ouvertes avant l'arrêt du script
+
+## Règle 9 : Implémenter un mode d'auto-diagnostic
 
 :pushpin: Améliore l'exploitabilité et la robustesse
 
@@ -110,13 +125,13 @@ Implémenter un mode d'auto-diagnostic, ou _Dry Run_ en anglais ou encore mode d
 :bulb: Idéalement le vrai mode d'exécution ne doit pas être celui par défaut, évitant ainsi de lancer des actions irrémédiables et non désirées par inadvertance.
 Ce mode de diagnostic ou encore les modes `--help` ou `--version` sont des candidats possibles.
 
-## Règle 9 : Suivre les recommandations de _ShellCheck_
+## Règle 10 : Suivre les recommandations de _ShellCheck_
 
 :pushpin: Améliore la maintenabilité, l'exploitabilité, la sécurité, la performance et la robustesse
 
 :link: <https://www.shellcheck.net/>
 
-_ShellCheck_ est un outil de contrôle de la syntaxe comportant un jeu de règles consultable en ligne.
+_ShellCheck_ est un outil de contrôle de la syntaxe et d'analyse statique comportant un jeu de règles (+ de 320) consultable en ligne [Wiki GitHub](https://github.com/koalaman/shellcheck/wiki/).
 
 Cet outil est utilisable soit en ligne (par copier-coller du script) soit directement intégré à l'IDE, par exemple pour _MS Visual Studio Code_ il faut installer l'extension [`timonwong.shellcheck`](https://github.com/timonwong/vscode-shellcheck).
 
