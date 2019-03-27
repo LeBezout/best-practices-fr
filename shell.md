@@ -23,7 +23,9 @@ Comme pour un langage comme Java ou C#, ... il est inconcevable de ne pas utilis
   * `*.ksh   text eol=lf`
   * `*.bash   text eol=lf`
 * Favoriser les pratiques de revues collectives et de _Merge/Pull Request_
+* Utiliser les contrôles automatisés via l'intégration et/ou l'inspection continue
 * Tester et utiliser des bouchons ou des _mocks_
+* Utiliser les principes de développement KISS, DRY, YAGNI, Fail-Fast, ...
 
 ## Utiliser une machine virtuelle
 
