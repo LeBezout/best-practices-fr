@@ -76,6 +76,16 @@ Celle-ci est accessible de différentes façons :
 
 > Améliore la maintenabilité et la robustesse
 
+* Documenter vos sous-programmes et fonctions :
+  * les entrées / sorties 
+  * les effets de bord (altération de données en entrée)
+* Implémenter une aide en ligne : `monscript --help`
+  * utile pour l'utilisateur (... si maintenu à jour !)
+  * force le développeur à expliquer son programme et donc à se poser des questions
+* Documenter vos process et normes internes
+  * soit au format Markdown dans votre dépôt
+  * soit dans _Confluence_
+
 ## Suivre les recommandations de _ShellCheck_
 
 > Améliore la maintenabilité, l'exploitabilité, la sécurité, la performance et la robustesse
