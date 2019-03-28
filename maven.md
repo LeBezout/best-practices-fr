@@ -11,6 +11,8 @@
 
 ## Respecter les standards Maven
 
+:pushpin: **Objectif :** améliorer la maintenabilité et l'exploitabilité
+
 * _Convention over Configuration_ : respecter les conventions Maven (structure standard des projets, ...)
   * `src/main/java`, `src/main/resources`, `src/main/filters`, `src/main/webapp`
   * `src/test/java`, `src/test/resources`
@@ -22,16 +24,22 @@
 
 ## Mutualiser
 
+:pushpin: **Objectif :** améliorer la maintenabilité et la robustesse
+
 * Utiliser un pom parent commun à vos modules (pour mutualiser les informations et les versions)
 * Utiliser des blocs `dependencyManagement` et `pluginManagement` pour gérer vos versions
 * Générer vos modules depuis un archetype `mvn archetype:generate ...`
 
 ## Tester
 
+:pushpin: **Objectif :** améliorer la robustesse et la performance
+
 * Evidemment, ne pas désactiver les tests
 * Implémenter des tests d'intégration
 
 ## Optimiser vos automatisations
+
+:pushpin: **Objectif :** améliorer la maintenabilité, l'exploitabilité
 
 * Utiliser `--batch-mode` pour s'assurer qu'aucune intéraction avec un utilisateur ne soit demandée
 * Utiliser `--quiet` pour réduire la verbosité
@@ -39,6 +47,8 @@
 * Isoler les fonctionnalités (packaging par exemple) dans des profils séparés pour optimiser les exécutions (sans en abuser)
 
 ## Maîtriser vos artefacts
+
+:pushpin: **Objectif :** améliorer la maintenabilité, l'exploitabilité
 
 * Ne jamais positionner les fichiers de configuration externalisables (par environnement) dans `src/main/resources`
 * Ne déployer dans le référentiel d'entreprise que le strict nécessaire (un war, un ear, un zip n'a souvent aucune utilité dans le référentiel)
@@ -52,11 +62,15 @@
 
 ## Assurer un build reproductible
 
+:pushpin: **Objectif :** améliorer l'exploitabilité
+
 * Spécifier toujours une version sur chacun des plugins utilisés, ne laisser pas Maven décider (build reproductible)
 * Eviter autant que possible l'utilisation d'outils externes via différents plugins (ant, nodejs, exec, ...)
 * Se baser uniquement sur le référentiel d'entreprise (toutes les dépendances nécessaires doivent y être présentes)
 
 ## Sécuriser
+
+:pushpin: **Objectif :** améliorer la sécurité
 
 * Aucun secret ne doit apparaître en clair (... ou en base64) dans vos fichiers de configurations ou filtres
 * Mettre à jour régulièrement vers des versions plus récentes vos dépendances
