@@ -136,7 +136,7 @@ _ShellCheck_ est un outil de contrôle de la syntaxe et d'analyse statique compo
 
 Cet outil est utilisable soit en ligne (par copier-coller du script) soit directement intégré à l'IDE, par exemple pour _MS Visual Studio Code_ il faut installer l'extension [`timonwong.shellcheck`](https://github.com/timonwong/vscode-shellcheck).
 
-:bulb: L'outil ShellCheck peut également être utilisé de façon automatisée par une ligne d’intégration continue.
+:bulb: L'outil ShellCheck peut également être utilisé de façon automatisée par une ligne d'intégration continue : `shellcheck myscripts/*.sh`.
 
 :link: <https://github.com/koalaman/shellcheck#in-your-editor>
 
