@@ -2,7 +2,7 @@
 
 ## Règle 1 : Utiliser un éditeur évolué
 
-:pushpin: Améliore la maintenabilité et la robustesse
+:pushpin: **Objectif :** améliorer la maintenabilité et la robustesse
 
 Comme pour un langage comme Java ou C#, ... il est inconcevable de ne pas utiliser d'IDE. Un éditeur évolué propose :
 
@@ -16,7 +16,7 @@ Comme pour un langage comme Java ou C#, ... il est inconcevable de ne pas utilis
 
 ## Règle 2 : Utiliser les mêmes méthodes de développement qu'un projet classique
 
-:pushpin: Améliore la maintenabilité et la robustesse
+:pushpin: **Objectif :** améliorer la maintenabilité et la robustesse
 
 * Évidemment on utilise comme tout projet ou langage un outil de gestion de sources. [GIT](https://git-scm.com/book/fr/v2) est désormais le seul choix qui s'impose, avec un fichier `.gitattributes` correctement renseigné à la racine du dépôt, comportant par exemple les lignes suivantes :
   * `*.sh   text eol=lf`
@@ -29,7 +29,7 @@ Comme pour un langage comme Java ou C#, ... il est inconcevable de ne pas utilis
 
 ## Règle 3 : Utiliser une machine virtuelle
 
-:pushpin: Améliore la robustesse
+:pushpin: **Objectif :** améliorer la robustesse
 
 Sur des postes _Windows_ utiliser des machines virtuelles (via les outils Vagrant + VirtualBox par exemple) permet de tester les scripts sur un OS le plus proche possible de la cible et permet la découverte des défauts au plus tôt (gain de temps).
 
@@ -43,7 +43,7 @@ On peut imaginer se monter un environnement complet de test à l'image des syst�
 
 ## Règle 4 : Utiliser la documentation
 
-:pushpin: Améliore la robustesse
+:pushpin: **Objectif :** améliorer la robustesse
 
 Celle-ci est accessible de différentes façons :
 
@@ -55,7 +55,7 @@ Celle-ci est accessible de différentes façons :
 
 ## Règle 5 : Normaliser
 
-:pushpin: Améliore la maintenabilité et la robustesse
+:pushpin: **Objectif :** améliorer la maintenabilité et la robustesse
 
 * Partager les conventions entre tous les développeurs et les rendre facilement consultables (et modifiables).
 * Utiliser les mêmes en-têtes et le même style de commentaires et de description des fonctions.
@@ -67,7 +67,7 @@ Celle-ci est accessible de différentes façons :
 
 ## Règle 6 : Être explicite
 
-:pushpin: Améliore la maintenabilité et la robustesse
+:pushpin: **Objectif :** améliorer la maintenabilité et la robustesse
 
 * Utiliser des extensions de fichiers appropriées : `.sh` pour les shells standards, `.ksh` si c'est un shell spécifique _Korn Shell_, etc ... et adapter également en conséquence les en-têtes _Shebang_ : `#!/bin/sh`.
 * Nommer clairement vos variables, (pseudo-)constantes, fonctions, scripts.
@@ -80,7 +80,7 @@ Celle-ci est accessible de différentes façons :
 
 ## Règle 7 : Documenter
 
-:pushpin: Améliore la maintenabilité et la robustesse
+:pushpin: **Objectif :** améliorer la maintenabilité et la robustesse
 
 * Documenter vos sous-programmes et fonctions :
   * les entrées / sorties
@@ -96,7 +96,7 @@ Celle-ci est accessible de différentes façons :
 
 ## Règle 8 : Gérer les erreurs
 
-:pushpin: Améliore l'exploitabilité et la robustesse
+:pushpin: **Objectif :** améliorer l'exploitabilité et la robustesse
 
 * Un code retour `0` (zéro) doit être renvoyé en cas de succès uniquement. En cas d'échec un code **supérieur** à 0 est renvoyé (on évitera donc les codes négatifs).
 * Utiliser (et documenter) différents codes retours par types d'erreur. Exemples :
@@ -110,7 +110,7 @@ Celle-ci est accessible de différentes façons :
 
 ## Règle 9 : Implémenter un mode d'auto-diagnostic
 
-:pushpin: Améliore l'exploitabilité et la robustesse
+:pushpin: **Objectif :** améliorer l'exploitabilité et la robustesse
 
 Implémenter un mode d'auto-diagnostic, ou _Dry Run_ en anglais ou encore mode d'exécution à blanc permet :
 
@@ -128,7 +128,7 @@ Ce mode de diagnostic ou encore les modes `--help` ou `--version` sont des candi
 
 ## Règle 10 : Suivre les recommandations de _ShellCheck_
 
-:pushpin: Améliore la maintenabilité, l'exploitabilité, la sécurité, la performance et la robustesse
+:pushpin: **Objectif :** améliorer la maintenabilité, l'exploitabilité, la sécurité, la performance et la robustesse
 
 :link: <https://www.shellcheck.net/>
 
