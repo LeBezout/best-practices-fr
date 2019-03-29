@@ -10,7 +10,7 @@ Comme pour un langage comme Java ou C#, ... il est inconcevable de ne pas utilis
 * les contrôles de validation syntaxique.
 * de l'outillage annexe (_ShellCheck_ par exemple).
 * un éventuel terminal intégré.
-* contrôle du bon format de fichier : utiliser l'encodage `UTF-8` (sans BOM) et évidemment les sauts de lignes `LF`.
+* la possibilité de de contrôle du bon format de fichier. On conseillera d'utiliser l'encodage `UTF-8` (sans BOM) et évidemment les sauts de lignes `LF`.
 
 :bulb: [Microsoft _Visual Studio Code_](https://vscodecandothat.com/) est par exemple un bon choix.
 
@@ -51,7 +51,10 @@ Celle-ci est accessible de différentes façons :
 * l'aide interne : `<commande> --help`
 * le manuel : `man <commande>`
 * l'outil en ligne [cheat.sh](https://cheat.sh/) ou via la ligne de commandes `curl http://cht.sh/<commande>`
-* les différentes _cheat sheets_ disponibles sur Internet (à imprimer et à garder à portée de main)
+* les différentes _cheat sheets_ ou _ref cards_ disponibles sur Internet (à imprimer et à garder à portée de main). Exemples :
+  * <https://steve-parker.org/sh/cheatsheet.pdf>
+  * <https://www.loggly.com/wp-content/uploads/2015/05/Linux-Cheat-Sheet-Sponsored-By-Loggly.pdf>
+  * <https://www.git-tower.com/learn/cheat-sheets/cli>
 * etc ....
 
 ## Règle 5 : Normaliser
@@ -62,7 +65,7 @@ Celle-ci est accessible de différentes façons :
 * Utiliser les mêmes en-têtes et le même style de commentaires et de description des fonctions.
 * Ajouter et configurer un fichier `.editorconfig` pour gérer vos normes en rajoutant un bloc `[*.sh]`.
 * Normaliser le nommage de vos fichiers "bibliothèques" afin de pouvoir les identifier clairement. Par exemple : `lib_XXX.sh` (_librairies_), `func_XXXX.sh` (_functions_), `inc_XXXX.sh` (_includes_), etc... 
-* Nommer les constantes en majuscules et les variables en minuscules
+* Nommer les constantes en majuscules et les variables en minuscules et ne pas mélanger les styles : `PascalCase`, `camelCase`, `snake_case`, `UPPERCASE`, `lowercase`.
 * Préférer la syntaxe `${variable}` plutôt que `$variable` et s'y tenir partout.
 * Éviter de mélanger les formes syntaxiques (déclaration de fonctions, structures de contrôles, utilisation d'une variable, ...). Les syntaxes à utiliser doivent être présentes dans vos documents de normes interne.
 
@@ -75,7 +78,7 @@ Celle-ci est accessible de différentes façons :
 * Préférer attendre en entrée des arguments nommés :
   * Préférer `monscript --test --param=value` plutôt que `monscript test value` (syntaxe _GNU-style_).
   * Préférer `monscript -p1 value1 -p2 value2` plutôt que `monscript value1 value2` (syntaxe _getopts_).
-* Quand ils existent utiliser les arguments de scripts externes ou de commandes avec des **noms longs**, c'est beaucoup plus clair et donc maintenable. Exemples :
+* Quand ils existent utiliser les arguments de scripts externes ou de commandes avec des **noms longs**, c'est beaucoup plus clair et donc maintenabl. N'étant pas contraint par la taille des lignes c'est beaucoup plus clair et donc maintenable. Exemples :
   * Écrire `mvn clean install --batch-mode --quiet` plutôt que `mvn clean install -B -q`
   * Écrire `curl --request POST --header "content-type: application/json" --data "{\"param\": \"value\"}" http://site.org` plutôt que `curl -X POST -H "content-type: application/json" -d "{\"param\": \"value\"}" http://site.org`
 
@@ -91,7 +94,7 @@ Celle-ci est accessible de différentes façons :
   * utile pour l'utilisateur (... si maintenu à jour !)
   * force le développeur à expliquer son programme et donc à se poser des questions.
 * Donner des exemples d'utilisation, produire des synoptiques, ...
-* Documenter vos process et normes internes :
+* Documenter et partager vos processus, méthodes et normes internes :
   * soit au format Markdown dans votre dépôt
   * soit dans _Confluence_
 
@@ -99,14 +102,14 @@ Celle-ci est accessible de différentes façons :
 
 :pushpin: **Objectif :** améliorer l'exploitabilité et la robustesse
 
-* Un code retour `0` (zéro) doit être renvoyé en cas de succès uniquement. En cas d'échec un code **supérieur** à 0 est renvoyé (on évitera donc les codes négatifs).
+* Un code retour `0` (zéro) doit être renvoyé en cas de succès uniquement. En cas d'échec un code **supérieur** à 0 est renvoyé (on s'interdira donc les codes négatifs).
 * Utiliser (et documenter) différents codes retours par types d'erreur. Exemples :
-  * `1` ou `1x` pour les erreurs de la ligne de commandes ou arguments attendus en entrée non présents, ...
-  * `2` ou `2x` pour les erreurs de validation (fichier attendu non présent, ...)
+  * `1` ou `1x` ou `1xx` pour les erreurs de la ligne de commandes ou arguments attendus en entrée non présents, ...
+  * `2` ou `2x` ou `2xx` pour les erreurs de validation (fichier attendu non présent, ...)
   * etc...
 * Produire les messages d'erreur sur la sortie des erreurs : `echo "[ERREUR] ECHEC : $1" 1>&2;`.
 * Produire des messages d'erreur clairs, détaillés et standardisés (par exemple pour pouvoir être analysés par un automate).
-* Tester tous les codes retour des commandes/scripts utilisés (ne pas enchaîner les commandes si une commande est en échec).
+* Tester tous les codes retour des commandes/scripts utilisés (ne pas enchaîner les commandes si une commande est en échec). Considérer éventuellement d'activer l'option `set -e`.
 * S'assurer de la bonne fermeture de tous les fichiers ou toutes les connexions ouvertes avant l'arrêt du script.
 
 ## Règle 9 : Implémenter un mode d'auto-diagnostic
@@ -122,10 +125,10 @@ Implémenter un mode d'auto-diagnostic, ou _Dry Run_ en anglais ou encore mode d
 :warning: Évidemment ce mode ne doit travailler qu'en mémoire et ne faire que des appels en lecture (service, BDD, ...) :
 
 * pas de création de fichier (autre que log)
-* pas de modification de données
+* pas de modification / suppression de données
 
 :bulb: Idéalement le vrai mode d'exécution ne doit pas être celui par défaut, évitant ainsi de lancer des actions irrémédiables et non désirées par inadvertance.
-Ce mode de diagnostic ou encore les modes `--help` ou `--version` sont des candidats possibles.
+Ce mode de diagnostic (`--diag` par exemple) ou encore les modes `--help` ou `--version` sont des candidats possibles.
 
 ## Règle 10 : Suivre les recommandations de _ShellCheck_
 
@@ -149,8 +152,8 @@ Cet outil est utilisable soit en ligne (par copier-coller du script) soit direct
 
 * [ ] Fichier avec une extension cohérente `.sh` ou `.ksh`, ...
 * [ ] Fichier au format `UTF-8` (avec accents) ou `US-ASCII` (sans accents).
-* [ ] Présence **sur la première ligne** de l'en-tête _Shebang_ qui est cohérente avec l'extension.
-* [ ] Les variables, fonctions et constantes sont correctement nommées.
-* [ ] Le script est documenté (en-tête avec auteur, date, description, ...).
+* [ ] Présence **sur la première ligne** de l'en-tête _Shebang_ qui est cohérente avec l'extension choisie.
+* [ ] Les variables, fonctions et constantes sont correctement nommées et de façon homogène dans tout le script.
+* [ ] Le script est documenté (en-tête avec auteur, date, description, ...), sans copier-coller non modifié.
 * [ ] Les fonctions sont documentées (entrées / sorties / effets de bord).
 * [ ] Les contrôles _ShellCheck_ ne relèvent plus de défaut.
