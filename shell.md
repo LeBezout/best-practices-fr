@@ -26,6 +26,7 @@ Comme pour un langage comme Java ou C#, ... il est inconcevable de ne pas utilis
 * Utiliser les contrôles automatisés via l'intégration et/ou l'inspection continue.
 * Tester et utiliser des bouchons ou des _mocks_.
 * Utiliser les principes de développement KISS, DRY, YAGNI, Fail-Fast, ...
+* Limiter la taille des fonctions et des fichiers.
 
 ## Règle 3 : Utiliser une machine virtuelle
 
@@ -69,7 +70,7 @@ Celle-ci est accessible de différentes façons :
 
 :pushpin: **Objectif :** améliorer la maintenabilité et la robustesse
 
-* Utiliser des extensions de fichiers appropriées : `.sh` pour les shells standards, `.ksh` si c'est un shell spécifique _Korn Shell_, etc ... et adapter également en conséquence les en-têtes _Shebang_ : `#!/bin/sh`.
+* Utiliser des extensions de fichiers appropriées : `.sh` pour les shells standards, `.ksh` si c'est un shell spécifique _Korn Shell_, etc ... et adapter également en conséquence les en-têtes _Shebang_ : `#!/bin/sh` (_on rapellera que celles-ci doivent obligatoirement être positionnées sur la première ligne du script, même avant n'importe quel autre commentaire_).
 * Nommer clairement vos variables, (pseudo-)constantes, fonctions, scripts.
 * Préférer attendre en entrée des arguments nommés :
   * Préférer `monscript --test --param=value` plutôt que `monscript test value` (syntaxe _GNU-style_).
@@ -134,7 +135,7 @@ Ce mode de diagnostic ou encore les modes `--help` ou `--version` sont des candi
 
 _ShellCheck_ est un outil de contrôle de la syntaxe et d'analyse statique comportant un jeu de règles (+ de 320) consultable en ligne sur le [Wiki GitHub](https://github.com/koalaman/shellcheck/wiki/).
 
-Cet outil est utilisable soit en ligne (par copier-coller du script) soit directement intégré à l'IDE, par exemple pour _MS Visual Studio Code_ il faut installer l'extension [`timonwong.shellcheck`](https://github.com/timonwong/vscode-shellcheck).
+Cet outil est utilisable soit en ligne (par copier-coller du script) soit directement intégré à l'IDE, par exemple pour _MS Visual Studio Code_ il faut installer l'extension [`timonwong.shellcheck`](https://github.com/timonwong/vscode-shellcheck), celle-ci propose un fonctionnement comme **SonarLint** pour un projet Java par exemple avec le signalement des défauts à la volée.
 
 :bulb: L'outil ShellCheck peut également être utilisé de façon automatisée par une ligne d'intégration continue : `shellcheck myscripts/*.sh`.
 
@@ -148,7 +149,7 @@ Cet outil est utilisable soit en ligne (par copier-coller du script) soit direct
 
 * [ ] Fichier avec une extension cohérente `.sh` ou `.ksh`, ...
 * [ ] Fichier au format `UTF-8` (avec accents) ou `US-ASCII` (sans accents).
-* [ ] Présence de l'en-tête _Shebang_ cohérente avec l'extension.
+* [ ] Présence **sur la première ligne** de l'en-tête _Shebang_ qui est cohérente avec l'extension.
 * [ ] Les variables, fonctions et constantes sont correctement nommées.
 * [ ] Le script est documenté (en-tête avec auteur, date, description, ...).
 * [ ] Les fonctions sont documentées (entrées / sorties / effets de bord).
