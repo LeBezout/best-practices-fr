@@ -6,36 +6,55 @@
 
 ## La configuration utilisateur
 
-* Chaque utilisateur doit avoir un fichier `.gitconfig` correctement renseigné (à minima avec `user.name` et `user.email`)
+:pushpin: Pour éviter les problèmes et pouvoir interagir correctement avec GIT il faut une bonne configuration de son poste de travail :
+
+* Chaque utilisateur doit avoir un fichier `.gitconfig` correctement renseigné (à minima avec `user.name` et `user.email`).
+* Vérifier votre configuration personnelle en tapant `git config --global --list  --show-origin`.
+* Vérifier que cette configuration est bien celle prise en compte par vos différents IDE.
 
 ## L'initialisation du dépôt
 
-* Chaque dépôt doit contenir à la racine un fichier `README.md` permettant de décrire celui-ci
-* Chaque dépôt doit contenir à la racine un fichier `.gitignore` permettant de na pas remonter n'importe quoi dans le système
-* Chaque dépôt doit contenir à la racine un fichier `.gitattributes` permettant de gérer correctement le format des fichiers (binaire ou texte, windows ou unix)
+:pushpin: Respecter les quelques éléments présentés ci-dessous permet d'assurer pour le système sa maintenabilité et son exploitabilité.
+
+* Chaque dépôt doit contenir à la racine un fichier `README.md` permettant de décrire celui-ci.
+* Chaque dépôt doit contenir à la racine un fichier `.gitignore` permettant de ne pas remonter n'importe quoi dans le système.
+* Chaque dépôt doit contenir à la racine un fichier `.gitattributes` permettant de gérer correctement le format des fichiers (binaire ou texte, windows ou unix).
 
 ## Le format des fichiers
 
-* Toujours terminer ses fichiers par une ligne vide
-* Préférer les espaces (2 à 4) par rapport aux tabulations
+:pushpin: Quelques règles simples de mise en oeuvre pour éviter les problèmes liés au format des fichiers remontés :
+
+* Toujours terminer ses fichiers par une ligne vide.
+* Préférer les espaces (2 à 4) par rapport aux tabulations.
+* Utiliser par exemple un fichier `.editorconfig` et les plugins assiociés dans les différents IDE.
+* Vérifier que l'extension du fichier est bien gérée dans le fichier `.gitattributes`.
 
 ## Méthodologies
 
+:pushpin: Utiliser et respecter une certaine rigeur méthodologique va faciliter le travail en équipe et améliorer la qualité des livrables :
+
 * Travailler dans ses propres branches (et les mettre à jour régulièrement via merge pour éviter d'avoir trop de conflits à résoudre lors du merge final)
-* Favoriser l'utilisation de _Pull Requests_ (GitHub) ou _Merge Requests_ (GitLab) et de revues collégiales
+* Pousser (`push`) régulièrement sur le serveur pour éviter de perdre malencontreusement son travail.
+* Favoriser l'utilisation de _Pull Requests_ (GitHub) ou _Merge Requests_ (GitLab) et de revues collégiales.
 * Utiliser une méthode du type GitFlow, JGit-Flow, GitHub Flow, GitLab Flow, etc...
 
 ## Les commits
 
-* Ecrire de bons messages de commits comme expliqué ici <https://chris.beams.io/posts/git-commit/>
-* Ne pas mélanger différentes choses : un commit = une fonctionnalité / une correction
-* Préciser les numéros des Issues, des Tickets ou autres tâches (JIRA, ...) dans le message du commit (1 commit par tâche)
+:pushpin: Les messages de commit, voir les commits sont souvent négligés. C'est une mauvaise pratique aboutissant à un historique peu clair (dégradant la maintenabilité). Quelqus consignes à respecter :
+
+* Ecrire de bons messages de commits comme expliqué ici <https://chris.beams.io/posts/git-commit/>.
+* Ecrire des messages de commits clairs, explictes et concits. Partager votre norme entre tous les développeurs.
+* Ne pas mélanger différentes choses : un commit = une fonctionnalité / une correction.
+* Préciser quand c'est possible les numéros des Issues, des Tickets ou autres tâches (JIRA, ...) dans le message du commit (1 commit par tâche).
 
 ## Références
 
 ### Anti-sèches
 
-* [Git Commands and Best Practices Cheat Sheet](https://zeroturnaround.com/rebellabs/git-commands-and-best-practices-cheat-sheet/)
+* [Git Commands and Best Practices Cheat Sheet](https://zeroturnaround.com/rebellabs/git-commands-and-best-practices-cheat-sheet/) par _zeroturnaround_
+* [GIT Cheat Sheet](https://groupe-sii.github.io/cheat-sheets/git/index.html) par _SII_
+* [GIT Cheat Sheet](https://about.gitlab.com/images/press/git-cheat-sheet.pdf) par _GitLab_
+* [GIT Cheat Sheets](https://github.github.com/training-kit/) par _GitHub_
 
 ### Liens
 
