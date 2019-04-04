@@ -26,13 +26,15 @@
 
 * Toujours terminer ses fichiers par une ligne vide.
 * Préférer les espaces (2 à 4) par rapport aux tabulations.
-* Utiliser par exemple un fichier `.editorconfig` et les plugins assiociés dans les différents IDE.
+* Utiliser par exemple un fichier `.editorconfig` et les plugins associés dans les différents IDE.
 * Vérifier que l'extension du fichier est bien gérée dans le fichier `.gitattributes`.
 
 ## Méthodologies
 
 :pushpin: Utiliser et respecter une certaine rigeur méthodologique va faciliter le travail en équipe et améliorer la qualité des livrables :
 
+* Apprendre à maîtriser les principales commandes de bases : `add`, `commit`, `pull`, `push`, `checkout`, `branch`, ...
+* Suivre le didacticiel en ligne https://learngitbranching.js.org/[Leaning Git Branching] pour comprendre ou revoir certains concepts.
 * Travailler dans ses propres branches (et les mettre à jour régulièrement via merge pour éviter d'avoir trop de conflits à résoudre lors du merge final)
 * Pousser (`push`) régulièrement sur le serveur pour éviter de perdre malencontreusement son travail.
 * Favoriser l'utilisation de _Pull Requests_ (GitHub) ou _Merge Requests_ (GitLab) et de revues collégiales.
@@ -46,6 +48,8 @@
 * Ecrire des messages de commits clairs, explictes et concits. Partager votre norme entre tous les développeurs.
 * Ne pas mélanger différentes choses : un commit = une fonctionnalité / une correction.
 * Préciser quand c'est possible les numéros des Issues, des Tickets ou autres tâches (JIRA, ...) dans le message du commit (1 commit par tâche).
+* Éviter les "commit merge" si ce n'est pas nécessaire, utiliser par exemple `git pull --rebase` ou la configuration `pull.rebase=true` par exemple.
+* Avant de pousser des modifications liées ne pas hésiter à les regrouper dans un seul commit (fonctionnellement cohérent et homogène) via la fonctionnalité de "_squash_".
 
 ## Références
 
