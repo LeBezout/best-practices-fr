@@ -2,7 +2,7 @@
 
 ## Règle 1 : Utiliser un éditeur évolué
 
-:pushpin: **Objectif :** améliorer la maintenabilité et la robustesse
+:pushpin: **Objectif :** améliorer la maintenabilité et la robustesse.
 
 Comme pour un langage comme Java ou C#, ... il est inconcevable de ne pas utiliser d'IDE. Un éditeur évolué propose :
 
@@ -16,7 +16,7 @@ Comme pour un langage comme Java ou C#, ... il est inconcevable de ne pas utilis
 
 ## Règle 2 : Utiliser les mêmes méthodes de développement qu'un projet classique
 
-:pushpin: **Objectif :** améliorer la maintenabilité et la robustesse
+:pushpin: **Objectif :** améliorer la maintenabilité et la robustesse.
 
 * Évidemment on utilise comme tout projet ou langage un outil de gestion de sources. [GIT](https://git-scm.com/book/fr/v2) est désormais le seul choix qui s'impose, avec un fichier `.gitattributes` correctement renseigné à la racine du dépôt, comportant par exemple les lignes suivantes :
   * `*.sh   text eol=lf`
@@ -30,7 +30,7 @@ Comme pour un langage comme Java ou C#, ... il est inconcevable de ne pas utilis
 
 ## Règle 3 : Utiliser une machine virtuelle
 
-:pushpin: **Objectif :** améliorer la robustesse
+:pushpin: **Objectif :** améliorer la robustesse.
 
 Sur des postes _Windows_ utiliser des machines virtuelles (via les outils Vagrant + VirtualBox par exemple) permet de tester les scripts sur un OS le plus proche possible de la cible et permet la découverte des défauts au plus tôt (gain de temps).
 
@@ -44,7 +44,7 @@ On peut imaginer se monter un environnement complet de test à l'image des syst�
 
 ## Règle 4 : Utiliser la documentation
 
-:pushpin: **Objectif :** améliorer la robustesse
+:pushpin: **Objectif :** améliorer la robustesse.
 
 Celle-ci est accessible de différentes façons :
 
@@ -59,7 +59,7 @@ Celle-ci est accessible de différentes façons :
 
 ## Règle 5 : Normaliser
 
-:pushpin: **Objectif :** améliorer la maintenabilité et la robustesse
+:pushpin: **Objectif :** améliorer la maintenabilité et la robustesse.
 
 * Partager les conventions entre tous les développeurs et les rendre facilement consultables (et modifiables).
 * Utiliser les mêmes en-têtes et le même style de commentaires et de description des fonctions.
@@ -68,10 +68,11 @@ Celle-ci est accessible de différentes façons :
 * Nommer les constantes en majuscules et les variables en minuscules et ne pas mélanger les styles : `PascalCase`, `camelCase`, `snake_case`, `UPPERCASE`, `lowercase`.
 * Préférer la syntaxe `${variable}` plutôt que `$variable` et s'y tenir partout.
 * Éviter de mélanger les formes syntaxiques (déclaration de fonctions, structures de contrôles, utilisation d'une variable, ...). Les syntaxes à utiliser doivent être présentes dans vos documents de normes interne.
+* Ne pas mélanger les différents interpréteurs, essayer de rester homogène dans tous vos scripts. L'interpréteur **bash** est un bon compromis entre sh (le plus compatible) et ksh / zsh (les plus puissants).
 
 ## Règle 6 : Être explicite
 
-:pushpin: **Objectif :** améliorer la maintenabilité et la robustesse
+:pushpin: **Objectif :** améliorer la maintenabilité et la robustesse.
 
 * Utiliser des extensions de fichiers appropriées : `.sh` pour les shells standards, `.ksh` si c'est un shell spécifique _Korn Shell_, etc ... et adapter également en conséquence les en-têtes _Shebang_ : `#!/bin/sh` (_on rapellera que celles-ci doivent obligatoirement être positionnées sur la première ligne du script, même avant n'importe quel autre commentaire_).
 * Nommer clairement vos variables, (pseudo-)constantes, fonctions, scripts.
@@ -84,7 +85,7 @@ Celle-ci est accessible de différentes façons :
 
 ## Règle 7 : Documenter
 
-:pushpin: **Objectif :** améliorer la maintenabilité et la robustesse
+:pushpin: **Objectif :** améliorer la maintenabilité et la robustesse.
 
 * Documenter vos sous-programmes et fonctions :
   * les entrées / sorties
@@ -100,7 +101,7 @@ Celle-ci est accessible de différentes façons :
 
 ## Règle 8 : Gérer les erreurs
 
-:pushpin: **Objectif :** améliorer l'exploitabilité et la robustesse
+:pushpin: **Objectif :** améliorer l'exploitabilité et la robustesse.
 
 * Un code retour `0` (zéro) doit être renvoyé en cas de succès uniquement. En cas d'échec un code **supérieur** à 0 est renvoyé (on s'interdira donc les codes négatifs).
 * Utiliser (et documenter) différents codes retours par types d'erreur. Exemples :
@@ -114,7 +115,7 @@ Celle-ci est accessible de différentes façons :
 
 ## Règle 9 : Implémenter un mode d'auto-diagnostic
 
-:pushpin: **Objectif :** améliorer l'exploitabilité et la robustesse
+:pushpin: **Objectif :** améliorer l'exploitabilité et la robustesse.
 
 Implémenter un mode d'auto-diagnostic, ou _Dry Run_ en anglais ou encore mode d'exécution à blanc permet :
 
@@ -130,9 +131,19 @@ Implémenter un mode d'auto-diagnostic, ou _Dry Run_ en anglais ou encore mode d
 :bulb: Idéalement le vrai mode d'exécution ne doit pas être celui par défaut, évitant ainsi de lancer des actions irrémédiables et non désirées par inadvertance.
 Ce mode de diagnostic (`--diag` par exemple) ou encore les modes `--help` ou `--version` sont des candidats possibles.
 
-## Règle 10 : Suivre les recommandations de _ShellCheck_
+## Règle 9 : Sécuriser les exécutions
 
-:pushpin: **Objectif :** améliorer la maintenabilité, l'exploitabilité, la sécurité, la performance et la robustesse
+:pushpin: **Objectif :** améliorer la sécurité et la robustesse.
+
+* Ne pas utiliser d'utilisateur à privilèges (`root`). Utiliser des comptes dont les droits sont **appropriés** au traitement à exécuter (ni plus ni moins).
+* Poser les droits **appropriés** (jamais de `777` / `rwx`) sur les arborescences.
+* Utiliser de façon **appropriée** les groupes et les comptes permettant d'intervenir chacun sur son arborescence.
+* Appliquer la règle 8 et **gérer les erreurs au plus tôt**.
+* Appliquer la règle 9 et **diagnostiquer vos exécutions au plus tôt**.
+
+## Règle 11 : Suivre les recommandations de _ShellCheck_
+
+:pushpin: **Objectif :** améliorer la maintenabilité, l'exploitabilité, la sécurité, la performance et la robustesse.
 
 :link: <https://www.shellcheck.net/>
 
@@ -157,3 +168,13 @@ Cet outil est utilisable soit en ligne (par copier-coller du script) soit direct
 * [ ] Le script est documenté (en-tête avec auteur, date, description, ...), sans copier-coller non modifié.
 * [ ] Les fonctions sont documentées (entrées / sorties / effets de bord).
 * [ ] Les contrôles _ShellCheck_ ne relèvent plus de défaut.
+
+### Les interpréteurs Shell
+
+L'interpréteur Shell gère l'invite de commandes et l'exécution de commandes et scripts. Il existe différents interpréteurs Shell dont les plus connus sont :
+
+* **sh** : _Bourne Shell_ (Steve Bourne) l'ancêtre de tous les shells.
+* **bash** : _Bourne Again Shell_ une amélioration du Bourne Shell, disponible par défaut sous Linux et Mac OS X. **C'est généralement celui par défaut**.
+* **ksh** : _Korn Shell_ un shell puissant présent sur les Unix propriétaires (ex: AIX), mais aussi disponible en version libre (`yum install ksh` ou `apt-get install ksh`).
+* **csh** : _C Shell_ un shell utilisant une syntaxe proche du langage C.
+* etc...
