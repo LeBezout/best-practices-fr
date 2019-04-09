@@ -68,13 +68,14 @@ Celle-ci est accessible de différentes façons :
 * Nommer les constantes en majuscules et les variables en minuscules et ne pas mélanger les styles : `PascalCase`, `camelCase`, `snake_case`, `UPPERCASE`, `lowercase`.
 * Préférer la syntaxe `${variable}` plutôt que `$variable` et s'y tenir partout.
 * Éviter de mélanger les formes syntaxiques (déclaration de fonctions, structures de contrôles, utilisation d'une variable, ...). Les syntaxes à utiliser doivent être présentes dans vos documents de normes interne.
-* Ne pas mélanger les différents interpréteurs, essayer de rester homogène dans tous vos scripts. L'interpréteur **bash** est un bon compromis entre sh (le plus compatible) et ksh / zsh (les plus puissants).
+* Ne pas mélanger les différents interpréteurs, essayer de rester homogène dans tous vos scripts. L'interpréteur **bash** est un bon compromis entre sh (le plus compatible) et ksh (plus puissant) dont il reprend certains éléments.
 
 ## Règle 6 : Être explicite
 
 :pushpin: **Objectif :** améliorer la maintenabilité et la robustesse.
 
-* Utiliser des extensions de fichiers appropriées : `.sh` pour les shells standards, `.ksh` si c'est un shell spécifique _Korn Shell_, etc ... et adapter également en conséquence les en-têtes _Shebang_ : `#!/bin/sh` (_on rapellera que celles-ci doivent obligatoirement être positionnées sur la première ligne du script, même avant n'importe quel autre commentaire_).
+* Utiliser des extensions de fichiers appropriées (même si n'elles n'ont aucune importance pour le système) : `.sh` pour les shells standards, `.ksh` si c'est un shell spécifique _Korn Shell_, etc ...
+* Adapter également en conséquence, afin de lever l'ambiguïté, les en-têtes _shebang_ : `#!/bin/sh` (_on rappellera que celles-ci doivent obligatoirement être positionnées sur la première ligne du script, même avant n'importe quel autre commentaire ou même un espace_).
 * Nommer clairement vos variables, (pseudo-)constantes, fonctions, scripts.
 * Préférer attendre en entrée des arguments nommés :
   * Préférer `monscript --test --param=value` plutôt que `monscript test value` (syntaxe _GNU-style_).
@@ -139,7 +140,7 @@ Ce mode de diagnostic (`--diag` par exemple) ou encore les modes `--help` ou `--
 * Poser les droits **appropriés** (jamais de `777` / `rwx`) sur les arborescences.
 * Utiliser de façon **appropriée** les groupes et les comptes permettant d'intervenir chacun sur son arborescence.
 * Appliquer la règle 8 et **gérer les erreurs au plus tôt**.
-* Appliquer la règle 9 et **diagnostiquer vos exécutions au plus tôt**.
+* Appliquer la règle 9 et **diagnostiquer les exécutions au plus tôt**, utiliser par exemple l'option `set -o noexec` pour valider les scripts.
 
 ## Règle 11 : Suivre les recommandations de _ShellCheck_
 
@@ -151,7 +152,11 @@ _ShellCheck_ est un outil de contrôle de la syntaxe et d'analyse statique compo
 
 Cet outil est utilisable soit en ligne (par copier-coller du script) soit directement intégré à l'IDE, par exemple pour _MS Visual Studio Code_ il faut installer l'extension [`timonwong.shellcheck`](https://github.com/timonwong/vscode-shellcheck), celle-ci propose un fonctionnement comme **SonarLint** pour un projet Java par exemple avec le signalement des défauts à la volée.
 
+:information_source:  _ShellCheck_ encourage grandement à respecter la norme **POSIX**.
+
 :bulb: L'outil ShellCheck peut également être utilisé de façon automatisée par une ligne d'intégration continue : `shellcheck myscripts/*.sh`.
+
+:bulb: Associé à l'outil _SonarQube_ celui-ci permet de suivre la qualité des scripts dans le temps (nombre de bugs, nombre de lignes de code, etc ...)
 
 :link: <https://github.com/koalaman/shellcheck#in-your-editor>
 
@@ -163,7 +168,7 @@ Cet outil est utilisable soit en ligne (par copier-coller du script) soit direct
 
 * [ ] Fichier avec une extension cohérente `.sh` ou `.ksh`, ...
 * [ ] Fichier au format `UTF-8` (avec accents) ou `US-ASCII` (sans accents).
-* [ ] Présence **sur la première ligne** de l'en-tête _Shebang_ qui est cohérente avec l'extension choisie.
+* [ ] Présence **sur la première ligne** de l'en-tête _shebang_ qui est cohérente avec l'extension choisie.
 * [ ] Les variables, fonctions et constantes sont correctement nommées et de façon homogène dans tout le script.
 * [ ] Le script est documenté (en-tête avec auteur, date, description, ...), sans copier-coller non modifié.
 * [ ] Les fonctions sont documentées (entrées / sorties / effets de bord).
@@ -173,8 +178,20 @@ Cet outil est utilisable soit en ligne (par copier-coller du script) soit direct
 
 L'interpréteur Shell gère l'invite de commandes et l'exécution de commandes et scripts. Il existe différents interpréteurs Shell dont les plus connus sont :
 
-* **sh** : _Bourne Shell_ (Steve Bourne) l'ancêtre de tous les shells.
-* **bash** : _Bourne Again Shell_ une amélioration du Bourne Shell, disponible par défaut sous Linux et Mac OS X. **C'est généralement celui par défaut**.
-* **ksh** : _Korn Shell_ un shell puissant présent sur les Unix propriétaires (ex: AIX), mais aussi disponible en version libre (`yum install ksh` ou `apt-get install ksh`).
+* **sh** : _Bourne Shell_ (écrit par Steve Bourne) l'ancêtre de tous les shells.
+* **bash** : _Bourne Again Shell_ est une amélioration du Bourne Shell, disponible par défaut sous Linux et Mac OS X. **C'est généralement celui par défaut**.
+* **ksh** : _Korn Shell_ (écrit par David G. Korn) est un shell puissant présent sur les Unix propriétaires (ex: AIX), mais aussi disponible en version libre depuis 2000 (installable par exemple via `yum install ksh` ou `apt-get install ksh`).
 * **csh** : _C Shell_ un shell utilisant une syntaxe proche du langage C.
-* etc...
+
+### Quelques options utiles lors de la mise en place d'un script
+
+:pushpin: A placer en début de script après la ligne _shebang_ celles-ci peuvent être particulièrement utiles lors de la mise au point d'un script.
+
+| Version courte | Version longue | Description |
+| -------------- | -------------- | ----------- |
+| `set -u` | `set -o nounset` | Ne pas autoriser les variables non définies |
+| `set -v` | `set -o verbose` | Affiche la ligne avant de l'exécuter |
+| `set -x` | `set -o xtrace` | Affiche l'exécution des commandes après traitement des caractères spéciaux (ex: $var) |
+| `set -n` | `set -o noexec` | Permet la détection des erreurs de syntaxe via la lecture des commandes mais sans les exécuter |
+
+:bulb: Comme pour les arguments de commandes les versions longues sont à favoriser car plus parlantes.
