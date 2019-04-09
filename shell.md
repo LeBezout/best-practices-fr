@@ -245,4 +245,4 @@ L'interpréteur Shell gère l'invite de commandes et l'exécution de commandes e
 | `set -C` | `set -o noclobber` | Avertissement quand une redirection va écraser un fichier existant. |
 | | `set -o pipefail` | Le code retour n'est plus celui de la dernière commande exécutée par le _pipe_ mais la dernière à échouer ou 0 si aucune n'échoue. |
 
-:bulb: Comme pour les arguments de commandes les versions longues sont à favoriser car plus parlantes. On utilisera `set -o` pour afficher la liste et l'état de l'option (`on` / `off`).
+:bulb: Comme pour les arguments de commandes les versions longues sont à favoriser car plus parlantes. On utilisera `set -o`pour afficher la liste et l'état de chaque option (`on` / `off`).
