@@ -22,11 +22,22 @@ Comme pour un langage comme Java ou C#, ... il est inconcevable de ne pas utilis
   * `*.sh   text eol=lf`
   * `*.ksh   text eol=lf`
   * `*.bash   text eol=lf`
+* Commenter sans paraphraser le code : expliquer le pourquoi par le comment.
+* Soigner l'indentation.
 * Favoriser les pratiques de revues collectives et de _Merge/Pull Request_.
 * Utiliser les contrôles automatisés via l'intégration et/ou l'inspection continue.
 * Tester et utiliser des bouchons ou des _mocks_.
-* Utiliser les principes de développement KISS, DRY, YAGNI, Fail-Fast, ...
+* Utiliser les principes de développement tels que :
+  * KISS (_Keep It Simple, Stupid_)
+  * DRY (_Don't Repeat Yourself_)
+  * YAGNI (_You Ain't Gonna Need It_)
+  * SOC (_Separation Of Concerns_)
+  * Fail-Fast (_signaler le plus rapidement possible une erreur._)
+  * Règle du Boy-Scout (_Laisser le code plus propre qu'on ne l'a trouvé._)
+  * etc...
 * Limiter la taille des fonctions et des fichiers.
+
+:bulb: Dans le cas des scripts Shell (comme pour des DDL ou SQL pour la base de données), **le livrable est à la fois la source**. C'est un avantage en ce qui concerne la gestion des versions et des livraisons que l'on peut directement et rapidement (pas d'outil, pas de compilation) effectuer via le gestionnaire de sources.
 
 ## Règle 3 : Utiliser une machine virtuelle
 
@@ -111,10 +122,10 @@ Celle-ci est accessible de différentes façons :
   * etc...
 * Produire les messages d'erreur sur la sortie des erreurs : `echo "[ERREUR] ECHEC : $1" 1>&2;`.
 * Produire des messages d'erreur clairs, détaillés et standardisés (par exemple pour pouvoir être analysés par un automate).
-* Tester tous les codes retour des commandes/scripts utilisés (ne pas enchaîner les commandes si une commande est en échec). Considérer éventuellement d'activer l'option `set -e`.
+* Tester tous les codes retour des commandes/scripts utilisés (même les plus évidentes et ne pas enchaîner les commandes si une commande précédente est en échec). Considérer éventuellement d'activer l'option `set -e`.
 * S'assurer de la bonne fermeture de tous les fichiers ou toutes les connexions ouvertes avant l'arrêt du script.
 
-## Règle 9 : Implémenter un mode d'auto-diagnostic
+## Règle 9 : Implémenter différents modes d'exécution
 
 :pushpin: **Objectif :** améliorer l'exploitabilité et la robustesse.
 
@@ -132,10 +143,15 @@ Implémenter un mode d'auto-diagnostic, ou _Dry Run_ en anglais ou encore mode d
 :bulb: Idéalement le vrai mode d'exécution ne doit pas être celui par défaut, évitant ainsi de lancer des actions irrémédiables et non désirées par inadvertance.
 Ce mode de diagnostic (`--diag` par exemple) ou encore les modes `--help` ou `--version` sont des candidats possibles.
 
+Implémenter un mode verbeux (`--verbose`) et un mode silencieux (`--quiet`) permettant de jouer sur le nombre d'informations affichées dans la console.
+
+:warning: La sortie dans un fichier de journalisation ne doit pas être impactée par ce paramètre.
+
 ## Règle 9 : Sécuriser les exécutions
 
 :pushpin: **Objectif :** améliorer la sécurité et la robustesse.
 
+* Valider tous les entrants et tous les pré-requis en début de script, lever une erreur dès que possible. Cependant dans certains cas non critiques on pourra proposer des alternatives, des valeurs ou des comportements par défaut.
 * Ne pas utiliser d'utilisateur à privilèges (`root`). Utiliser des comptes dont les droits sont **appropriés** au traitement à exécuter (ni plus ni moins).
 * Poser les droits **appropriés** (jamais de `777` / `rwx`) sur les arborescences.
 * Utiliser de façon **appropriée** les groupes et les comptes permettant d'intervenir chacun sur son arborescence.
@@ -162,7 +178,7 @@ Cet outil est utilisable soit en ligne (par copier-coller du script) soit direct
 
 ## Annexes
 
-### Checklist de contrôle
+### Checklists de contrôle
 
 :pushpin: _Checklist_ utilisable avant de remonter un fichier dans le gestionnaire de sources
 
@@ -173,8 +189,14 @@ Cet outil est utilisable soit en ligne (par copier-coller du script) soit direct
 * [ ] Le script est documenté (en-tête avec auteur, date, description, ...), sans copier-coller non modifié.
 * [ ] Les fonctions sont documentées (entrées / sorties / effets de bord).
 * [ ] Les contrôles _ShellCheck_ ne relèvent plus de défaut.
+* [ ] Les options de débogage sont désactivés.
 
-### Les interpréteurs Shell
+:pushpin: _Checklist_ de contrôle de syntaxe
+
+* [ ] Présence d'aucun espace de chaque côte du symbole d'affection d'une variable : `var=valeur`
+* [ ] Présence obligatoire d'espace autour des symboles de test `[` et `]` : `if [ -d $dir ]`
+
+### Les interpréteurs de commandes Shell
 
 L'interpréteur Shell gère l'invite de commandes et l'exécution de commandes et scripts. Il existe différents interpréteurs Shell dont les plus connus sont :
 
@@ -185,7 +207,7 @@ L'interpréteur Shell gère l'invite de commandes et l'exécution de commandes e
 
 ### Quelques options utiles lors de la mise en place d'un script
 
-:pushpin: A placer en début de script après la ligne _shebang_ celles-ci peuvent être particulièrement utiles lors de la mise au point d'un script.
+:pushpin: A placer en début de script après la ligne _shebang_, celles-ci peuvent être particulièrement utiles lors de la mise au point d'un script.
 
 | Version courte | Version longue | Description |
 | -------------- | -------------- | ----------- |
@@ -193,5 +215,7 @@ L'interpréteur Shell gère l'invite de commandes et l'exécution de commandes e
 | `set -v` | `set -o verbose` | Affiche la ligne avant de l'exécuter |
 | `set -x` | `set -o xtrace` | Affiche l'exécution des commandes après traitement des caractères spéciaux (ex: $var) |
 | `set -n` | `set -o noexec` | Permet la détection des erreurs de syntaxe via la lecture des commandes mais sans les exécuter |
+| `set -e` | `set -o errexit` | Force l'arrêt du script en cas d'erreur |
+| `set -C` | `set -o noclobber` | Avertissement quand une redirection va écraser un fichier existant |
 
-:bulb: Comme pour les arguments de commandes les versions longues sont à favoriser car plus parlantes.
+:bulb: Comme pour les arguments de commandes les versions longues sont à favoriser car plus parlantes. On utilisera `set -o` pour afficher la liste et l'état de l'option (`on` / `off`).
