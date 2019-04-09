@@ -62,6 +62,7 @@ Celle-ci est accessible de différentes façons :
 * l'aide interne : `<commande> --h` ou `<commande> --help`
 * le manuel : `man <commande>` ou `help <commande>` pour les commandes de type _builtin_.
 * l'outil en ligne [cheat.sh](https://cheat.sh/) ou via la ligne de commandes `curl http://cht.sh/<commande>`
+* l'outil en ligne [ExplainShell](https://explainshell.com/) qui permet de détailler des commandes complètes.
 * les différentes _cheat sheets_ ou _ref cards_ disponibles sur Internet (à imprimer et à garder à portée de main). Exemples :
   * <https://steve-parker.org/sh/cheatsheet.pdf>
   * <https://www.loggly.com/wp-content/uploads/2015/05/Linux-Cheat-Sheet-Sponsored-By-Loggly.pdf>
