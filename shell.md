@@ -76,8 +76,8 @@ Celle-ci est accessible de différentes façons :
 * Utiliser les mêmes en-têtes et le même style de commentaires et de description des fonctions.
 * Ajouter et configurer un fichier `.editorconfig` pour gérer vos normes en rajoutant un bloc `[*.sh]`.
 * Normaliser le nommage de vos fichiers "bibliothèques" afin de pouvoir les identifier clairement. Par exemple : `lib_XXX.sh` (_librairies_), `func_XXXX.sh` (_functions_), `inc_XXXX.sh` (_includes_), etc... 
-* Nommer les constantes en majuscules et les variables en minuscules et ne pas mélanger les styles : `PascalCase`, `camelCase`, `snake_case`, `UPPERCASE`, `lowercase`.
-* Préférer la syntaxe `${variable}` plutôt que `$variable` et s'y tenir partout.
+* Nommer les constantes (et variables d'environnement) en majuscules avec underscores et les variables (et fonctions) en minuscules et ne pas mélanger les styles : `PascalCase`, `camelCase`, `snake_case`, `UPPERCASE`, `lowercase`.
+* Préférer la syntaxe `${variable}` plutôt que `$variable` et s'y tenir partout (permet de rester homogène lorsqu'on utilise les techniques d'expansion `${BASH_VERSION%%.*}`).
 * Éviter de mélanger les formes syntaxiques (déclaration de fonctions, structures de contrôles, utilisation d'une variable, ...). Les syntaxes à utiliser doivent être présentes dans vos documents de normes interne.
 * Ne pas mélanger les différents interpréteurs, essayer de rester homogène dans tous vos scripts. L'interpréteur **bash** est un bon compromis entre sh (le plus compatible) et ksh (plus puissant) dont il reprend certains éléments.
 
@@ -86,7 +86,7 @@ Celle-ci est accessible de différentes façons :
 :pushpin: **Objectif :** améliorer la maintenabilité et la robustesse.
 
 * Utiliser des extensions de fichiers appropriées (même si n'elles n'ont aucune importance pour le système) : `.sh` pour les shells standards, `.ksh` si c'est un shell spécifique _Korn Shell_, etc ...
-* Adapter également en conséquence, afin de lever l'ambiguïté, les en-têtes _shebang_ : `#!/bin/sh` (_on rappellera que celles-ci doivent obligatoirement être positionnées sur la première ligne du script, même avant n'importe quel autre commentaire ou même un espace_).
+* Adapter également en conséquence, afin de lever l'ambiguïté, les en-têtes _shebang_ : `#!/bin/bash` (_on rappellera que celles-ci doivent obligatoirement être positionnées sur la première ligne du script, même avant n'importe quel autre commentaire ou même un espace_).
 * Nommer clairement vos variables, (pseudo-)constantes, fonctions, scripts.
 * Préférer attendre en entrée des arguments nommés :
   * Préférer `monscript --test --param=value` plutôt que `monscript test value` (syntaxe _GNU-style_).
@@ -116,14 +116,16 @@ Celle-ci est accessible de différentes façons :
 :pushpin: **Objectif :** améliorer l'exploitabilité et la robustesse.
 
 * Un code retour `0` (zéro) doit être renvoyé en cas de succès uniquement. En cas d'échec un code **supérieur** à 0 est renvoyé (on s'interdira donc les codes négatifs).
-* Utiliser (et documenter) différents codes retours par types d'erreur. Exemples :
+* Utiliser (et documenter) différents codes retours par types d'erreur, facilitant l'analyse ou l'automatisation de la gestion des erreurs. Exemples :
   * `1` ou `1x` ou `1xx` pour les erreurs de la ligne de commandes ou arguments attendus en entrée non présents, ...
   * `2` ou `2x` ou `2xx` pour les erreurs de validation (fichier attendu non présent, ...)
   * etc...
 * Produire les messages d'erreur sur la sortie des erreurs : `echo "[ERREUR] ECHEC : $1" 1>&2;`.
-* Produire des messages d'erreur clairs, détaillés et standardisés (par exemple pour pouvoir être analysés par un automate).
+* Produire des messages d'erreur clairs, détaillés et standardisés (par exemple pour pouvoir être analysés par un automate) permettant de guider l'utilisateur dans la résolution du problème.
 * Tester tous les codes retour des commandes/scripts utilisés (même les plus évidentes et ne pas enchaîner les commandes si une commande précédente est en échec). Considérer éventuellement d'activer l'option `set -e`.
 * S'assurer de la bonne fermeture de tous les fichiers ou toutes les connexions ouvertes avant l'arrêt du script.
+
+:bulb: Pour forcer l'affichage d'un message sur le terminal même si une redirection est faite sur le script (ex: `1> log.txt`) on pourra utiliser `echo "message" > /dev/tty`.
 
 ## Règle 9 : Implémenter différents modes d'exécution
 
@@ -155,8 +157,13 @@ Implémenter un mode verbeux (`--verbose`) et un mode silencieux (`--quiet`) per
 * Ne pas utiliser d'utilisateur à privilèges (`root`). Utiliser des comptes dont les droits sont **appropriés** au traitement à exécuter (ni plus ni moins).
 * Poser les droits **appropriés** (jamais de `777` / `rwx`) sur les arborescences.
 * Utiliser de façon **appropriée** les groupes et les comptes permettant d'intervenir chacun sur son arborescence.
-* Appliquer la règle 8 et **gérer les erreurs au plus tôt**.
-* Appliquer la règle 9 et **diagnostiquer les exécutions au plus tôt**, utiliser par exemple l'option `set -o noexec` pour valider les scripts.
+* Borner de façon **appropriée** les possibilités du script en contrôlant l'utilisation des ressources système via la commande `ulimit` :
+  * restreindre le nombre de processus simultanés via `ulimit -u <valeur>`
+  * restreindre la création de fichiers _core dump_ via `ulimit -c <valeur>`
+  * restreindre le temps processeur maximum en secondes via `ulimit -t <valeur>`
+  * restreindre la  taille des fichiers écrits via `ulimit -f <valeur>`
+* Appliquer la règle 8 et le principe _fail fast_ en **gérant les erreurs au plus tôt**.
+* Appliquer la règle 9 en **diagnostiquant les exécutions au plus tôt** utiliser par exemple l'option `set -o noexec` (ou `bash -o noexec mon_script.sh`) pour valider les scripts.
 
 ## Règle 11 : Suivre les recommandations de _ShellCheck_
 
@@ -168,7 +175,7 @@ _ShellCheck_ est un outil de contrôle de la syntaxe et d'analyse statique compo
 
 Cet outil est utilisable soit en ligne (par copier-coller du script) soit directement intégré à l'IDE, par exemple pour _MS Visual Studio Code_ il faut installer l'extension [`timonwong.shellcheck`](https://github.com/timonwong/vscode-shellcheck), celle-ci propose un fonctionnement comme **SonarLint** pour un projet Java par exemple avec le signalement des défauts à la volée.
 
-:information_source:  _ShellCheck_ encourage grandement à respecter la norme **POSIX**.
+:information_source:  _ShellCheck_ encourage grandement à respecter la norme **POSIX** ou **SUSv3** (plus complète).
 
 :bulb: L'outil ShellCheck peut également être utilisé de façon automatisée par une ligne d'intégration continue : `shellcheck myscripts/*.sh`.
 
@@ -177,6 +184,15 @@ Cet outil est utilisable soit en ligne (par copier-coller du script) soit direct
 :link: <https://github.com/koalaman/shellcheck#in-your-editor>
 
 ## Annexes
+
+### Queques autres bonnes pratiques
+
+* Préférer les déclarations de fonctions de la forme `nom_fonction() {}` plutôt que `function nom_fonction {}`.
+* Préférer la syntaxe `var=$(commande)` plutôt que `` var=`command`` `.
+* Contrôler la présence d'un fichier avec `-f` ou d'un dossier avec `-d` plutôt qu'avec `-e` (trop générique).
+* Favoriser les chemins absolus plutôt que les chemisn relatifs.
+* Considérer la commande `printf` comme une alternative de meilleur choix  à `echo` dans certains cas.
+* Préférer l'en-tête _Shebang_ `#!/bin/bash` dès que possible et limiter la dépendance à un interpréteur spécifique.
 
 ### Checklists de contrôle
 
@@ -211,11 +227,12 @@ L'interpréteur Shell gère l'invite de commandes et l'exécution de commandes e
 
 | Version courte | Version longue | Description |
 | -------------- | -------------- | ----------- |
-| `set -u` | `set -o nounset` | Ne pas autoriser les variables non définies |
-| `set -v` | `set -o verbose` | Affiche la ligne avant de l'exécuter |
-| `set -x` | `set -o xtrace` | Affiche l'exécution des commandes après traitement des caractères spéciaux (ex: $var) |
-| `set -n` | `set -o noexec` | Permet la détection des erreurs de syntaxe via la lecture des commandes mais sans les exécuter |
-| `set -e` | `set -o errexit` | Force l'arrêt du script en cas d'erreur |
-| `set -C` | `set -o noclobber` | Avertissement quand une redirection va écraser un fichier existant |
+| `set -u` | `set -o nounset` | Ne pas autoriser les variables non définies. |
+| `set -v` | `set -o verbose` | Affiche la ligne avant de l'exécuter. |
+| `set -x` | `set -o xtrace` | Affiche l'exécution des commandes après traitement des caractères spéciaux (ex: $var). |
+| `set -n` | `set -o noexec` | Permet la détection des erreurs de syntaxe via la lecture des commandes mais sans les exécuter. |
+| `set -e` | `set -o errexit` | Force l'arrêt du script en cas d'erreur. |
+| `set -C` | `set -o noclobber` | Avertissement quand une redirection va écraser un fichier existant. |
+| | `set -o pipefail` | Le code retour n'est plus celui de la dernière commande exécutée par le _pipe_ mais la dernière à échouer ou 0 si aucune n'échoue. |
 
 :bulb: Comme pour les arguments de commandes les versions longues sont à favoriser car plus parlantes. On utilisera `set -o` pour afficher la liste et l'état de l'option (`on` / `off`).
