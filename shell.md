@@ -193,15 +193,15 @@ Cet outil est utilisable soit en ligne (par copier-coller du script) soit direct
 * Préférer la syntaxe `var=$(commande)` plutôt que `` var=`command`` `.
 * Contrôler la présence d'un fichier avec `-f` ou d'un dossier avec `-d` plutôt qu'avec `-e` (trop générique).
 * Favoriser les chemins absolus plutôt que les chemins relatifs.
-* Considérer la commande `printf` comme une alternative de meilleur choix à `echo` dans certains cas.
+* Considérer la commande `printf` comme une alternative de meilleur choix à `echo` dans la plupart des cas.
 * Préférer l'en-tête _Shebang_ `#!/bin/bash` dès que possible et limiter la dépendance à un interpréteur spécifique.
-* Toujours préférer l'utilisation de variables entre guillemets `"${var}"` plutôt que `${var}` ... sauf dans certains cas ou il faut faire attention, par exemple `"${dir}/"*` (* en dehors des guillemets).
+* Toujours préférer l'utilisation de variables entre guillemets `"${var}"` plutôt que `${var}` ... sauf dans certains cas ou il faut faire attention, par exemple `"${dir}/"*` (bien mettre `*` en dehors des guillemets).
 * Limiter au strict minimum l'utilisation des variables globales.
-* Favoriser les techniques d'expansion ou de substitution de variables plutôt que d'utiliser `sed`, `awk`, ...
+* Favoriser les techniques d'expansion ou de substitution de variables plutôt que d'utiliser les pipes avec `sed`, `awk`, ...
 
 ### Checklists de contrôle
 
-:pushpin: _Checklist_ utilisable avant de remonter un fichier dans le gestionnaire de sources
+:pushpin: _Checklist_ utilisable avant de remonter un fichier dans le gestionnaire de sources.
 
 * [ ] Fichier avec une extension cohérente `.sh` ou `.ksh`, ...
 * [ ] Fichier au format `UTF-8` (avec accents) ou `US-ASCII` (sans accents).
@@ -212,11 +212,14 @@ Cet outil est utilisable soit en ligne (par copier-coller du script) soit direct
 * [ ] Les contrôles _ShellCheck_ ne relèvent plus de défaut.
 * [ ] Les options de débogage sont désactivés.
 
-:pushpin: _Checklist_ de contrôle de syntaxe
+:pushpin: _Checklist_ de contrôle de syntaxe permettant de détecter des erreurs "bêtes".
 
-* [ ] Présence de l'en-tête _shebang_ **sur la première ligne**
-* [ ] Présence d'aucun espace de chaque côte du symbole d'affection d'une variable : `var=valeur`
-* [ ] Présence obligatoire d'espace autour des symboles de test `[` et `]` : `if [ -d $dir ]`
+* [ ] Présence de l'en-tête _shebang_ **sur la première ligne**.
+* [ ] Présence d'aucun espace de chaque côte du symbole d'affection d'une variable : `var=valeur`.
+* [ ] Présence obligatoire d'espace autour des symboles de test `[` et `]` : `if [ -d $dir ]`.
+* [ ] Présence obligatoire d'un `;` avant un `then` s'il est placé sur la même ligne que le `if`.
+* [ ] Présence obligatoire d'un `;` avant un `do` s'il est placé sur la même ligne que le `for` ou le `while`.
+* [ ] Présence obligatoire de `;;` à la fin de chaque _cas_ d'un `case` (pour le dernier aussi même si ce n'est pas obligatoire).
 
 ### Les interpréteurs de commandes Shell
 
