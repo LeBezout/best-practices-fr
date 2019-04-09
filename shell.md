@@ -59,8 +59,8 @@ On peut imaginer se monter un environnement complet de test à l'image des syst�
 
 Celle-ci est accessible de différentes façons :
 
-* l'aide interne : `<commande> --help`
-* le manuel : `man <commande>`
+* l'aide interne : `<commande> --h` ou `<commande> --help`
+* le manuel : `man <commande>` ou `help <commande>` pour les commandes de type _builtin_.
 * l'outil en ligne [cheat.sh](https://cheat.sh/) ou via la ligne de commandes `curl http://cht.sh/<commande>`
 * les différentes _cheat sheets_ ou _ref cards_ disponibles sur Internet (à imprimer et à garder à portée de main). Exemples :
   * <https://steve-parker.org/sh/cheatsheet.pdf>
@@ -75,7 +75,7 @@ Celle-ci est accessible de différentes façons :
 * Partager les conventions entre tous les développeurs et les rendre facilement consultables (et modifiables).
 * Utiliser les mêmes en-têtes et le même style de commentaires et de description des fonctions.
 * Ajouter et configurer un fichier `.editorconfig` pour gérer vos normes en rajoutant un bloc `[*.sh]`.
-* Normaliser le nommage de vos fichiers "bibliothèques" afin de pouvoir les identifier clairement. Par exemple : `lib_XXX.sh` (_librairies_), `func_XXXX.sh` (_functions_), `inc_XXXX.sh` (_includes_), etc... 
+* Normaliser le nommage de vos fichiers "bibliothèques" afin de pouvoir les identifier clairement. Par exemple : `lib_XXX.sh` (_librairies_), `func_XXXX.sh` (_functions_), `inc_XXXX.sh` (_includes_), etc...
 * Nommer les constantes (et variables d'environnement) en majuscules avec underscores et les variables (et fonctions) en minuscules et ne pas mélanger les styles : `PascalCase`, `camelCase`, `snake_case`, `UPPERCASE`, `lowercase`.
 * Préférer la syntaxe `${variable}` plutôt que `$variable` et s'y tenir partout (permet de rester homogène lorsqu'on utilise les techniques d'expansion `${BASH_VERSION%%.*}`).
 * Éviter de mélanger les formes syntaxiques (déclaration de fonctions, structures de contrôles, utilisation d'une variable, ...). Les syntaxes à utiliser doivent être présentes dans vos documents de normes interne.
@@ -185,14 +185,19 @@ Cet outil est utilisable soit en ligne (par copier-coller du script) soit direct
 
 ## Annexes
 
-### Queques autres bonnes pratiques
+### Quelques autres bonnes pratiques
+
+:pushpin: Autres bonnes pratiques "en vrac" qu'il est bon de respecter.
 
 * Préférer les déclarations de fonctions de la forme `nom_fonction() {}` plutôt que `function nom_fonction {}`.
 * Préférer la syntaxe `var=$(commande)` plutôt que `` var=`command`` `.
 * Contrôler la présence d'un fichier avec `-f` ou d'un dossier avec `-d` plutôt qu'avec `-e` (trop générique).
-* Favoriser les chemins absolus plutôt que les chemisn relatifs.
-* Considérer la commande `printf` comme une alternative de meilleur choix  à `echo` dans certains cas.
+* Favoriser les chemins absolus plutôt que les chemins relatifs.
+* Considérer la commande `printf` comme une alternative de meilleur choix à `echo` dans certains cas.
 * Préférer l'en-tête _Shebang_ `#!/bin/bash` dès que possible et limiter la dépendance à un interpréteur spécifique.
+* Toujours préférer l'utilisation de variables entre guillemets `"${var}"` plutôt que `${var}` ... sauf dans certains cas ou il faut faire attention, par exemple `"${dir}/"*` (* en dehors des guillemets).
+* Limiter au strict minimum l'utilisation des variables globales.
+* Favoriser les techniques d'expansion ou de substitution de variables plutôt que d'utiliser `sed`, `awk`, ...
 
 ### Checklists de contrôle
 
@@ -200,7 +205,7 @@ Cet outil est utilisable soit en ligne (par copier-coller du script) soit direct
 
 * [ ] Fichier avec une extension cohérente `.sh` ou `.ksh`, ...
 * [ ] Fichier au format `UTF-8` (avec accents) ou `US-ASCII` (sans accents).
-* [ ] Présence **sur la première ligne** de l'en-tête _shebang_ qui est cohérente avec l'extension choisie.
+* [ ] Présence de l'en-tête _shebang_ cohérente avec l'extension choisie.
 * [ ] Les variables, fonctions et constantes sont correctement nommées et de façon homogène dans tout le script.
 * [ ] Le script est documenté (en-tête avec auteur, date, description, ...), sans copier-coller non modifié.
 * [ ] Les fonctions sont documentées (entrées / sorties / effets de bord).
@@ -209,6 +214,7 @@ Cet outil est utilisable soit en ligne (par copier-coller du script) soit direct
 
 :pushpin: _Checklist_ de contrôle de syntaxe
 
+* [ ] Présence de l'en-tête _shebang_ **sur la première ligne**
 * [ ] Présence d'aucun espace de chaque côte du symbole d'affection d'une variable : `var=valeur`
 * [ ] Présence obligatoire d'espace autour des symboles de test `[` et `]` : `if [ -d $dir ]`
 
