@@ -10,9 +10,9 @@ Comme pour un langage comme Java ou C#, ... il est inconcevable de ne pas utilis
 * les contrôles de validation syntaxique.
 * de l'outillage annexe (_ShellCheck_ par exemple).
 * un éventuel terminal intégré.
-* la possibilité de de contrôle du bon format de fichier. On conseillera d'utiliser l'encodage `UTF-8` (sans BOM) et évidemment les sauts de lignes `LF`.
+* la possibilité de contrôler le bon format de fichier. On conseillera d'utiliser l'encodage `UTF-8` (sans BOM) et évidemment les sauts de lignes `LF`.
 
-:bulb: [Microsoft _Visual Studio Code_](https://vscodecandothat.com/) est par exemple un bon choix.
+:bulb: L'éditeur libre et portable [Microsoft _Visual Studio Code_](https://vscodecandothat.com/) est par exemple un bon choix.
 
 ## Règle 2 : Utiliser les mêmes méthodes de développement qu'un projet classique
 
@@ -22,7 +22,7 @@ Comme pour un langage comme Java ou C#, ... il est inconcevable de ne pas utilis
   * `*.sh   text eol=lf`
   * `*.ksh   text eol=lf`
   * `*.bash   text eol=lf`
-* Commenter sans paraphraser le code : expliquer le pourquoi par le comment.
+* Commenter sans paraphraser le code : expliquer le pourquoi mais pas le comment.
 * Soigner l'indentation.
 * Favoriser les pratiques de revues collectives et de _Merge/Pull Request_.
 * Utiliser les contrôles automatisés via l'intégration et/ou l'inspection continue.
@@ -59,15 +59,17 @@ On peut imaginer se monter un environnement complet de test à l'image des syst�
 
 Celle-ci est accessible de différentes façons :
 
-* l'aide interne : `<commande> --h` ou `<commande> --help`
+* l'aide interne : `<commande> -h` ou `<commande> --help`
 * le manuel : `man <commande>` ou `help <commande>` pour les commandes de type _builtin_.
-* l'outil en ligne [cheat.sh](https://cheat.sh/) ou via la ligne de commandes `curl http://cht.sh/<commande>`
-* l'outil en ligne [ExplainShell](https://explainshell.com/) qui permet de détailler des commandes complètes.
+* l'outil en ligne [cheat.sh](https://cheat.sh/) ou via la ligne de commandes `curl http://cht.sh/<commande>` (ou faire une fonction dans le `.bashrc` / `.profile`)
+* l'outil en ligne [ExplainShell](https://explainshell.com/) qui permet de détailler des commandes complètes (avec leurs arguments et les différents _pipes_).
 * les différentes _cheat sheets_ ou _ref cards_ disponibles sur Internet (à imprimer et à garder à portée de main). Exemples :
   * <https://steve-parker.org/sh/cheatsheet.pdf>
   * <https://www.loggly.com/wp-content/uploads/2015/05/Linux-Cheat-Sheet-Sponsored-By-Loggly.pdf>
   * <https://www.git-tower.com/learn/cheat-sheets/cli>
 * etc ....
+
+:bulb: Pour améliorer la maintenabilité on peut documenter en interne la façon dont on utilise les commandes (signification de tel ou tel argument, pourquoi tel argument, ...).
 
 ## Règle 5 : Normaliser
 
@@ -75,7 +77,7 @@ Celle-ci est accessible de différentes façons :
 
 * Partager les conventions entre tous les développeurs et les rendre facilement consultables (et modifiables).
 * Utiliser les mêmes en-têtes et le même style de commentaires et de description des fonctions.
-* Ajouter et configurer un fichier `.editorconfig` pour gérer vos normes en rajoutant un bloc `[*.sh]`.
+* Ajouter et configurer un fichier `.editorconfig` pour gérer vos normes en rajoutant un bloc `[*.{sh,ksh,bash}]`.
 * Normaliser le nommage de vos fichiers "bibliothèques" afin de pouvoir les identifier clairement. Par exemple : `lib_XXX.sh` (_librairies_), `func_XXXX.sh` (_functions_), `inc_XXXX.sh` (_includes_), etc...
 * Nommer les constantes (et variables d'environnement) en majuscules avec underscores et les variables (et fonctions) en minuscules et ne pas mélanger les styles : `PascalCase`, `camelCase`, `snake_case`, `UPPERCASE`, `lowercase`.
 * Préférer la syntaxe `${variable}` plutôt que `$variable` et s'y tenir partout (permet de rester homogène lorsqu'on utilise les techniques d'expansion `${BASH_VERSION%%.*}`).
@@ -89,10 +91,11 @@ Celle-ci est accessible de différentes façons :
 * Utiliser des extensions de fichiers appropriées (même si n'elles n'ont aucune importance pour le système) : `.sh` pour les shells standards, `.ksh` si c'est un shell spécifique _Korn Shell_, etc ...
 * Adapter également en conséquence, afin de lever l'ambiguïté, les en-têtes _shebang_ : `#!/bin/bash` (_on rappellera que celles-ci doivent obligatoirement être positionnées sur la première ligne du script, même avant n'importe quel autre commentaire ou même un espace_).
 * Nommer clairement vos variables, (pseudo-)constantes, fonctions, scripts.
+* Les variables utilisées dans les fonctions sont **globales par défaut**. Les variables locales à une fonction doivent donc être déclarées avec le mot-clef `local` (:warning: ne fonctionne pas avec l'interpréteur ksh, il faut utiliser `typeset` sans option).
 * Préférer attendre en entrée des arguments nommés :
   * Préférer `monscript --test --param=value` plutôt que `monscript test value` (syntaxe _GNU-style_).
   * Préférer `monscript -p1 value1 -p2 value2` plutôt que `monscript value1 value2` (syntaxe _getopts_).
-* Quand ils existent utiliser les arguments de scripts externes ou de commandes avec des **noms longs**, c'est beaucoup plus clair et donc maintenabl. N'étant pas contraint par la taille des lignes c'est beaucoup plus clair et donc maintenable. Exemples :
+* Quand ils existent utiliser les arguments de scripts externes ou de commandes avec des **noms longs**, c'est beaucoup plus clair et donc maintenable. N'étant pas contraint par la taille des lignes c'est beaucoup plus clair et donc maintenable. Exemples :
   * Écrire `mvn clean install --batch-mode --quiet` plutôt que `mvn clean install -B -q`
   * Écrire `curl --request POST --header "content-type: application/json" --data "{\"param\": \"value\"}" http://site.org` plutôt que `curl -X POST -H "content-type: application/json" -d "{\"param\": \"value\"}" http://site.org`
 
@@ -111,6 +114,8 @@ Celle-ci est accessible de différentes façons :
 * Documenter et partager vos processus, méthodes et normes internes :
   * soit au format Markdown dans votre dépôt
   * soit dans _Confluence_
+* Produire un glossaire, un dictionnaire des données, expliciter les acronymes, ...
+* Penser aux journaux de suivi des decisions architecturales (ADR : _Architectural Decision Records_).
 
 ## Règle 8 : Gérer les erreurs
 
@@ -126,7 +131,7 @@ Celle-ci est accessible de différentes façons :
 * Tester tous les codes retour des commandes/scripts utilisés (même les plus évidentes et ne pas enchaîner les commandes si une commande précédente est en échec). Considérer éventuellement d'activer l'option `set -e`.
 * S'assurer de la bonne fermeture de tous les fichiers ou toutes les connexions ouvertes avant l'arrêt du script.
 
-:bulb: Pour forcer l'affichage d'un message sur le terminal même si une redirection est faite sur le script (ex: `1> log.txt`) on pourra utiliser `echo "message" > /dev/tty`.
+:bulb: Pour forcer l'affichage d'un message sur le terminal même si une redirection est faite sur le script (ex: `monscript > log.txt`) on pourra utiliser `echo "message" > /dev/tty`.
 
 ## Règle 9 : Implémenter différents modes d'exécution
 
@@ -164,7 +169,7 @@ Implémenter un mode verbeux (`--verbose`) et un mode silencieux (`--quiet`) per
   * restreindre le temps processeur maximum en secondes via `ulimit -t <valeur>`
   * restreindre la  taille des fichiers écrits via `ulimit -f <valeur>`
 * Appliquer la règle 8 et le principe _fail fast_ en **gérant les erreurs au plus tôt**.
-* Appliquer la règle 9 en **diagnostiquant les exécutions au plus tôt** utiliser par exemple l'option `set -o noexec` (ou `bash -o noexec mon_script.sh`) pour valider les scripts.
+* Appliquer la règle 9 en **diagnostiquant les exécutions au plus tôt** utiliser par exemple l'option `set -o noexec` (ou `bash -o noexec monscript.sh`) pour valider les scripts.
 
 ## Règle 11 : Suivre les recommandations de _ShellCheck_
 
@@ -190,7 +195,7 @@ Cet outil est utilisable soit en ligne (par copier-coller du script) soit direct
 
 :pushpin: Autres bonnes pratiques "en vrac" qu'il est bon de respecter.
 
-* Préférer les déclarations de fonctions de la forme `nom_fonction() {}` plutôt que `function nom_fonction {}`.
+* Préférer les déclarations de fonctions de la forme `nom_fonction() {}` plutôt que `function nom_fonction {}` (sauf pour KSH où il est préférable de conserver cette dernière afin de pouvoir déclarer les variables locales via `typeset`).
 * Préférer la syntaxe `var=$(commande)` plutôt que `` var=`command`` `.
 * Contrôler la présence d'un fichier avec `-f` ou d'un dossier avec `-d` plutôt qu'avec `-e` (trop générique).
 * Favoriser les chemins absolus plutôt que les chemins relatifs.
@@ -212,6 +217,7 @@ Cet outil est utilisable soit en ligne (par copier-coller du script) soit direct
 * [ ] Les fonctions sont documentées (entrées / sorties / effets de bord).
 * [ ] Les contrôles _ShellCheck_ ne relèvent plus de défaut.
 * [ ] Les options de débogage sont désactivés.
+* [ ] Le fichier se termine par une ligne vide.
 
 :pushpin: _Checklist_ de contrôle de syntaxe permettant de détecter des erreurs "bêtes".
 
@@ -241,8 +247,46 @@ L'interpréteur Shell gère l'invite de commandes et l'exécution de commandes e
 | `set -v` | `set -o verbose` | Affiche la ligne avant de l'exécuter. |
 | `set -x` | `set -o xtrace` | Affiche l'exécution des commandes après traitement des caractères spéciaux (ex: $var). |
 | `set -n` | `set -o noexec` | Permet la détection des erreurs de syntaxe via la lecture des commandes mais sans les exécuter. |
-| `set -e` | `set -o errexit` | Force l'arrêt du script en cas d'erreur. |
+| `set -e` | `set -o errexit` | Force l'arrêt du script en cas d'erreur (une des commandes exécutée ne renvoie pas 0). |
 | `set -C` | `set -o noclobber` | Avertissement quand une redirection va écraser un fichier existant. |
 | | `set -o pipefail` | Le code retour n'est plus celui de la dernière commande exécutée par le _pipe_ mais la dernière à échouer ou 0 si aucune n'échoue. |
 
-:bulb: Comme pour les arguments de commandes les versions longues sont à favoriser car plus parlantes. On utilisera `set -o`pour afficher la liste et l'état de chaque option (`on` / `off`).
+:bulb: Comme pour les arguments de commandes les versions longues sont à favoriser car plus parlantes. On utilisera `set -o` pour afficher la liste et l'état de chaque option (`on` / `off`).
+
+### Fonction d'accès rapide à cheat.sh
+
+A placer au choix dans `.bashrc`,  `.bash_profile`,  `.profile` :
+
+```sh
+cheat() {
+  if [ -z $1 ]; then
+    echo "cheat <command>" 1>&2
+    return 1
+  else
+    curl http://cht.sh/$1
+    return $?
+  fi
+}
+```
+
+:bulb:  Exemple d'utilisation : `cheat grep`.
+
+### Fonction d'accès rapide à ExplainShell
+
+A placer au choix dans `.bashrc`,  `.bash_profile`,  `.profile` :
+
+```sh
+alias urlencode='python -c "import sys, urllib as ul; print ul.quote(sys.argv[1])"'
+expshell() {
+  if [ -z "$1" ]; then
+    echo "expshell \"<command>\"" 1>&2
+    return 1
+  else
+    local command=$(urlencode "$1")
+    gio open "https://explainshell.com/explain?cmd=${command}"
+    return $?
+  fi
+}
+```
+
+:bulb:  Exemple d'utilisation : `expshell "ls -l | grep -q fic"` : 1 seul argument encadré de guillemets.

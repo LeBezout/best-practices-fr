@@ -19,6 +19,7 @@
 * Chaque dépôt doit contenir à la racine un fichier `README.md` permettant de décrire celui-ci.
 * Chaque dépôt doit contenir à la racine un fichier `.gitignore` permettant de ne pas remonter n'importe quoi dans le système.
 * Chaque dépôt doit contenir à la racine un fichier `.gitattributes` permettant de gérer correctement le format des fichiers (binaire ou texte, windows ou unix).
+* Optionnellement on peut rajouter à la racine un fichier `CONTRIBUTING.md` permettant de décrire les normes internes.
 
 ## Le format des fichiers
 
@@ -31,25 +32,26 @@
 
 ## Méthodologies
 
-:pushpin: Utiliser et respecter une certaine rigeur méthodologique va faciliter le travail en équipe et améliorer la qualité des livrables :
+:pushpin: Utiliser et respecter et partager une certaine rigueur méthodologique va faciliter le travail en équipe et améliorer la qualité des livrables :
 
 * Apprendre à maîtriser les principales commandes de bases : `add`, `commit`, `pull`, `push`, `checkout`, `branch`, ...
-* Suivre le didacticiel en ligne https://learngitbranching.js.org/[Leaning Git Branching] pour comprendre ou revoir certains concepts.
+* Suivre le didacticiel en ligne [Leaning Git Branching](https://learngitbranching.js.org/) pour comprendre ou revoir certains concepts.
 * Travailler dans ses propres branches (et les mettre à jour régulièrement via merge pour éviter d'avoir trop de conflits à résoudre lors du merge final)
-* Pousser (`push`) régulièrement sur le serveur pour éviter de perdre malencontreusement son travail.
+* Pousser (`push`) régulièrement sur le serveur pour éviter de perdre malencontreusement son travail (idéalement sur sa propre branche).
 * Favoriser l'utilisation de _Pull Requests_ (GitHub) ou _Merge Requests_ (GitLab) et de revues collégiales.
 * Utiliser une méthode du type GitFlow, JGit-Flow, GitHub Flow, GitLab Flow, etc...
 
 ## Les commits
 
-:pushpin: Les messages de commit, voir les commits sont souvent négligés. C'est une mauvaise pratique aboutissant à un historique peu clair (dégradant la maintenabilité). Quelqus consignes à respecter :
+:pushpin: Les messages de commit, voir les commits sont souvent négligés. C'est une mauvaise pratique aboutissant à un historique peu clair (dégradant la maintenabilité). Quelques consignes à respecter :
 
-* Ecrire de bons messages de commits comme expliqué ici <https://chris.beams.io/posts/git-commit/>.
-* Ecrire des messages de commits clairs, explictes et concits. Partager votre norme entre tous les développeurs.
+* Écrire de bons messages de commits comme expliqué ici <https://chris.beams.io/posts/git-commit/>.
+* Écrire des messages de commits clairs, explicites et concis. Partager votre norme entre tous les développeurs.
 * Ne pas mélanger différentes choses : un commit = une fonctionnalité / une correction.
 * Préciser quand c'est possible les numéros des Issues, des Tickets ou autres tâches (JIRA, ...) dans le message du commit (1 commit par tâche).
 * Éviter les "commit merge" si ce n'est pas nécessaire, utiliser par exemple `git pull --rebase` ou la configuration `pull.rebase=true` par exemple.
-* Avant de pousser des modifications liées ne pas hésiter à les regrouper dans un seul commit (fonctionnellement cohérent et homogène) via la fonctionnalité de "_squash_".
+* Avant de pousser des modifications liées ne pas hésiter à les regrouper dans un seul commit (fonctionnellement cohérent et homogène) via la fonctionnalité de "_squash_" (via `git rebase -i`).
+* Limiter l'utilisation de la commande `git commit -m 'message'` car elle contraint le message à la première ligne, ce qui dans certains cas est insuffisant.
 
 ## Références
 
@@ -62,7 +64,7 @@
 
 ### Liens
 
-* [Lean Git Branching - site d'entrainement](https://pcottle.github.com/learnGitBranching/?demo)
+* [Lean Git Branching - site d'entraînement](https://pcottle.github.com/learnGitBranching/?demo)
 * <https://guillaumebriday.fr/comment-jutilise-git-mes-astuces-et-bonnes-pratiques>
 * <https://wiki.resel.fr/Guides/bonnes-pratiques/git>
 * <https://danielkummer.github.io/git-flow-cheatsheet/index.fr_FR.html>

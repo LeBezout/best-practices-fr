@@ -1,19 +1,19 @@
-# Bonnes pratiques Java
+# Bonnes pratiques de développement Java
 
 ## Styles
 
 * Utiliser les conventions de _Sun_ les créateurs du langage [Sun Java Coding Style Guide](https://www.oracle.com/technetwork/java/javase/overview/codeconvtoc-136057.html)
 * Ne pas utiliser d'outil du type `Format on Save`
 * Utiliser `EditorConfig`
-* Eviter les parenthèses inutiles
+* Éviter les parenthèses inutiles
 * Ajouter toujours une javadoc aux composants publics (classes, méthodes, constantes, enum, ...)
 * Soigner l'ordre de déclaration des éléments dans une classe : membres statiques -> membres -> méthodes statiques -> constructeur(s) -> méthodes d'instance (_Java Coding Style Guide de Sun_)
 * Limiter la taille des méthodes
 * Les classes générées doivent être dans des modules séparés
 * Soigner le nommage
   * Un nom doit expliquer ce que fait / ce qu'est l'élément nommé mais pas comment il le fait
-  * Eviter les prefixes et suffixes
-* Le code doit être assez clair pour se passer de commentaires. Limiter leur utilisation car ils deviennent vite obsolètes ou éronnés
+  * Éviter les prefixes et suffixes
+* Le code doit être assez clair pour se passer de commentaires. Limiter leur utilisation car ils deviennent vite obsolètes ou erronés
 * Les commentaire sous la forme `/** xxx */` (avec 2 \*) sont exclusivement réservés à la Javadoc. Dans le code il faut utiliser soit `//` soit `/* xxx */` (avec 1 \*)
 
 ## Généralités
@@ -27,7 +27,7 @@
 
 ## Exceptions
 
-* Ne jamais masquer un problème, les exceptions sont typiquement faites pour identifier ou alerter sur quelque chose d'exceptionel
+* Ne jamais masquer un problème, les exceptions sont typiquement faites pour identifier ou alerter sur quelque chose d'exceptionnel
 * Ne pas attraper `java.lang.Exception` / `java.lang.RuntimeException` / `java.lang.Error` / `java.lang.Throwable`
 * Toujours s'assurer de la fermeture des ressources ouvertes
 * Utiliser "try-with-resources" (depuis Java 7)
@@ -46,16 +46,16 @@
 ## Java 8 "Optional"
 
 * Utiliser `Optional` dès que possible. Le code est dès lors auto-documenté, plus besoin d'aller voir le source pour vérifier si `null` peut être retourné.
-* Encapsuler les retours d'une bibliothèque externes dans un `Optional` via `Optional.ofNullable()` 
+* Encapsuler les retours d'une bibliothèque externes dans un `Optional` via `Optional.ofNullable()`
 
 ## JPA
 
 * Favoriser l’utilisation de JPQL / HQL par rapport au SQL et l'API `Criteria`
 * Favoriser l'utilisation de `NamedQueries`
-* Eviter l'utilisation de `NativeQueries`
+* Éviter l'utilisation de `NativeQueries`
 * Les champs de type date doivent être précisés à l’aide de l’annotation `@Temporal`
-* Pour limiter le nombre de résulats d'une requête utiliser `query.setMaxResults(max);`
-* Pour les clefs composites favoriser l'utilisation du couple `@Embeddable` / `@EmbeddedId ` plutôt que le couple `@Id` / `IdClass`
+* Pour limiter le nombre de résultats d'une requête utiliser `query.setMaxResults(max);`
+* Pour les clefs composites favoriser l'utilisation du couple `@Embeddable` / `@EmbeddedId` plutôt que le couple `@Id` / `IdClass`
 
 ## Injection de dépendances
 
@@ -83,8 +83,8 @@
 * Ne pas déclarer de méthodes `public` dans une interface (elles le sont obligatoirement)
 * Ne pas déclarer de constantes `public static final` dans une interface (elles le sont obligatoirement)
 * Ne pas spécifier que le constructeur de l'`enum` est `private` (il y est obligatoirement)
-* Ne pas mettre de `;` à la fin d'une déclaration des élements d'une `enum` : `VALEUR1, VALEUR2, VALEUR3,`
-* Ne pas mettre de `;` à la fin d'une déclaration des élements d'un bloc `try-with-resource` : `try (element = new Element())`
+* Ne pas mettre de `;` à la fin d'une déclaration des éléments d'une `enum` : `VALEUR1, VALEUR2, VALEUR3,`
+* Ne pas mettre de `;` à la fin d'une déclaration des éléments d'un bloc `try-with-resource` : `try (element = new Element())`
 * Ne pas tester le `null` avant d'utiliser une instruction `instanceof` (qui retourne `false` si l'élément est `null`)
 
 ## Divers

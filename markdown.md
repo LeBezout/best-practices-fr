@@ -6,7 +6,7 @@
 
 * Contrairement à d'autres langages de balisage (comme HTML) son apprentissage est très facile et rapide, voire quasi immédiat.
 * Partage simple et rapide de la documentation pour les développeurs car elle est directement intégrée et interprétée par GitHub ou GitLab.
-* Profiter du versionning GIT car c'est un format textuel.
+* Profiter du versioning GIT car c'est un format textuel.
 * La documentation produite peut être ensuite facilement exportée vers d'autres formats : PDF, HTML, ...
 * C'est un bon début et un pré-requis pour appréhender un langage plus évolué comme le standard AsciiDoc.
 * Pouvoir faire abstraction complètement de la mise en forme qui est une tâche hautement chronophage.
@@ -59,7 +59,7 @@ Disponible sous forme de _command-line_ ou d'extensions :
 * Éviter les tabulations.
 * Favoriser les blocs de code multi-lignes. Réserver la syntaxe `code` pour mettre en évidence un nom de fichier, une commande, ...
 * Spécifier toujours le langage dans les blocs de code multi-lignes : `shell`, `java`, `json`, `xml`, ..., par défaut utiliser `text`.
-* Ajouter des schémas explicatifs, soit sous forme d'image référencée (PNG de préréfence) ou directement avec la syntaxe [mermaid](https://mermaidjs.github.io/) connue et directement interprétée par GitLab ou GitHub.
+* Ajouter des schémas explicatifs, soit sous forme d'image référencée (PNG de préférence) ou directement avec la syntaxe [mermaid](https://mermaidjs.github.io/) connue et directement interprétée par GitLab ou GitHub.
 
 ## Attention aux fonctionnalités avancées
 
