@@ -36,7 +36,8 @@ Comme pour un langage comme Java ou C#, ... il est inconcevable de ne pas utilis
   * Règle du Boy-Scout (_Laisser le code plus propre qu'on ne l'a trouvé._)
   * etc...
 * Limiter la taille des fonctions et des fichiers.
-* Adapter le nommage des variables : plus le _scope_ d'une variable est large plus son nom doit être long et informatif.
+* Adapter le nommage des variables : plus le _scope_ (la portée) d'une variable est large plus son nom doit être long et informatif.
+* Les noms (des scripts, fonctions, variables, ...) doivent révéler les intentions et ne pas soulever l'ambiguïté.
 
 :bulb: Dans le cas des scripts Shell (comme pour des DDL ou SQL pour la base de données), **le livrable est à la fois la source**. C'est un avantage en ce qui concerne la gestion des versions et des livraisons que l'on peut directement et rapidement (pas d'outil, pas de compilation) effectuer via le gestionnaire de sources.
 
