@@ -36,6 +36,7 @@ Comme pour un langage comme Java ou C#, ... il est inconcevable de ne pas utilis
   * Règle du Boy-Scout (_Laisser le code plus propre qu'on ne l'a trouvé._)
   * etc...
 * Limiter la taille des fonctions et des fichiers.
+* Adapter le nommage des variables : plus le _scope_ d'une variable est large plus son nom doit être long et informatif.
 
 :bulb: Dans le cas des scripts Shell (comme pour des DDL ou SQL pour la base de données), **le livrable est à la fois la source**. C'est un avantage en ce qui concerne la gestion des versions et des livraisons que l'on peut directement et rapidement (pas d'outil, pas de compilation) effectuer via le gestionnaire de sources.
 
@@ -61,7 +62,7 @@ Celle-ci est accessible de différentes façons :
 
 * l'aide interne : `<commande> -h` ou `<commande> --help`
 * le manuel : `man <commande>` ou `help <commande>` pour les commandes de type _builtin_.
-* l'outil en ligne [cheat.sh](https://cheat.sh/) ou via la ligne de commandes `curl http://cht.sh/<commande>` (ou faire une fonction dans le `.bashrc` / `.profile`)
+* l'outil en ligne [cheat.sh](https://cheat.sh/) ou via la ligne de commandes `curl http://cht.sh/<commande>` (ou faire une fonction dans le `.bashrc` / `.profile`, voir en annexe).
 * l'outil en ligne [ExplainShell](https://explainshell.com/) qui permet de détailler des commandes complètes (avec leurs arguments et les différents _pipes_).
 * les différentes _cheat sheets_ ou _ref cards_ disponibles sur Internet (à imprimer et à garder à portée de main). Exemples :
   * <https://steve-parker.org/sh/cheatsheet.pdf>
@@ -71,35 +72,7 @@ Celle-ci est accessible de différentes façons :
 
 :bulb: Pour améliorer la maintenabilité on peut documenter en interne la façon dont on utilise les commandes (signification de tel ou tel argument, pourquoi tel argument, ...).
 
-## Règle 5 : Normaliser
-
-:pushpin: **Objectif :** améliorer la maintenabilité et la robustesse.
-
-* Partager les conventions entre tous les développeurs et les rendre facilement consultables (et modifiables).
-* Utiliser les mêmes en-têtes et le même style de commentaires et de description des fonctions.
-* Ajouter et configurer un fichier `.editorconfig` pour gérer vos normes en rajoutant un bloc `[*.{sh,ksh,bash}]`.
-* Normaliser le nommage de vos fichiers "bibliothèques" afin de pouvoir les identifier clairement. Par exemple : `lib_XXX.sh` (_librairies_), `func_XXXX.sh` (_functions_), `inc_XXXX.sh` (_includes_), etc...
-* Nommer les constantes (et variables d'environnement) en majuscules avec underscores et les variables (et fonctions) en minuscules et ne pas mélanger les styles : `PascalCase`, `camelCase`, `snake_case`, `UPPERCASE`, `lowercase`.
-* Préférer la syntaxe `${variable}` plutôt que `$variable` et s'y tenir partout (permet de rester homogène lorsqu'on utilise les techniques d'expansion `${BASH_VERSION%%.*}`).
-* Éviter de mélanger les formes syntaxiques (déclaration de fonctions, structures de contrôles, utilisation d'une variable, ...). Les syntaxes à utiliser doivent être présentes dans vos documents de normes interne.
-* Ne pas mélanger les différents interpréteurs, essayer de rester homogène dans tous vos scripts. L'interpréteur **bash** est un bon compromis entre sh (le plus compatible) et ksh (plus puissant) dont il reprend certains éléments.
-
-## Règle 6 : Être explicite
-
-:pushpin: **Objectif :** améliorer la maintenabilité et la robustesse.
-
-* Utiliser des extensions de fichiers appropriées (même si n'elles n'ont aucune importance pour le système) : `.sh` pour les shells standards, `.ksh` si c'est un shell spécifique _Korn Shell_, etc ...
-* Adapter également en conséquence, afin de lever l'ambiguïté, les en-têtes _shebang_ : `#!/bin/bash` (_on rappellera que celles-ci doivent obligatoirement être positionnées sur la première ligne du script, même avant n'importe quel autre commentaire ou même un espace_).
-* Nommer clairement vos variables, (pseudo-)constantes, fonctions, scripts.
-* Les variables utilisées dans les fonctions sont **globales par défaut**. Les variables locales à une fonction doivent donc être déclarées avec le mot-clef `local` (:warning: ne fonctionne pas avec l'interpréteur ksh, il faut utiliser `typeset` sans option).
-* Préférer attendre en entrée des arguments nommés :
-  * Préférer `monscript --test --param=value` plutôt que `monscript test value` (syntaxe _GNU-style_).
-  * Préférer `monscript -p1 value1 -p2 value2` plutôt que `monscript value1 value2` (syntaxe _getopts_).
-* Quand ils existent utiliser les arguments de scripts externes ou de commandes avec des **noms longs**, c'est beaucoup plus clair et donc maintenable. N'étant pas contraint par la taille des lignes c'est beaucoup plus clair et donc maintenable. Exemples :
-  * Écrire `mvn clean install --batch-mode --quiet` plutôt que `mvn clean install -B -q`
-  * Écrire `curl --request POST --header "content-type: application/json" --data "{\"param\": \"value\"}" http://site.org` plutôt que `curl -X POST -H "content-type: application/json" -d "{\"param\": \"value\"}" http://site.org`
-
-## Règle 7 : Documenter
+## Règle 5 : Documenter vos programmes
 
 :pushpin: **Objectif :** améliorer la maintenabilité et la robustesse.
 
@@ -116,6 +89,34 @@ Celle-ci est accessible de différentes façons :
   * soit dans _Confluence_
 * Produire un glossaire, un dictionnaire des données, expliciter les acronymes, ...
 * Penser aux journaux de suivi des decisions architecturales (ADR : _Architectural Decision Records_).
+
+## Règle 6 : Normaliser
+
+:pushpin: **Objectif :** améliorer la maintenabilité et la robustesse.
+
+* Partager les conventions entre tous les développeurs et les rendre facilement consultables (et modifiables).
+* Utiliser les mêmes en-têtes et le même style de commentaires et de description des fonctions.
+* Ajouter et configurer un fichier `.editorconfig` pour gérer vos normes en rajoutant un bloc `[*.{sh,ksh,bash}]`.
+* Normaliser le nommage de vos fichiers "bibliothèques" afin de pouvoir les identifier clairement. Par exemple : `lib_XXX.sh` (_librairies_), `func_XXXX.sh` (_functions_), `inc_XXXX.sh` (_includes_), etc...
+* Nommer les constantes (et variables d'environnement) en majuscules avec underscores et les variables (et fonctions) en minuscules et ne pas mélanger les styles : `PascalCase`, `camelCase`, `snake_case`, `UPPERCASE`, `lowercase`.
+* Préférer la syntaxe `${variable}` plutôt que `$variable` et s'y tenir partout (permet de rester homogène lorsqu'on utilise les techniques d'expansion `${BASH_VERSION%%.*}`).
+* Éviter de mélanger les formes syntaxiques (déclaration de fonctions, structures de contrôles, utilisation d'une variable, ...). Les syntaxes à utiliser doivent être présentes dans vos documents de normes interne.
+* Ne pas mélanger les différents interpréteurs, essayer de rester homogène dans tous vos scripts. L'interpréteur **bash** est un bon compromis entre sh (le plus compatible) et ksh (plus puissant) dont il reprend certains éléments.
+
+## Règle 7 : Être explicite
+
+:pushpin: **Objectif :** améliorer la maintenabilité et la robustesse.
+
+* Utiliser des extensions de fichiers appropriées (même si n'elles n'ont aucune importance pour le système) : `.sh` pour les shells standards, `.ksh` si c'est un shell spécifique _Korn Shell_, etc ...
+* Adapter également en conséquence, afin de lever l'ambiguïté, les en-têtes _shebang_ : `#!/bin/bash` (_on rappellera que celles-ci doivent obligatoirement être positionnées sur la première ligne du script, même avant n'importe quel autre commentaire ou même un espace_).
+* Nommer clairement vos variables, (pseudo-)constantes, fonctions, scripts.
+* Les variables utilisées dans les fonctions sont **globales par défaut**. Les variables locales à une fonction doivent donc être déclarées avec le mot-clef `local` (:warning: ne fonctionne pas avec l'interpréteur ksh, il faut utiliser `typeset` sans option).
+* Préférer attendre en entrée des arguments nommés :
+  * Préférer `monscript --test --param=value` plutôt que `monscript test value` (syntaxe _GNU-style_).
+  * Préférer `monscript -p1 value1 -p2 value2` plutôt que `monscript value1 value2` (syntaxe _getopts_).
+* Quand ils existent utiliser les arguments de scripts externes ou de commandes avec des **noms longs**, c'est beaucoup plus clair et donc maintenable. N'étant pas contraint par la taille des lignes c'est beaucoup plus clair et donc maintenable. Exemples :
+  * Écrire `mvn clean install --batch-mode --quiet` plutôt que `mvn clean install -B -q`
+  * Écrire `curl --request POST --header "content-type: application/json" --data "{\"param\": \"value\"}" http://site.org` plutôt que `curl -X POST -H "content-type: application/json" -d "{\"param\": \"value\"}" http://site.org`
 
 ## Règle 8 : Gérer les erreurs
 
@@ -151,16 +152,17 @@ Implémenter un mode d'auto-diagnostic, ou _Dry Run_ en anglais ou encore mode d
 :bulb: Idéalement le vrai mode d'exécution ne doit pas être celui par défaut, évitant ainsi de lancer des actions irrémédiables et non désirées par inadvertance.
 Ce mode de diagnostic (`--diag` par exemple) ou encore les modes `--help` ou `--version` sont des candidats possibles.
 
-Implémenter un mode verbeux (`--verbose`) et un mode silencieux (`--quiet`) permettant de jouer sur le nombre d'informations affichées dans la console.
+Implémenter un mode verbeux (`--verbose`) et un mode silencieux (`--quiet`) permettant d'agir sur le nombre d'informations affichées dans la console.
 
 :warning: La sortie dans un fichier de journalisation ne doit pas être impactée par ce paramètre.
 
-## Règle 9 : Sécuriser les exécutions
+## Règle 10 : Sécuriser les exécutions
 
 :pushpin: **Objectif :** améliorer la sécurité et la robustesse.
 
 * Valider tous les entrants et tous les pré-requis en début de script, lever une erreur dès que possible. Cependant dans certains cas non critiques on pourra proposer des alternatives, des valeurs ou des comportements par défaut.
 * Ne pas utiliser d'utilisateur à privilèges (`root`). Utiliser des comptes dont les droits sont **appropriés** au traitement à exécuter (ni plus ni moins).
+* Séparer clairement les données des applications.
 * Poser les droits **appropriés** (jamais de `777` / `rwx`) sur les arborescences.
 * Utiliser de façon **appropriée** les groupes et les comptes permettant d'intervenir chacun sur son arborescence.
 * Borner de façon **appropriée** les possibilités du script en contrôlant l'utilisation des ressources système via la commande `ulimit` :
@@ -191,7 +193,7 @@ Cet outil est utilisable soit en ligne (par copier-coller du script) soit direct
 
 ## Annexes
 
-### Quelques autres bonnes pratiques
+### Annexe 1 : Quelques autres bonnes pratiques
 
 :pushpin: Autres bonnes pratiques "en vrac" qu'il est bon de respecter.
 
@@ -205,7 +207,7 @@ Cet outil est utilisable soit en ligne (par copier-coller du script) soit direct
 * Limiter au strict minimum l'utilisation des variables globales.
 * Favoriser les techniques d'expansion ou de substitution de variables plutôt que d'utiliser les pipes avec `sed`, `awk`, ...
 
-### Checklists de contrôle
+### Annexe 2 : Checklists de contrôle
 
 :pushpin: _Checklist_ utilisable avant de remonter un fichier dans le gestionnaire de sources.
 
@@ -228,7 +230,7 @@ Cet outil est utilisable soit en ligne (par copier-coller du script) soit direct
 * [ ] Présence obligatoire d'un `;` avant un `do` s'il est placé sur la même ligne que le `for` ou le `while`.
 * [ ] Présence obligatoire de `;;` à la fin de chaque _cas_ d'un `case` (pour le dernier aussi même si ce n'est pas obligatoire).
 
-### Les interpréteurs de commandes Shell
+### Annexe 3 : Les interpréteurs de commandes Shell
 
 L'interpréteur Shell gère l'invite de commandes et l'exécution de commandes et scripts. Il existe différents interpréteurs Shell dont les plus connus sont :
 
@@ -237,7 +239,7 @@ L'interpréteur Shell gère l'invite de commandes et l'exécution de commandes e
 * **ksh** : _Korn Shell_ (écrit par David G. Korn) est un shell puissant présent sur les Unix propriétaires (ex: AIX), mais aussi disponible en version libre depuis 2000 (installable par exemple via `yum install ksh` ou `apt-get install ksh`).
 * **csh** : _C Shell_ un shell utilisant une syntaxe proche du langage C.
 
-### Quelques options utiles lors de la mise en place d'un script
+### Annexe 4 : Quelques options utiles lors de la mise en place d'un script
 
 :pushpin: A placer en début de script après la ligne _shebang_, celles-ci peuvent être particulièrement utiles lors de la mise au point d'un script.
 
@@ -253,13 +255,13 @@ L'interpréteur Shell gère l'invite de commandes et l'exécution de commandes e
 
 :bulb: Comme pour les arguments de commandes les versions longues sont à favoriser car plus parlantes. On utilisera `set -o` pour afficher la liste et l'état de chaque option (`on` / `off`).
 
-### Fonction d'accès rapide à cheat.sh
+### Annexe 5 : Fonction d'accès rapide à cheat.sh
 
 A placer au choix dans `.bashrc`,  `.bash_profile`,  `.profile` :
 
 ```sh
 cheat() {
-  if [ -z $1 ]; then
+  if [ -z "$1" ]; then
     echo "cheat <command>" 1>&2
     return 1
   else
@@ -271,7 +273,7 @@ cheat() {
 
 :bulb:  Exemple d'utilisation : `cheat grep`.
 
-### Fonction d'accès rapide à ExplainShell
+### Annexe 6 : Fonction d'accès rapide à ExplainShell
 
 A placer au choix dans `.bashrc`,  `.bash_profile`,  `.profile` :
 
@@ -290,3 +292,5 @@ expshell() {
 ```
 
 :bulb:  Exemple d'utilisation : `expshell "ls -l | grep -q fic"` : 1 seul argument encadré de guillemets.
+
+:warning: Nécessite Python d'installé ou tout autre moyen d'URL _encoder_.
