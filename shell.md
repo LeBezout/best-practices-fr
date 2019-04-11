@@ -88,7 +88,7 @@ Celle-ci est accessible de différentes façons :
 * Documenter et partager vos processus, méthodes et normes internes :
   * soit au format Markdown dans votre dépôt
   * soit dans _Confluence_
-* Produire un glossaire, un dictionnaire des données, expliciter les acronymes, ...
+* Produire un glossaire, un dictionnaire des données, un lexique, expliciter les acronymes, ...
 * Penser aux journaux de suivi des decisions architecturales (ADR : _Architectural Decision Records_).
 
 ## Règle 6 : Normaliser
