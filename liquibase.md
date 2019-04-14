@@ -36,8 +36,9 @@ Les contextes sont des **étiquettes** permettant de contrôler les changements 
 ## Bonnes pratiques de conception des fichiers changelog
 
 * Organiser vos fichiers de _changelogs_ avec un fichier principal et des fichiers par version applicative comme il est indiqué dans les bonnes pratiques de l'outil (on peut également isoler les données, de test ou d'initialisation tel que des paramètres, dans un dossier dédié, par exemple _data_).
-* Favoriser le format XML pour l'écriture des fichiers _changelogs_, ce format est connu de tous (dev, ops, AD) et ne nécessite pas de dépendances externes (fichiers jar).
-* L'attribut `logicalFilePath` d'un fichier _changelog_ doit juste contenir le nom du fichier.
+* Favoriser le format XML pour l'écriture des fichiers _changelogs_, ce format est connu de tous (dev, ops, AD), pris en charge par de nombreux outils (par exemple un simple _browser_) et ne nécessite pas de dépendances externes (fichiers jar).
+* L'attribut `logicalFilePath` d'un fichier _changelog_ doit juste contenir le nom du fichier. Celui-ci doit également **être différent pour chaque fichier**, attention aux copier-coller !
+* Positionner l'attribut `objectQuotingStrategy` sur le `databaseChangeLog` de plus au niveau (ex ⇒ `db-changelog-master.xml`). La valeur `QUOTE_ONLY_RESERVED_WORDS` est conseillée.
 * L'attribut `author` d'un _changeset_ doit être normalisé, utiliser par exemple le nom de l'application ou du composant.
 * L'attribut `id` d'un _changeset_ doit être normalisé, utiliser par exemple le numéro de version suivi d'un numéro incrémental (l'id devant évidement être unique).
 * Prévoir pour chaque _changeset_ son rollback. Se baser sur la documentation officielle car dans la majorité des cas il n'y aura rien à prévoir (Vérifier dans la documentation officielle si `auto-rollback = yes`).
@@ -50,12 +51,21 @@ Les contextes sont des **étiquettes** permettant de contrôler les changements 
 
 * Consulter la documentation officielle.
 * Utiliser un contexte et des fichiers dédiés pour créer des jeux de tests.
-* Décorréler l'exécution de Liquibase du déploiement applicatif (même si c'est très pratique). Intégrer cette exécution comme une étape indépendante du processus de mise à jour de l'application. L'analyse des problèmes n'en sera que facilité.
+* Décorréler l'exécution de _Liquibase_ du déploiement applicatif (même si c'est très pratique). Intégrer cette exécution comme une étape indépendante du processus de mise à jour de l'application. L'analyse des problèmes n'en sera que facilité.
+* Exécuter toujours une commande `status` avant un `update` pour contrôler ce qu'il va se passer.
 * Utiliser un projet (voire même un dépôt GIT) dédié pour stocker les sources des _changelogs_ et packager celui-ci sous forme d'un module Maven.
 * Écrire une classe de test utilisant une base de données "in memory" (H2 par exemple) permettant de valider les fichiers _changelogs_, y compris le rollback.
 * Implémenter un élément (une servlet, un webservice, ...) permettant de connaître l'état de la base de données (_liquibase status_).
+* Penser à ne pas oublier et à gérer correctement les _tablespaces_. Utiliser par exemple des _property_ pour gérer l'externalisation de leurs noms.
 
-## Annexe : versioning Liquibase
+## Annexes
+
+### Trucs & astuces
+
+* Utiliser plutôt `liquibase status --verbose` qui affiche le nom des _changesets_ à exécuter plutôt que `liquibase status` qui n'affiche uniquement le nombre.
+* Pour faire un _rollback_ complet utiliser par exemple `liquibase rollbackToDate 1970-01-01T00:00:00`.
+
+### Versioning Liquibase
 
 | Version Liquibase | Version minimale Java | Dépendances obligatoires | Dépendances optionnelles |
 |-------------------|-----------------------|--------------------------|--------------------------|
