@@ -2,7 +2,20 @@
 
 :bulb: [Site officiel - Page des _Best Practices_](http://www.liquibase.org/bestpractices.html)
 
-## Avant-propos : rappel des notions clefs
+## Rappel des notions clefs
+
+### Principe général
+
+![concept](liquibase.png)
+
+_Liquibase_ pilote via JDBC n'importe quelle base de données. On peut donc l'exécuter via un script, une commande java, un programme java, une commande Maven (via un _plugin_), ...
+
+Nous avons besoin à minima :
+
+* de l'exécutable java
+* des informations de connexions à la base de données via JDBC (par exemple dans un fichier properties)
+* des fichiers _changelog_ contenant les modifications à appliquer
+* du jar liquibase
 
 ### Changelog
 
@@ -28,6 +41,8 @@ Les contextes sont des **étiquettes** permettant de contrôler les changements 
 
 :bulb: Son utilisation est fortement conseillée et est même indispensable dans un contexte DevOps.
 
+:bulb: Même s'il n'est pas utilisé sur les environnements cibles _Liquibase_ peut se révéler être un outil précieux pour le développeur permettant par exemple d'initialiser une base de données de développement ou de test (avec des jeux de données) en quelques secondes.
+
 ## Règles fondamentales
 
 * :warning: **Ne jamais intervenir manuellement sur le schéma de base.** Toute modification doit entraîner la création d'un nouveau _changeset_.
@@ -43,25 +58,36 @@ Les contextes sont des **étiquettes** permettant de contrôler les changements 
 * L'attribut `id` d'un _changeset_ doit être normalisé, utiliser par exemple le numéro de version suivi d'un numéro incrémental (l'id devant évidement être unique).
 * Prévoir pour chaque _changeset_ son rollback. Se baser sur la documentation officielle car dans la majorité des cas il n'y aura rien à prévoir (Vérifier dans la documentation officielle si `auto-rollback = yes`).
 * Prévoir dans les _changelogs_ une compatibilité avec différents systèmes, par exemple une cible Oracle, un poste de développement avec MySQL et des tests unitaires exécutés sur une base H2 ou HSQL.
-* Définir les changements de la manière la plus élémentaire possible (1 changement = 1 changeset) ainsi le code de rollback est plus facile à implémenter.
+* Définir les changements de la manière la plus élémentaire possible (1 changement = 1 _changeset_) ainsi le code de rollback est plus facile à implémenter.
 * Éviter l'utilisation de `includeAll` qui permet d'inclure dans le _changelog_ principal tous les _changelogs_ d'un sous-dossier. Préférer utiliser `include` en nommant les fichiers un par un pour éviter de prendre en compte des éléments non désirés ou pour pouvoir spécifier des contextes différents.
-* Écrire et maintenir à la main vos fichiers changelogs (s'ils sont générés la première fois il faut les revoir : modification des attributs author ou id, contrôles des types, etc...)
+* Écrire et maintenir à la main vos fichiers changelogs (s'ils sont générés la première fois il faut les revoir : modification des attributs author ou id, contrôles et ajustement des types, etc...).
+* Limiter **au strict minimum** l'usage de fichiers SQL.
+* Attention à certaines instructions comme `modifyDataType`, `addNotNullConstraint`, ... qui peuvent faire perdre des données (par exemple les commentaires, nullable, ...).
+* Considérer l'utilisation de _property_  conditionnées via l'attribut `dbms` pour gérer les différents SGBD. Exemple :
+  * `<property name="current.date" value="sysdate" dbms="oracle"/>`
+  * `<property name="current.date" value="current_timestamp" dbms="mysql, hsqldb, h2"/>`
+* Penser à ne pas oublier et à gérer correctement les _tablespaces_. Utiliser par exemple des _property_ pour gérer l'externalisation de leurs noms.
 
 ## Bonnes pratiques méthodologiques de mise en oeuvre
 
 * Consulter la documentation officielle.
 * Utiliser un contexte et des fichiers dédiés pour créer des jeux de tests.
 * Décorréler l'exécution de _Liquibase_ du déploiement applicatif (même si c'est très pratique). Intégrer cette exécution comme une étape indépendante du processus de mise à jour de l'application. L'analyse des problèmes n'en sera que facilité.
+  * La base de données est généralement un composant critique. Le mode automatisé en sous-marin n'est pas forcément le plus adapté.
+  * Plusieurs composants ou le même composant en cluster peut vouloir mettre à jour en même temps. Autant éviter des _locks_ inutiles.
+  * La base de données peut avoir besoin d'une mise à jour de façon indépendante. C'est un composant en tant que tel.
 * Exécuter toujours une commande `status` avant un `update` pour contrôler ce qu'il va se passer.
 * Utiliser un projet (voire même un dépôt GIT) dédié pour stocker les sources des _changelogs_ et packager celui-ci sous forme d'un module Maven.
 * Écrire une classe de test utilisant une base de données "in memory" (H2 par exemple) permettant de valider les fichiers _changelogs_, y compris le rollback.
 * Implémenter un élément (une servlet, un webservice, ...) permettant de connaître l'état de la base de données (_liquibase status_).
-* Penser à ne pas oublier et à gérer correctement les _tablespaces_. Utiliser par exemple des _property_ pour gérer l'externalisation de leurs noms.
 
 ## Annexes
 
 ### Trucs & astuces
 
+* Pour les tests ou la validation préférer l'utilisation des bases H2 ou HSQL plutôt que Derby, cette dernière n'offrant pas de mode de compatibilité vers les SGBD phares (à positionner dans l'URL JDBC) :
+  * Compatibilité vers Oracle : `sql.syntax_ora=true` pour HSQL ou `MODE=Oracle` pour H2.
+  * Compatibilité vers MySQL : `sql.syntax_mys=true` pour HSQL ou `MODE=MySQL` pour H2.
 * Utiliser plutôt `liquibase status --verbose` qui affiche le nom des _changesets_ à exécuter plutôt que `liquibase status` qui n'affiche uniquement le nombre.
 * Pour faire un _rollback_ complet utiliser par exemple `liquibase rollbackToDate 1970-01-01T00:00:00`.
 
