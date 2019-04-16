@@ -1,6 +1,6 @@
 # Bonnes pratiques de rédaction en Markdown
 
-![Markdown logo](https://upload.wikimedia.org/wikipedia/commons/4/48/Markdown-mark.svg)
+![logo](images/markdown_logo.svg)
 
 ## Avant-propos : pourquoi utiliser Markdown ?
 
