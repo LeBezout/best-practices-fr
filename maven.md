@@ -1,5 +1,7 @@
 # Bonnes pratiques d'utilisation de Maven
 
+![logo](images/maven_logo.png)
+
 ## Avant-propos : historique des grandes versions
 
 * Maven `1.0` : 07/2004 -> 1.1 : 06/2007
@@ -8,6 +10,8 @@
 * Maven `3.1.1` : 10/2013 (Java 5)
 * Maven `3.2.6` : 12/2014 (Java 6)
 * Maven `3.6.0` : 10/2018 (Java 7)
+
+> :information_source: Maven 3.3+ require JDK 1.7 or above to execute. [maven.apache.org](https://maven.apache.org/index.html)
 
 ## Respecter les standards Maven
 
@@ -57,7 +61,7 @@
 * Le code généré doit être dans le dossier `target` et isolé dans un module dédié (avec son propre cycle de vie et gestion de version)
 * Utiliser les fonctionnalités avancées telles que les filtres, les profils, les "assembly"
 * Comme pour les _packages_ Java favoriser l'utilisation des minuscules pour le nommage des artefacts (`groupId`, `artefactId`)
-* Ne répéter pas le `groupId` dans les `artefactId`
+* Nommer clairement vos composants, par exemple ne répéter pas le `groupId` dans les `artefactId`
 * Analyser vos dépendances avec `mvn dependency:analyze`
 
 ## Assurer un build reproductible
@@ -74,7 +78,7 @@
 
 * Aucun secret ne doit apparaître en clair (... ou en base64) dans vos fichiers de configurations ou filtres
 * Mettre à jour régulièrement vers des versions plus récentes vos dépendances
-* Contrôler les failles de sécurité potentielles via le plugin [**OWASP Dependency Check**](https://jeremylong.github.io/DependencyCheck/dependency-check-maven/index.html)
+* Contrôler les failles de sécurité potentielles via le plugin [**OWASP Dependency Check**](https://jeremylong.github.io/DependencyCheck/dependency-check-maven/index.html) ou [Snyk Vulnerabilities Scanning](https://blog.jetbrains.com/idea/2019/03/catching-vulnerabilities-instantly-in-your-intellij-idea-environment/)
 * N'utiliser pas de versions de Maven trop anciennes (Maven 2.X par exemple)
 
 ## Liens utiles

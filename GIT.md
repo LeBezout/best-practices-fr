@@ -1,8 +1,10 @@
 # Bonnes pratiques d'utilisation de GIT
 
+![logo](images/git_logo.png)
+
 ## Rappel des concepts
 
-![concept](git_concepts_en.png)
+![concept](images/git_concepts_en.png)
 
 ## La configuration utilisateur
 
@@ -11,6 +13,7 @@
 * Chaque utilisateur doit avoir un fichier `.gitconfig` correctement renseigné (à minima avec `user.name` et `user.email`).
 * Vérifier votre configuration personnelle en tapant `git config --global --list  --show-origin`.
 * Vérifier que cette configuration est bien celle prise en compte par vos différents IDE.
+* Dans le cas ou l'utilisateur est derrière d'un proxy Web il faut utiliser un paramétrage de type "_domain specific_" plutôt que global, ceci permettant de gérer correctement les accès intranet comme internet : `git config --global http.https://domain.com.proxy http://proxyUsername:proxyPassword@proxy.server.com:port`.
 
 ## L'initialisation du dépôt
 
