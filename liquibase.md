@@ -50,7 +50,7 @@ Les contextes sont des **étiquettes** permettant de contrôler les changements 
 
 ## Règles fondamentales
 
-* :warning: **Ne jamais intervenir manuellement sur le schéma de base.** Toute modification doit entraîner la création d'un nouveau _changeset_ et une mise à jour via _Liquibase_.
+* :warning: **Ne jamais intervenir manuellement sur le schéma de base.** Toute modification doit entraîner la création d'un nouveau _changeset_ et une mise à jour **uniquement** via _Liquibase_.
 * :warning: **Un _changeset_ est IMMUABLE.** Si celui-ci a déjà été exécuté sur un des environnements projet il ne doit plus jamais être modifié dans le fichier _changelogs_.
 * :warning: **Apporter une attention particulière aux commandes _rollback_.** Contrôler notamment via la documentation le paramètre `auto-rollback` de chaque instruction utilisée.
 
@@ -70,7 +70,9 @@ Les contextes sont des **étiquettes** permettant de contrôler les changements 
   * `<property name="current.date" value="sysdate" dbms="oracle"/>`
   * `<property name="current.date" value="current_timestamp" dbms="mysql, hsqldb, h2"/>`
 * Utiliser un contexte et des fichiers dédiés pour créer des jeux de tests.
-* Pour les projets Java, écrire une classe de test utilisant une base de données "in memory" (H2 par exemple) permettant de valider les fichiers _changelogs_, y compris le rollback.
+* Pour les projets Java :
+  * écrire une classe de test utilisant une base de données "in memory" (H2 par exemple) permettant de valider les fichiers _changelogs_, y compris le rollback.
+  * désactiver la mise à jour automatique de schéma avec _Hibernate_ (`hbm2ddl.auto`) ou JPA 2.1 (`javax.persistence.schema-generation.database.action`).
 * Limiter **au strict minimum** l'usage des `preConditions`.
   * Celles-ci sont souvent signes de _bidouilles_ voir de détournement de l'outil.
   * Celles-ci sont jouées à chaque _update_ car le _changeset_ n'est jamais ajouté à la table `DATABASECHANGELOG` tant que la condition n'est pas vérifiée.
@@ -88,7 +90,7 @@ Les contextes sont des **étiquettes** permettant de contrôler les changements 
   * On ne les utilisera principalement que pour de l'ajout de données techniques ou de paramétrage.
   * On les isolera dans un dossier dédié (`data` par exemple).
 * Intégrer les _changelogs_ aux processus de revue et/ou d'audit.
-* Utiliser un projet (voire même un dépôt GIT) dédié pour stocker les sources des _changelogs_ et packager celui-ci sous forme d'un module Maven indépendant.
+* Utiliser un projet (voire même un dépôt GIT) dédié pour stocker les sources des _changelogs_ et packager celui-ci sous forme d'un module indépendant.
 
 ### Assurer l'exploitabilité
 
@@ -108,6 +110,7 @@ Les contextes sont des **étiquettes** permettant de contrôler les changements 
 
 * Comme toute source il faut utiliser un système de gestion de sources (Git).
 * Comme tout script aucun mot de passe ne doit apparaître en clair.
+* Avec le _plugin_ Maven (généralement uniquement sur le poste du développeur) il faut positionner dans la configuration `<promptOnNonLocalDatabase>true</promptOnNonLocalDatabase>` pour alerter de la tentative de mise à jour potentielle d'une base distante.
 
 ## Annexes
 
