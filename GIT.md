@@ -43,6 +43,11 @@
 * Pousser (`push`) régulièrement sur le serveur pour éviter de perdre malencontreusement son travail (idéalement sur sa propre branche).
 * Favoriser l'utilisation de _Pull Requests_ (GitHub) ou _Merge Requests_ (GitLab) et de revues collégiales.
 * Utiliser une méthode du type GitFlow, JGit-Flow, GitHub Flow, GitLab Flow, etc...
+* Ne pas créer de branches "au cas où" (généralement des branches de maintenance). Une branche peut être créée au dernier moment à partir d'un tag ou même d'un commit.
+* Supprimer les branches inutiles ou obsolètes :
+  * Sous _GitLab_ : via les _Merge Requests_ cocher la case _Delete source branch_.
+  * Sous _GitHub_ : via le _Pull Request_ cliquer sur le bouton "_Delete branch_" une fois l'action réalisée.
+  * L'option de _squash_ peut également être à considérer dans certains cas.
 
 ## Les commits
 
@@ -51,9 +56,12 @@
 * Écrire de bons messages de commits comme expliqué ici <https://chris.beams.io/posts/git-commit/>.
 * Écrire des messages de commits clairs, explicites et concis. Partager votre norme entre tous les développeurs.
 * Ne pas mélanger différentes choses : un commit = une fonctionnalité / une correction.
-* Préciser quand c'est possible les numéros des Issues, des Tickets ou autres tâches (JIRA, ...) dans le message du commit (1 commit par tâche).
+* Préciser quand c'est possible les numéros des _Issues_, des tickets ou autres tâches (JIRA, ...) dans le message du commit (1 commit par tâche).
 * Éviter les "commit merge" si ce n'est pas nécessaire, utiliser par exemple `git pull --rebase` ou la configuration `pull.rebase=true` par exemple.
+  * Sous _GitLab_ : activer l'option "_Fast-forward merge without a merge commit_".
+  * Sous _GitHub_ : choisir l'option "_Rebase_".
 * Avant de pousser des modifications liées ne pas hésiter à les regrouper dans un seul commit (fonctionnellement cohérent et homogène) via la fonctionnalité de "_squash_" (via `git rebase -i`).
+* Réécrire le dernier message de commit si celui-ci contient une erreur ou une faute de frappe via `git commit --amend`.
 * Limiter l'utilisation de la commande `git commit -m 'message'` car elle contraint le message à la première ligne, ce qui dans certains cas est insuffisant.
 
 ## Références

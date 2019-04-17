@@ -38,6 +38,7 @@ Comme pour un langage comme Java ou C#, ... il est inconcevable de ne pas utilis
 * Limiter la taille des fonctions et des fichiers.
 * Adapter le nommage des variables : plus le _scope_ (la portée) d'une variable est large plus son nom doit être long et informatif.
 * Les noms (des scripts, fonctions, variables, ...) doivent révéler les intentions et ne pas soulever l'ambiguïté.
+* Ne pas laisser de code mort en commentaires.
 
 :bulb: Dans le cas des scripts Shell (comme pour des DDL ou SQL pour la base de données), **le livrable est à la fois la source**. C'est un avantage en ce qui concerne la gestion des versions et des livraisons que l'on peut directement et rapidement (pas d'outil, pas de compilation) effectuer via le gestionnaire de sources.
 
@@ -112,6 +113,7 @@ Celle-ci est accessible de différentes façons :
 * Adapter également en conséquence, afin de lever l'ambiguïté, les en-têtes _shebang_ : `#!/bin/bash` (_on rappellera que celles-ci doivent obligatoirement être positionnées sur la première ligne du script, même avant n'importe quel autre commentaire ou même un espace_).
 * Nommer clairement vos variables, (pseudo-)constantes, fonctions, scripts.
 * Les variables utilisées dans les fonctions sont **globales par défaut**. Les variables locales à une fonction doivent donc être déclarées avec le mot-clef `local` (:warning: ne fonctionne pas avec l'interpréteur ksh, il faut utiliser `typeset` sans option).
+* Pour une meilleure lisibilité, affecter rapidement les variables "arguments" (`$1`, `$2`, ...) dans des variables nommées clairement. Exemple : `fichier_source=$1`.
 * Préférer attendre en entrée des arguments nommés :
   * Préférer `monscript --test --param=value` plutôt que `monscript test value` (syntaxe _GNU-style_).
   * Préférer `monscript -p1 value1 -p2 value2` plutôt que `monscript value1 value2` (syntaxe _getopts_).
@@ -230,6 +232,7 @@ Cet outil est utilisable soit en ligne (par copier-coller du script) soit direct
 * [ ] Présence obligatoire d'un `;` avant un `then` s'il est placé sur la même ligne que le `if`.
 * [ ] Présence obligatoire d'un `;` avant un `do` s'il est placé sur la même ligne que le `for` ou le `while`.
 * [ ] Présence obligatoire de `;;` à la fin de chaque _cas_ d'un `case` (pour le dernier aussi même si ce n'est pas obligatoire).
+* [ ] Présence obligatoire de _backslash_ `\` pour échapper des guillemets à l'intérieur des chaînes.
 
 ### Annexe 3 : Les interpréteurs de commandes Shell
 
@@ -239,6 +242,8 @@ L'interpréteur Shell gère l'invite de commandes et l'exécution de commandes e
 * **bash** : _Bourne Again Shell_ est une amélioration du Bourne Shell, disponible par défaut sous Linux et Mac OS X. **C'est généralement celui par défaut**.
 * **ksh** : _Korn Shell_ (écrit par David G. Korn) est un shell puissant présent sur les Unix propriétaires (ex: AIX), mais aussi disponible en version libre depuis 2000 (installable par exemple via `yum install ksh` ou `apt-get install ksh`).
 * **csh** : _C Shell_ un shell utilisant une syntaxe proche du langage C.
+
+:bulb: Sur certains systèmes, `/bin/sh` est un lien symbolique vers `/bin/bash` (par exemple : Red Hat, CentOS).
 
 ### Annexe 4 : Quelques options utiles lors de la mise en place d'un script
 
