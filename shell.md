@@ -90,7 +90,7 @@ Celle-ci est accessible de différentes façons :
   * soit au format Markdown dans votre dépôt
   * soit dans _Confluence_
 * Produire un glossaire, un dictionnaire des données, un lexique, expliciter les acronymes, ...
-* Penser aux journaux de suivi des decisions architecturales (ADR : _Architectural Decision Records_).
+* Penser aux journaux de suivi des décisions architecturales (ADR : _Architectural Decision Records_).
 
 ## Règle 6 : Normaliser
 
@@ -102,7 +102,7 @@ Celle-ci est accessible de différentes façons :
 * Normaliser le nommage de vos fichiers "bibliothèques" afin de pouvoir les identifier clairement. Par exemple : `lib_XXX.sh` (_librairies_), `func_XXXX.sh` (_functions_), `inc_XXXX.sh` (_includes_), etc...
 * Nommer les constantes (et variables d'environnement) en majuscules avec underscores et les variables (et fonctions) en minuscules et ne pas mélanger les styles : `PascalCase`, `camelCase`, `snake_case`, `UPPERCASE`, `lowercase`.
 * Préférer la syntaxe `${variable}` plutôt que `$variable` et s'y tenir partout (permet de rester homogène lorsqu'on utilise les techniques d'expansion `${BASH_VERSION%%.*}`).
-* Éviter de mélanger les formes syntaxiques (déclaration de fonctions, structures de contrôles, utilisation d'une variable, ...). Les syntaxes à utiliser doivent être présentes dans vos documents de normes interne.
+* Éviter de mélanger les formes syntaxiques (déclaration de fonctions, structures de contrôles, utilisation d'une variable, ...). Les syntaxes à utiliser doivent être présentes dans vos documents de normes internes.
 * Ne pas mélanger les différents interpréteurs, essayer de rester homogène dans tous vos scripts. L'interpréteur **bash** est un bon compromis entre sh (le plus compatible) et ksh (plus puissant) dont il reprend certains éléments.
 
 ## Règle 7 : Être explicite
@@ -216,7 +216,7 @@ Cet outil est utilisable soit en ligne (par copier-coller du script) soit direct
 
 * [ ] Fichier avec une extension cohérente `.sh` ou `.ksh`, ...
 * [ ] Fichier au format `UTF-8` (avec accents) ou `US-ASCII` (sans accents).
-* [ ] Présence de l'en-tête _shebang_ cohérente avec l'extension choisie.
+* [ ] Présence de l'en-tête _shebang_ cohérent avec l'extension choisie.
 * [ ] Les variables, fonctions et constantes sont correctement nommées et de façon homogène dans tout le script.
 * [ ] Le script est documenté (en-tête avec auteur, date, description, ...), sans copier-coller non modifié.
 * [ ] Les fonctions sont documentées (entrées / sorties / effets de bord).
@@ -227,7 +227,7 @@ Cet outil est utilisable soit en ligne (par copier-coller du script) soit direct
 :pushpin: _Checklist_ de contrôle de syntaxe permettant de détecter des erreurs "bêtes".
 
 * [ ] Présence de l'en-tête _shebang_ **sur la première ligne**.
-* [ ] Présence d'aucun espace de chaque côte du symbole d'affection d'une variable : `var=valeur`.
+* [ ] Présence d'aucun espace de chaque côté du symbole d'affection d'une variable : `var=valeur`.
 * [ ] Présence obligatoire d'espace autour des symboles de test `[` et `]` : `if [ -d $dir ]`.
 * [ ] Présence obligatoire d'un `;` avant un `then` s'il est placé sur la même ligne que le `if`.
 * [ ] Présence obligatoire d'un `;` avant un `do` s'il est placé sur la même ligne que le `for` ou le `while`.

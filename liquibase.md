@@ -5,7 +5,7 @@
 > _Liquibase_ est une bibliothèque open source pour le suivi, la gestion et l'application des changements de schéma de base de données indépendante du SGBD. Elle a été lancé en 2006 pour faciliter le suivi des modifications de la base de données, en particulier dans un environnement de développement logiciel agile. [Wikipédia](https://fr.wikipedia.org/wiki/Liquibase)
 
 * :information_source: Une version commerciale ajoutant certaines fonctionnalités est proposée par la société _Datical_.
-* :information_source: Le produit concurrent principal est [Flyway](https://flywaydb.org/). Les 2 produits sont par exemple nativement intégrés à des solutions telle que _Spring Boot_.
+* :information_source: Le produit concurrent principal est [Flyway](https://flywaydb.org/). Les 2 produits sont par exemple nativement intégrés à des solutions telles que _Spring Boot_.
 
 ## Avantages de la solution
 
@@ -56,7 +56,7 @@ Les contextes sont des **étiquettes** permettant de contrôler les changements 
 
 ## Bonnes pratiques de conception des fichiers changelog
 
-:bulb: On pourra préalablement prendre connaissance des recommendations du site officiel sur la [page des _Best Practices_](http://www.liquibase.org/bestpractices.html).
+:bulb: On pourra préalablement prendre connaissance des recommandations du site officiel sur la [page des _Best Practices_](http://www.liquibase.org/bestpractices.html).
 
 ### Assurer la robustesse
 
@@ -100,8 +100,8 @@ Les contextes sont des **étiquettes** permettant de contrôler les changements 
   * Plusieurs composants ou le même composant en _cluster_ peuvent vouloir mettre à jour la base en même temps. Autant éviter des _locks_ inutiles, voir des erreurs dues à des _timeout_.
   * La base de données peut avoir besoin d'une mise à jour de façon indépendante (sans que l'on ait une _webapp_ à déployer). C'est un composant en tant que tel.
 * Tagger les grandes versions applicatives.
-  * Plusieurs techniques possible : via la balise `tagDatabase` ou via la commande `tag`.
-  * Plusieurs méthodes possible : avant ou après les mises à jour.
+  * Plusieurs techniques possibles : via la balise `tagDatabase` ou via la commande `tag`.
+  * Plusieurs méthodes possibles : avant ou après les mises à jour.
 * Penser à ne pas oublier et à gérer correctement les _tablespaces_. Utiliser par exemple des _property_ pour gérer l'externalisation de leurs noms qui peut varier d'un environnement à l'autre.
 * Implémenter un élément (une _servlet_, un _WebService_, un _endpoint_, un _MBean_ JMX, ...) permettant de connaître l'état de la base de données (_liquibase status_).
 * Exécuter toujours une commande `status` comme un _dry run_ (exécution à blanc) avant un `update` pour contrôler les mises à jour que l'outil va devoir appliquer.

@@ -13,7 +13,7 @@
 * Chaque utilisateur doit avoir un fichier `.gitconfig` correctement renseigné (à minima avec `user.name` et `user.email`).
 * Vérifier votre configuration personnelle en tapant `git config --global --list  --show-origin`.
 * Vérifier que cette configuration est bien celle prise en compte par vos différents IDE.
-* Dans le cas ou l'utilisateur est derrière d'un proxy Web il faut utiliser un paramétrage de type "_domain specific_" plutôt que global, ceci permettant de gérer correctement les accès intranet comme internet : `git config --global http.https://domain.com.proxy http://proxyUsername:proxyPassword@proxy.server.com:port`.
+* Dans le cas où l'utilisateur est derrière d'un proxy Web il faut utiliser un paramétrage de type "_domain specific_" plutôt que global, ceci permettant de gérer correctement les accès intranet comme internet : `git config --global http.https://domain.com.proxy http://proxyUsername:proxyPassword@proxy.server.com:port`.
 
 ## L'initialisation du dépôt
 
@@ -26,7 +26,7 @@
 
 ## Le format des fichiers
 
-:pushpin: Quelques règles simples de mise en oeuvre pour éviter les problèmes liés au format des fichiers remontés :
+:pushpin: Quelques règles simples de mise en œuvre pour éviter les problèmes liés au format des fichiers remontés :
 
 * Toujours terminer ses fichiers par une ligne vide.
 * Préférer les espaces (2 à 4) par rapport aux tabulations.
@@ -66,7 +66,7 @@
 
 ## Références
 
-### Anti-sèches
+### Antisèches
 
 * [Git Commands and Best Practices Cheat Sheet](https://zeroturnaround.com/rebellabs/git-commands-and-best-practices-cheat-sheet/) par _zeroturnaround_
 * [GIT Cheat Sheet](https://groupe-sii.github.io/cheat-sheets/git/index.html) par _SII_
