@@ -74,7 +74,7 @@ Les contextes sont des **étiquettes** permettant de contrôler les changements 
   * écrire une classe de test utilisant une base de données "_in memory_" (H2 par exemple) permettant de valider les fichiers _changelogs_, y compris le _rollback_.
   * désactiver la mise à jour automatique de schéma avec _Hibernate_ (`hbm2ddl.auto`) ou JPA 2.1 (`javax.persistence.schema-generation.database.action`).
 * Limiter **au strict minimum** l'usage des `preConditions`.
-  * Celles-ci sont souvent signe de _bidouilles_ voir de détournement de l'outil.
+  * Celles-ci sont souvent signe de _bidouilles_ voire un potentiel détournement de l'outil.
   * Celles-ci sont jouées à chaque exécution car le _changeset_ n'est jamais ajouté à la table `DATABASECHANGELOG` tant que la condition n'est pas vérifiée.
 
 ### Assurer la maintenabilité
