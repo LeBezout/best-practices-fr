@@ -53,8 +53,11 @@
 
 :pushpin: Les messages de commit, voir les commits sont souvent négligés. C'est une mauvaise pratique aboutissant à un historique peu clair (dégradant la maintenabilité). Quelques consignes à respecter :
 
-* Écrire de bons messages de commits comme expliqué ici <https://chris.beams.io/posts/git-commit/>.
-* Écrire des messages de commits clairs, explicites et concis. Partager votre norme entre tous les développeurs.
+* Écrire de bons messages de commits comme expliqué dans cet article ["How to Write a Git Commit Message"](https://chris.beams.io/posts/git-commit/).
+* Écrire des messages de commits clairs, explicites et concis.
+  * Favoriser l'impératif.
+  * Partager votre norme entre tous les développeurs.
+  * Normaliser les messages peut permettre de générer des _changelogs_ automatiquement : Exemple du framework de test Javascript [Karma](http://karma-runner.github.io/3.0/dev/git-commit-msg.html).
 * Ne pas mélanger différentes choses : un commit = une fonctionnalité / une correction.
 * Préciser quand c'est possible les numéros des _Issues_, des tickets ou autres tâches (JIRA, ...) dans le message du commit (1 commit par tâche).
 * Éviter les "commit merge" si ce n'est pas nécessaire, utiliser par exemple `git pull --rebase` ou la configuration `pull.rebase=true` par exemple.
