@@ -87,6 +87,20 @@
 * Ne pas mettre de `;` à la fin d'une déclaration des éléments d'un bloc `try-with-resource` : `try (element = new Element())`
 * Ne pas tester le `null` avant d'utiliser une instruction `instanceof` (qui retourne `false` si l'élément est `null`)
 
+## Toujours positionner les _timeouts_
+
+Afin d'éviter les timeouts infinis, souvent positionnés par défaut, on veillera à toujours positionner, paramétrer et externaliser les différentes valeurs des timeouts. Par exemple pour les appels suivants :
+
+* WebServices SOAP JAX-WS
+* WebServices REST JAX-RS
+* Clients HTTP
+* Clients SMTP
+
+On différenciera et on positionnera :
+
+* le **timeout de connexion** (_connection timeout_), relativement court (exemple : 10sec)
+* le **timeout de réponse** (_read timeout_, _response timeout_) adapté à ce que l'on est sensé récupérer (un petit flux JSON ou un gros fichier), ni trop faible ni trop élevé (exemple : 60 sec).
+
 ## Divers
 
 * Comparator vs Comparable  : On utilise en général `Comparable` pour l'ordre naturel et l'on écrit un ou plusieurs `Comparator` pour les autres besoins, ou si l'on n'est pas le propriétaire de la classe
