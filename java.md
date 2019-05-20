@@ -46,7 +46,11 @@
 ## Java 8 "Optional"
 
 * Utiliser `Optional` dès que possible. Le code est dès lors auto-documenté, plus besoin d'aller voir le source pour vérifier si `null` peut être retourné.
-* Encapsuler les retours d'une bibliothèque externes dans un `Optional` via `Optional.ofNullable()`
+* Encapsuler les retours d'une bibliothèque externes dans un `Optional` via `Optional.ofNullable()`.
+* A utiliser principalement pour des retours de méthodes (exemple : spring data : recherche d'un élément en base).
+* Ne pas utiliser avec des tableaux ou des collections : retourner une liste vide.
+* Ne pas utiliser en paramètre de méthode ou en membre de classe.
+* Ne pas généraliser, à utiliser à bon escient
 
 ## JPA
 
