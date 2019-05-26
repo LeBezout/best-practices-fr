@@ -36,7 +36,7 @@
 * Ne pas lever d'exception pour l'attraper immédiatement.
 * Ne pas attraper une exception juste pour la logguer (log & re-throw).
 
-:uk: [Best (and Worst) Java Exception Handling Practices](https://able.bio/DavidLandup/best-and-worst-java-exception-handling-practices--18h55kh)
+:gb: [Best (and Worst) Java Exception Handling Practices](https://able.bio/DavidLandup/best-and-worst-java-exception-handling-practices--18h55kh)
 
 ## Favoriser le typage fort
 
@@ -51,12 +51,14 @@
 * Ne pas utiliser avec des tableaux ou des collections : retourner une liste vide.
 * Ne pas utiliser en paramètre de méthode ou en membre de classe.
 * Ne pas généraliser, à utiliser à bon escient.
+* Ne pas se limiter à remplacer `!= null` par `isPresent()`, `Optional` propose d'autres types de méthodes comme `map()`, `orElse()`, ... Exemple : `final String withDefault = Optional.ofNullable(test).map(String::trim).filter(s -> s.length() > 0).orElse("Valeur par défaut");`
 
 ## JPA
 
 * Favoriser l’utilisation de JPQL / HQL par rapport au SQL et l'API `Criteria`.
 * Favoriser l'utilisation de `NamedQueries`.
 * Éviter l'utilisation de `NativeQueries`.
+* Ne pas utiliser `@Enumerated(EnumType.ORDINAL)`, le simple ajout d'un élément ou un refactoring casserait l'intégrité de la base de données.
 * Les champs de type date doivent être précisés à l’aide de l’annotation `@Temporal`.
 * Pour limiter le nombre de résultats d'une requête utiliser `query.setMaxResults(max);`.
 * Pour les clefs composites favoriser l'utilisation du couple `@Embeddable` / `@EmbeddedId` plutôt que le couple `@Id` / `IdClass`.
@@ -71,7 +73,7 @@
 
 ## Conception d'API
 
-:uk: [Java API Design Best Practices](https://jonathangiles.net/presentations/java-api-design-best-practices/)
+:gb: [Java API Design Best Practices](https://jonathangiles.net/presentations/java-api-design-best-practices/)
 
 * Considérer l'utilisation des _Static Factory Methods_ (Joshua Bloch's Effective Java) :
   * Les noms des méthodes sont plus parlant sur les intentions que les constructeurs.
