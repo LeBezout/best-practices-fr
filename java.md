@@ -19,6 +19,9 @@
 ## Généralités
 
 * Favoriser l'utilisation des interfaces (`List`, `Map`, `Set`, ...) pour déclarer les objets : `List<String> l = new ArrayList<>();` plutôt que `ArrayList<String> l = new ArrayList<>();`.
+* Favoriser l'utilisation des _builders_ ou méthodes de type _static factory_ par rapport aux constructeurs avec paramètres.
+* Favoriser les implémentations immuables : plus robustes, _thread-safe_, ...
+* Éviter les paramètres booléens car peu clair et potentiellement source d'erreur (inversion).
 
 ## Constantes
 
@@ -42,8 +45,11 @@
 
 * Utiliser des `enum` plutôt que des `String` ou des `int`.
 * Très dangereux sinon en cas de _refactoring_.
+* Éviter la _Primitive Obsession_ : encapsuler les concepts dans des types dédiés même s'ils peuvent être représentés simplement avec un type de base (int, String, ...).
 
-## Java 8 "Optional"
+## Nouveautés Java 8
+
+### Optional
 
 * Utiliser `Optional` dès que possible. Le code est dès lors auto-documenté, plus besoin d'aller voir le source pour vérifier si `null` peut être retourné.
 * Encapsuler les retours d'une bibliothèque externes dans un `Optional` via `Optional.ofNullable()`.
@@ -52,6 +58,17 @@
 * Ne pas utiliser en paramètre de méthode ou en membre de classe.
 * Ne pas généraliser, à utiliser à bon escient.
 * Ne pas se limiter à remplacer `!= null` par `isPresent()`, `Optional` propose d'autres types de méthodes comme `map()`, `orElse()`, ... Exemple : `final String withDefault = Optional.ofNullable(test).map(String::trim).filter(s -> s.length() > 0).orElse("Valeur par défaut");`
+* Ne pas utiliser pour encapsuler des collections ou des tableaux, retourner directement des collections ou des tableaux vides.
+
+### Lambda Expressions
+
+* Favoriser l'utilisation des références de méthodes.
+* Ne forcément réinventer des `@FunctionalInterface` il en existe déjà beaucoup de base dans `java.util.function` qui couvrent beaucoup de besoins (Supplier, Consumer, Predicate, Function, BiFunction, ...).
+* Éviter ou limiter l'utilisation des blocs `() -> { /* bloc */ }` en favorisant l'utilisation de méthodes.
+
+### Streams
+
+* Ne pas retourner de stream, préférer uen collection ou un _array_.
 
 ## JPA
 
