@@ -8,3 +8,4 @@ Tour d'horizon de bonnes pratiques de développement en français.
 * [Liquibase](liquibase.md)
 * [Maven](maven.md)
 * [Shell](shell.md)
+* [API REST](rest-api.md)
