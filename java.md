@@ -51,14 +51,21 @@
 
 ### Optional
 
-* Utiliser `Optional` dès que possible. Le code est dès lors auto-documenté, plus besoin d'aller voir le source pour vérifier si `null` peut être retourné.
+* **Une instance d'`optional` ne doit jamais être nulle**.
+* Utiliser `Optional` dès que possible.
+  * Le code est dès lors auto-documenté, plus besoin d'aller voir le source pour vérifier si `null` peut être retourné.
+  * Ne plus jamais retourner `null`.
 * Encapsuler les retours d'une bibliothèque externes dans un `Optional` via `Optional.ofNullable()`.
-* A utiliser principalement pour des retours de méthodes (exemple : spring data : recherche d'un élément en base).
-* Ne pas utiliser avec des tableaux ou des collections : retourner une liste vide.
-* Ne pas utiliser en paramètre de méthode ou en membre de classe.
 * Ne pas généraliser, à utiliser à bon escient.
+  * A utiliser principalement pour des retours de méthodes (exemple : spring data : recherche d'un élément en base).
+  * N'est pas fait pour remplacer tous les `null`.
+  * Ne pas utiliser avec des tableaux ou des collections : retourner une liste vide.
+  * Ne pas utiliser en paramètre de méthodes (force l'appelant à créer des instances souvent inutiles).
+  * Ne pas utiliser en membre de classe. **Attention `Optional` n'est délibérément pas `Serializable` !**
+  * Ne pas créer d'instance juste pour récupérer une potentielle valeur, plutôt tester directement le `null`.
 * Ne pas se limiter à remplacer `!= null` par `isPresent()`, `Optional` propose d'autres types de méthodes comme `map()`, `orElse()`, ... Exemple : `final String withDefault = Optional.ofNullable(test).map(String::trim).filter(s -> s.length() > 0).orElse("Valeur par défaut");`
 * Ne pas utiliser pour encapsuler des collections ou des tableaux, retourner directement des collections ou des tableaux vides.
+* Penser à utiliser les dérivés pour les primitives : `OptionalInt` , `OptionalLong`, `OptionalDouble`.
 
 ### Lambda Expressions
 
