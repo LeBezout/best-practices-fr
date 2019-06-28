@@ -46,8 +46,9 @@
 * Ne pas créer de branches "au cas où" (généralement des branches de maintenance). Une branche peut être créée au dernier moment à partir d'un tag ou même d'un commit.
 * Supprimer les branches inutiles ou obsolètes :
   * Sous _GitLab_ : via les _Merge Requests_ cocher la case _Delete source branch_.
-  * Sous _GitHub_ : via le _Pull Request_ cliquer sur le bouton "_Delete branch_" une fois l'action réalisée.
+  * Sous _GitHub_ : via les _Pull Request_ cliquer sur le bouton "_Delete branch_" une fois l'action réalisée.
   * L'option de _squash_ peut également être à considérer dans certains cas.
+* Éviter de modifier les fichiers avec l'éditeur en ligne de l'hébergeur (_GitLab_, _GitHub_, ...) car on ne profite pas des avantages d'un vrai IDE.
 
 ## Les commits
 
