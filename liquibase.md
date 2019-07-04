@@ -66,7 +66,7 @@ Les contextes sont des **étiquettes** permettant de contrôler les changements 
 * Prévoir pour chaque _changeset_ son _rollback_. Se baser sur la documentation officielle car dans la majorité des cas il n'y aura rien à prévoir (vérifier dans la documentation officielle si `auto-rollback = yes`).
 * Attention à certaines instructions comme `modifyDataType`, `addNotNullConstraint`, ... qui peuvent faire perdre des données (par exemple les commentaires, nullable, ...).
 * Prévoir dans les _changelogs_ une compatibilité avec différents systèmes, par exemple une cible Oracle, un poste de développement avec MySQL et des tests unitaires exécutés sur une base H2 ou HSQL.
-* Considérer l'utilisation de _property_  conditionnées via l'attribut `dbms` pour gérer les différents SGBD. Exemple :
+* Favoriser les _data types_ génériques _Liquibase_ (voir en annexe) et pour certains cas considérer l'utilisation de _property_ conditionnées via l'attribut `dbms` pour gérer les différents SGBD. Exemple :
   * `<property name="current.date" value="sysdate" dbms="oracle"/>`
   * `<property name="current.date" value="current_timestamp" dbms="mysql, hsqldb, h2"/>`
 * Utiliser un contexte et des fichiers dédiés pour créer des jeux de tests.
@@ -121,6 +121,41 @@ Les contextes sont des **étiquettes** permettant de contrôler les changements 
   * Compatibilité vers MySQL : `sql.syntax_mys=true` pour HSQL ou `MODE=MySQL` pour H2.
 * Utiliser plutôt `liquibase status --verbose` qui affiche le nom des _changesets_ à exécuter plutôt que `liquibase status` qui affiche uniquement le nombre.
 * Pour faire un _rollback_ complet utiliser par exemple `liquibase rollbackToDate 1970-01-01T00:00:00`.
+
+### Data types
+
+* [Liquibase 3.6.x data types mapping table](https://dba-presents.com/index.php/liquibase/216-liquibase-3-6-x-data-types-mapping-table)
+* [Oracle 12C Data Types](https://docs.oracle.com/database/121/SQLRF/sql_elements001.htm#SQLRF30020)
+* [MySQL 5.7 Data Types](https://dev.mysql.com/doc/refman/5.7/en/data-types.html)
+* [PostgreSQL Data Types](https://www.postgresql.org/docs/current/datatype.html)
+* [SQL Server Data Types](https://docs.microsoft.com/fr-fr/sql/t-sql/data-types/data-types-transact-sql)
+* [H2 Data Types](http://h2database.com/html/datatypes.html)
+* [HSQLDB Data Types](http://www.hsqldb.org/doc/guide/sqlgeneral-chapt.html#sgc_types_ops)
+
+| Liquibase | SQL Server | Oracle | MySQL | PostgreSQL |
+|-----------|------------|--------|-------|------------|
+| bigint | bigint | number(38,0) | bigint | bigint/bigserial |
+| blob | varbinary(max) | blob | blob | oid |
+| boolean | bit | number(1) | bit | bit |
+| char | char | char | char | character |
+| clob | nvarchar(max) | clob | longtext | text |
+| currency | money | number(15,2) | decimal | decimal |
+| datetime | datetime | timestamp | timestamp | timestamp |
+| date | date | date | date | date |
+| decimal | decimal | decimal | decimal | decimal  |
+| double | float | float(24) | double | double precision |
+| float | float | float | float | float |
+| int | int | integer | int | integer/serial |
+| mediumint | int | mediumint | mediumint | mediumint |
+| nchar | nchar | nchar | nchar | nchar |
+| nvarchar | nvarchar | nvarchar2 | nvarchar | varchar |
+| umber | numeric | number | numeric | numeric |
+| smallint | smallint | number(5) | smallint | smallint/smallserial |
+| time | time | date | time | time |
+| timestamp | datetime | timestamp | timestamp | timestamp |
+| tinyint | tinyint | number(3) | tinyint | smallint |
+| uuid | uniqueidentifier | raw(16) | char(36) | uuid |
+| varchar | varchar | varchar2  | varchar | varchar/character (varying) |
 
 ### Versioning Liquibase
 
