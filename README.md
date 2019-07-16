@@ -9,3 +9,4 @@ Tour d'horizon de bonnes pratiques de développement en français.
 * [Maven](maven.md)
 * [Shell](shell.md)
 * [API REST](rest-api.md)
+* [Les tests](tests.md)
