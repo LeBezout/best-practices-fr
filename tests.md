@@ -11,7 +11,7 @@
 
 ## Maintenabilité
 
-* Les tests doivent être le plus simple possible et rapides à écrire et facilement compréhensibles.
+* Les tests doivent être le plus simples possible et rapides à écrire et facilement compréhensibles.
 * Généraliser, ne pas dupliquer de code.
 
 ## Code Legacy
