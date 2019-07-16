@@ -14,7 +14,7 @@
   * Un nom doit expliquer ce que fait / ce qu'est l'élément nommé mais pas comment il le fait.
   * Éviter les préfixes et suffixes.
 * Le code doit être assez clair pour se passer de commentaires. Limiter leur utilisation car ils deviennent vite obsolètes ou erronés.
-* Les commentaires sous la forme `/** xxx */` (avec 2 \*) sont exclusivement réservés à la Javadoc. Dans le code il faut utiliser soit `//` soit `/* xxx */` (avec 1 \*).
+* Les commentaires sous la forme `/** xxx */` (avec 2 \*) sont exclusivement réservés à la Javadoc. Dans le code il faut utiliser soit `//` soit `/* xxx */` (avec 1 \*). :link: :gb: [Kinds Of Comments par _Nicolai Parlog_](https://medium.com/97-things/kinds-of-comments-667a5b505ca8)
 
 ## Généralités
 
@@ -39,7 +39,7 @@
 * Ne pas lever d'exception pour l'attraper immédiatement.
 * Ne pas attraper une exception juste pour la logguer (log & re-throw).
 
-:gb: [Best (and Worst) Java Exception Handling Practices](https://able.bio/DavidLandup/best-and-worst-java-exception-handling-practices--18h55kh)
+:link: :gb: [Best (and Worst) Java Exception Handling Practices par _David Landup_](https://able.bio/DavidLandup/best-and-worst-java-exception-handling-practices--18h55kh)
 
 ## Favoriser le typage fort
 
@@ -100,7 +100,7 @@
 
 ## Conception d'API
 
-:gb: [Java API Design Best Practices](https://jonathangiles.net/presentations/java-api-design-best-practices/)
+:link: :gb: [Java API Design Best Practices par _Jonathan Giles_](https://jonathangiles.net/presentations/java-api-design-best-practices/)
 
 * Considérer l'utilisation des _Static Factory Methods_ (Joshua Bloch's Effective Java) :
   * Les noms des méthodes sont plus parlant sur les intentions que les constructeurs.
@@ -111,7 +111,7 @@
 ## Ne pas faire apparaître les éléments implicites
 
 * Ne pas utiliser inutilement `this`.
-* Ne pas utiliser inutilement `value = "xxx"` pour une annotation si c'est l'unique attribut valorisé.
+* Ne pas utiliser inutilement `@Annot(value = "xxx")` (mais directement `@Annot("xxx")`) pour une annotation si c'est l'unique attribut valorisé.
 * Ne pas initialiser inutilement un objet à `null`.
 * Ne pas initialiser un type primitif à sa valeur par défaut :  `0`, `0L`, `0d`, `false`.
 * Ne pas déclarer de méthodes `public` dans une interface (elles le sont obligatoirement).
@@ -137,7 +137,7 @@ On différenciera et on positionnera :
 
 ## Ordre des annotations
 
-:bulb: **Préconisation :** de la moins structurante à la plus structurante. En d'autres termes, plus l'annotation est proche de l'élément auquel elle fait référence plus elle est structurante.
+:bulb: **Préconisation :** de la moins structurante à la plus structurante. En d'autres termes, plus l'annotation est proche de l'élément auquel elle fait référence plus elle est structurante. Enfin on placera la Javadoc en 1er avant les annotations.
 
 1. Annotation processor : génération de byte code, _boiler plate_, ... (Lombok, MapStruct, ...)
 1. Documentation (Swagger, ...)
@@ -160,7 +160,7 @@ public class MyService {
 }
 ```
 
-### Membres
+### Membres ou méthodes
 
 Exemple :
 
