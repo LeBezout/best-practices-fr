@@ -76,6 +76,9 @@
 ### Streams
 
 * Ne pas retourner de stream, préférer uen collection ou un _array_.
+* Attention à l'utilisation de la méthode `parallel()` qui utilise le **common Fork/join Pool** de la JVM. Les risques :
+  * utilisation de tous les processeurs
+  * pénurie de thread pour les autres tâches
 
 ## JPA
 
@@ -131,6 +134,52 @@ On différenciera et on positionnera :
 
 * le **timeout de connexion** (_connection timeout_), relativement court (exemple : 10sec)
 * le **timeout de réponse** (_read timeout_, _response timeout_) adapté à ce que l'on est sensé récupérer (un petit flux JSON ou un gros fichier), ni trop faible ni trop élevé (exemple : 60 sec).
+
+## Ordre des annotations
+
+:bulb: **Préconisation :** de la moins structurante à la plus structurante. En d'autres termes, plus l'annotation est proche de l'élément auquel elle fait référence plus elle est structurante.
+
+1. Annotation processor : génération de byte code, _boiler plate_, ... (Lombok, MapStruct, ...)
+1. Documentation (Swagger, ...)
+1. Validation
+1. Fonctionnalité
+
+### Types
+
+Exemple :
+
+```java
+@Slf4j
+@RequiredArgsConstructor
+@Api(value = "Service d'accès à XXX")
+@Validated
+@RestController
+@RequestMapping(path = "/service")
+public class MyService {
+
+}
+```
+
+### Membres
+
+Exemple :
+
+```java
+@Getter
+@NotNull
+@Column(name = "COL")
+private String member;
+```
+
+### Paramètres de méthode
+
+Exemple :
+
+```java
+public XXXResponse rechercher(@ApiParam(value = "Le critère de recherche") @Valid @NotBlank(message = "Critère de recherche obligatoire") @PathVariable(name = "value") String value) {
+
+}
+```
 
 ## Divers
 
