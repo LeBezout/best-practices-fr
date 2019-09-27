@@ -14,6 +14,7 @@
 * Vérifier votre configuration personnelle en tapant `git config --global --list  --show-origin`.
 * Vérifier que cette configuration est bien celle prise en compte par vos différents IDE.
 * Dans le cas où l'utilisateur est derrière d'un proxy Web il faut utiliser un paramétrage de type "_domain specific_" plutôt que global, ceci permettant de gérer correctement les accès intranet comme internet : `git config --global http.https://domain.com.proxy http://proxyUsername:proxyPassword@proxy.server.com:port`.
+* Configurer son client pour qu'il utilise une communication via SSH avec le serveur distant plutôt que via HTTPS.
 
 ## L'initialisation du dépôt
 
