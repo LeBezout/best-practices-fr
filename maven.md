@@ -11,6 +11,7 @@
   * `src/test/java`, `src/test/resources`
   * `src/assembly` (ou `src/main/assembly`)
   * `target/generated-sources`
+  * `src/main/config` (hors du standard Maven qui permet de définir les configurations à externaliser)
 * Configurer le fichier `settings.xml`.
   * Accès aux référentiels internes.
   * Optionnellement la configuration HTTP.
