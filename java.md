@@ -45,7 +45,7 @@
 
 * Utiliser des `enum` plutôt que des `String` ou des `int`.
 * Très dangereux sinon en cas de _refactoring_.
-* Éviter la _Primitive Obsession_ : préféer encapsuler les concepts dans des types dédiés même s'ils peuvent être représentés simplement avec un type de base (int, String, ...).
+* Éviter la _Primitive Obsession_ : préférer encapsuler les concepts dans des types dédiés même s'ils peuvent être représentés simplement avec un type de base (int, String, ...).
 
 ## Threads et parallélisation
 
@@ -56,6 +56,9 @@
 * Utiliser des variables `volatile` pour gérer le comportement (l'arrêt par exemple) d'un thread.
 * Ne pas utiliser les _ParallelStreams_ pour des petits ensembles (< 1000 éléments).
 * N'utiliser la parallélisation qu'en cas de besoin : problème de performance avéré par exemple.
+* Optimiser le nombre de threads alloués, par exemple en tenant compte de la fréquence des I/O :
+  * si beaucoup d'I/O on peut augmenter le nombre de threads car ils seront souvent en attente
+  * au contraire si beaucoup de calculs il faut limiter le nombre de threads (ne pas dépasser le nombre de coeurs par exemple)
 
 ## Nouveautés Java 8
 
