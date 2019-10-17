@@ -79,20 +79,28 @@
 
 ## Annexes
 
-## Historique des grandes versions
+### Historique des grandes versions
+
+:link: [Maven Releases History](https://maven.apache.org/docs/history.html)
 
 * Maven `1.0` : 07/2004 -> 1.1 : 06/2007
 * Maven `2.0` : 10/2005 -> 2.2.1 : 11/2009
 * Maven `3.0` : 10/2010
-* Maven `3.1.1` : 10/2013 (Java 5)
-* Maven `3.2.6` : 12/2014 (Java 6)
-* Maven `3.6.0` : 10/2018 (Java 7)
+* Maven `3.1.1` : 10/2013
+* Maven `3.2.5` : 12/2014
+* Maven `3.6.0` : 10/2018
+
+### Version minimales Java requise
 
 > :information_source: Maven 3.3+ require JDK 1.7 or above to execute. [maven.apache.org](https://maven.apache.org/index.html)
 
+* Java 7 : 3.3.1 -> 3.3.X
+* Java 6 : 3.2.1 -> 3.2.5
+* Java 5 : 2.2.0 -> 3.1.1
+* Java 1.4 : 2.0 -> 2.1.0
+
 ### Liens utiles
 
-* [Versions History](https://maven.apache.org/docs/history.html)
 * [Lyfecycle](https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html)
 * [Standard Directory Layout](http://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html)
 * [List of predefined Maven properties](https://github.com/cko/predefined_maven_properties/blob/master/README.md)
