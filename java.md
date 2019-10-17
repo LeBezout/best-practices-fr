@@ -126,7 +126,7 @@
 * Ne pas utiliser inutilement `this`.
 * Ne pas utiliser inutilement `@Annot(value = "xxx")` (mais directement `@Annot("xxx")`) pour une annotation si c'est l'unique attribut valorisé.
 * Ne pas initialiser inutilement un objet à `null`.
-* Ne pas initialiser un type primitif à sa valeur par défaut :  `0`, `0L`, `0d`, `false`.
+* Ne pas initialiser un type primitif à sa valeur par défaut : `0`, `0L`, `0d`, `false`.
 * Ne pas déclarer de méthodes `public` dans une interface (elles le sont obligatoirement).
 * Ne pas déclarer de constantes `public static final` dans une interface (elles le sont obligatoirement).
 * Ne pas spécifier que le constructeur de l'`enum` est `private` (il y est obligatoirement).
@@ -196,6 +196,6 @@ public XXXResponse rechercher(@ApiParam(value = "Le critère de recherche") @Val
 
 ## Divers
 
-* Comparator vs Comparable  : On utilise en général `Comparable` pour l'ordre naturel et l'on écrit un ou plusieurs `Comparator` pour les autres besoins, ou si l'on n'est pas le propriétaire de la classe.
+* Comparator vs Comparable : On utilise en général `Comparable` pour l'ordre naturel et l'on écrit un ou plusieurs `Comparator` pour les autres besoins, ou si l'on n'est pas le propriétaire de la classe.
 * Ne jamais utiliser la méthode `close` sur un objet `Scanner` initialisé avec `System.in` (sinon celui-ci deviendra inutilisable jusqu'à l'arrêt de la JVM).
 * Encapsuler les `switch` dans une méthode dédiée : permet de faire des `return` de valeurs directement (pas besoin de `break`, le compilateur nous dira si on oublie le `default`, permet de nommer clairement l'intention via le nom de la méthode).

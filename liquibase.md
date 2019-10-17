@@ -114,7 +114,7 @@ Les contextes sont des **étiquettes** permettant de contrôler les changements 
 
 ## Annexes
 
-### Trucs & astuces
+### A.1 Trucs & astuces
 
 * Pour les tests ou la validation préférer l'utilisation des bases **H2** ou **HSQL** plutôt que **Apache Derby**, cette dernière n'offrant pas de mode de compatibilité vers les SGBD phares (à positionner dans l'URL JDBC) :
   * Compatibilité vers Oracle : `sql.syntax_ora=true` pour HSQL ou `MODE=Oracle` pour H2.
@@ -122,7 +122,7 @@ Les contextes sont des **étiquettes** permettant de contrôler les changements 
 * Utiliser plutôt `liquibase status --verbose` qui affiche le nom des _changesets_ à exécuter plutôt que `liquibase status` qui affiche uniquement le nombre.
 * Pour faire un _rollback_ complet utiliser par exemple `liquibase rollbackToDate 1970-01-01T00:00:00`.
 
-### Data types
+### A.2 Data types
 
 * [Liquibase 3.6.x data types mapping table](https://dba-presents.com/index.php/liquibase/216-liquibase-3-6-x-data-types-mapping-table)
 * [Oracle 12C Data Types](https://docs.oracle.com/database/121/SQLRF/sql_elements001.htm#SQLRF30020)
@@ -142,7 +142,7 @@ Les contextes sont des **étiquettes** permettant de contrôler les changements 
 | currency | money | number(15,2) | decimal | decimal |
 | datetime | datetime | timestamp | timestamp | timestamp |
 | date | date | date | date | date |
-| decimal | decimal | decimal | decimal | decimal  |
+| decimal | decimal | decimal | decimal | decimal |
 | double | float | float(24) | double | double precision |
 | float | float | float | float | float |
 | int | int | integer | int | integer/serial |
@@ -155,9 +155,9 @@ Les contextes sont des **étiquettes** permettant de contrôler les changements 
 | timestamp | datetime | timestamp | timestamp | timestamp |
 | tinyint | tinyint | number(3) | tinyint | smallint |
 | uuid | uniqueidentifier | raw(16) | char(36) | uuid |
-| varchar | varchar | varchar2  | varchar | varchar/character (varying) |
+| varchar | varchar | varchar2 | varchar | varchar/character (varying) |
 
-### Versioning Liquibase
+### A.3 Versioning Liquibase
 
 | Version Liquibase | Version minimale Java | Dépendances obligatoires | Dépendances optionnelles |
 |-------------------|-----------------------|--------------------------|--------------------------|

@@ -50,7 +50,7 @@ Sur des postes _Windows_ utiliser des machines virtuelles (via les outils Vagran
 
 On peut imaginer se monter un environnement complet de test à l'image des systèmes cibles en profitant des avantages liés aux machines virtuelles que sont :
 
-* la *reproductibilité* d'un poste à l'autre à l'identique ou  en cas de crash.
+* la *reproductibilité* d'un poste à l'autre à l'identique ou en cas de crash.
 * l'*isolation* évitant les conflits de versions logicielles, de variables d'environnement, ...
 * la *rapidité* d'initialisation et de mise à disposition d'un nouvel environnement.
 
@@ -172,7 +172,7 @@ Implémenter un mode verbeux (`--verbose`) et un mode silencieux (`--quiet`) per
   * restreindre le nombre de processus simultanés via `ulimit -u <valeur>`
   * restreindre la création de fichiers _core dump_ via `ulimit -c <valeur>`
   * restreindre le temps processeur maximum en secondes via `ulimit -t <valeur>`
-  * restreindre la  taille des fichiers écrits via `ulimit -f <valeur>`
+  * restreindre la taille des fichiers écrits via `ulimit -f <valeur>`
 * Appliquer la règle 8 et le principe _fail fast_ en **gérant les erreurs au plus tôt**.
 * Appliquer la règle 9 en **diagnostiquant les exécutions au plus tôt** utiliser par exemple l'option `set -o noexec` (ou `bash -o noexec monscript.sh`) pour valider les scripts.
 
@@ -186,7 +186,7 @@ _ShellCheck_ est un outil de contrôle de la syntaxe et d'analyse statique compo
 
 Cet outil est utilisable soit en ligne (par copier-coller du script) soit directement intégré à l'IDE, par exemple pour _MS Visual Studio Code_ il faut installer l'extension [`timonwong.shellcheck`](https://github.com/timonwong/vscode-shellcheck), celle-ci propose un fonctionnement comme **SonarLint** pour un projet Java par exemple avec le signalement des défauts à la volée.
 
-:information_source:  _ShellCheck_ encourage grandement à respecter la norme **POSIX** ou **SUSv3** (plus complète).
+:information_source: _ShellCheck_ encourage grandement à respecter la norme **POSIX** ou **SUSv3** (plus complète).
 
 :bulb: L'outil ShellCheck peut également être utilisé de façon automatisée par une ligne d'intégration continue : `shellcheck myscripts/*.sh`.
 
@@ -196,7 +196,7 @@ Cet outil est utilisable soit en ligne (par copier-coller du script) soit direct
 
 ## Annexes
 
-### Annexe 1 : Quelques autres bonnes pratiques
+### A.1 : Quelques autres bonnes pratiques
 
 :pushpin: Autres bonnes pratiques "en vrac" qu'il est bon de respecter.
 
@@ -210,7 +210,7 @@ Cet outil est utilisable soit en ligne (par copier-coller du script) soit direct
 * Limiter au strict minimum l'utilisation des variables globales.
 * Favoriser les techniques d'expansion ou de substitution de variables plutôt que d'utiliser les pipes avec `sed`, `awk`, ...
 
-### Annexe 2 : Checklists de contrôle
+### A.2 : Checklists de contrôle
 
 :pushpin: _Checklist_ utilisable avant de remonter un fichier dans le gestionnaire de sources.
 
@@ -234,7 +234,7 @@ Cet outil est utilisable soit en ligne (par copier-coller du script) soit direct
 * [ ] Présence obligatoire de `;;` à la fin de chaque _cas_ d'un `case` (pour le dernier aussi même si ce n'est pas obligatoire).
 * [ ] Présence obligatoire de _backslash_ `\` pour échapper des guillemets à l'intérieur des chaînes.
 
-### Annexe 3 : Les interpréteurs de commandes Shell
+### A.3 : Les interpréteurs de commandes Shell
 
 L'interpréteur Shell gère l'invite de commandes et l'exécution de commandes et scripts. Il existe différents interpréteurs Shell dont les plus connus sont :
 
@@ -245,7 +245,7 @@ L'interpréteur Shell gère l'invite de commandes et l'exécution de commandes e
 
 :bulb: Sur certains systèmes, `/bin/sh` est un lien symbolique vers `/bin/bash` (par exemple : Red Hat, CentOS).
 
-### Annexe 4 : Quelques options utiles lors de la mise en place d'un script
+### A.4 : Quelques options utiles lors de la mise en place d'un script
 
 :pushpin: A placer en début de script après la ligne _shebang_, celles-ci peuvent être particulièrement utiles lors de la mise au point d'un script.
 
@@ -261,9 +261,9 @@ L'interpréteur Shell gère l'invite de commandes et l'exécution de commandes e
 
 :bulb: Comme pour les arguments de commandes les versions longues sont à favoriser car plus parlantes. On utilisera `set -o` pour afficher la liste et l'état de chaque option (`on` / `off`).
 
-### Annexe 5 : Fonction d'accès rapide à cheat.sh
+### A.5 : Fonction d'accès rapide à cheat.sh
 
-A placer au choix dans `.bashrc`,  `.bash_profile`,  `.profile` :
+A placer au choix dans `.bashrc`, `.bash_profile`, `.profile` :
 
 ```sh
 cheat() {
@@ -277,11 +277,11 @@ cheat() {
 }
 ```
 
-:bulb:  Exemple d'utilisation : `cheat grep`.
+:bulb: Exemple d'utilisation : `cheat grep`.
 
-### Annexe 6 : Fonction d'accès rapide à ExplainShell
+### A.6 : Fonction d'accès rapide à ExplainShell
 
-A placer au choix dans `.bashrc`,  `.bash_profile`,  `.profile` :
+A placer au choix dans `.bashrc`, `.bash_profile`, `.profile` :
 
 ```sh
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote(sys.argv[1])"'
@@ -297,6 +297,6 @@ expshell() {
 }
 ```
 
-:bulb:  Exemple d'utilisation : `expshell "ls -l | grep -q fic"` : 1 seul argument encadré de guillemets.
+:bulb: Exemple d'utilisation : `expshell "ls -l | grep -q fic"` : 1 seul argument encadré de guillemets.
 
 :warning: Nécessite Python d'installé ou tout autre moyen d'URL _encoder_.

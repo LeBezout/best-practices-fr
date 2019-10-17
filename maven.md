@@ -79,7 +79,7 @@
 
 ## Annexes
 
-### Historique des grandes versions
+### A.1 Historique des grandes versions
 
 :link: [Maven Releases History](https://maven.apache.org/docs/history.html)
 
@@ -90,7 +90,7 @@
 * Maven `3.2.5` : 12/2014
 * Maven `3.6.0` : 10/2018
 
-### Version minimales Java requise
+### A.2 Version minimale Java requise
 
 > :information_source: Maven 3.3+ require JDK 1.7 or above to execute. [maven.apache.org](https://maven.apache.org/index.html)
 
@@ -99,7 +99,7 @@
 * Java 5 : 2.2.0 -> 3.1.1
 * Java 1.4 : 2.0 -> 2.1.0
 
-### Liens utiles
+### A.3 Liens utiles
 
 * [Lyfecycle](https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html)
 * [Standard Directory Layout](http://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html)
