@@ -199,3 +199,7 @@ public XXXResponse rechercher(@ApiParam(value = "Le critère de recherche") @Val
 * Comparator vs Comparable : On utilise en général `Comparable` pour l'ordre naturel et l'on écrit un ou plusieurs `Comparator` pour les autres besoins, ou si l'on n'est pas le propriétaire de la classe.
 * Ne jamais utiliser la méthode `close` sur un objet `Scanner` initialisé avec `System.in` (sinon celui-ci deviendra inutilisable jusqu'à l'arrêt de la JVM).
 * Encapsuler les `switch` dans une méthode dédiée : permet de faire des `return` de valeurs directement (pas besoin de `break`, le compilateur nous dira si on oublie le `default`, permet de nommer clairement l'intention via le nom de la méthode).
+
+## Liens
+
+* :gb: [9 tips to Increase your Java performance](https://dev.to/sendilkumarn/9-tips-to-increase-your-java-performance-1l4d)
