@@ -60,13 +60,13 @@
   * Favoriser l'impératif.
   * Partager votre norme entre tous les développeurs.
   * Normaliser les messages peut permettre de générer des _changelogs_ automatiquement : Exemple du framework de test Javascript [Karma](http://karma-runner.github.io/3.0/dev/git-commit-msg.html).
-* Ne pas mélanger différentes choses : un commit = une fonctionnalité / une correction.
+* Ne pas mélanger différentes choses : un commit = une fonctionnalité / une correction / une refactorisation.
 * Préciser quand c'est possible les numéros des _Issues_, des tickets ou autres tâches (JIRA, ...) dans le message du commit (1 commit par tâche).
 * Éviter les "commit merge" si ce n'est pas nécessaire, utiliser par exemple `git pull --rebase` ou la configuration `pull.rebase=true` par exemple.
   * Sous _GitLab_ : activer l'option "_Fast-forward merge without a merge commit_".
   * Sous _GitHub_ : choisir l'option "_Rebase_".
 * Avant de pousser des modifications liées ne pas hésiter à les regrouper dans un seul commit (fonctionnellement cohérent et homogène) via la fonctionnalité de "_squash_" (via `git rebase -i`).
-* Réécrire le dernier message de commit si celui-ci contient une erreur ou une faute de frappe via `git commit --amend`.
+* Réécrire le dernier message de commit si celui-ci contient une erreur ou une faute de frappe, ou ajouter un ou plusieurs fichiers oubliés lors du précédent commit via la commande `git commit --amend`.
 * Limiter l'utilisation de la commande `git commit -m 'message'` car elle contraint le message à la première ligne, ce qui dans certains cas est insuffisant.
 
 ## Références
