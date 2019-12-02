@@ -42,6 +42,8 @@ Dans tous les cas ce sont des objets (classes, implémentations, ...) qui ne son
   
 :gb: [Martin Fowler - Mocks Aren't Stubs](https://www.martinfowler.com/articles/mocksArentStubs.html)
 
+:fr: [Benoît Sautel - Mock ou pas mock ?](https://www.fierdecoder.fr/2015/11/mock-ou-pas-mock/)
+
 :warning: Les définitions peuvent variées il est donc conseillé de définir et de s'accorder sur une définition commmune au sein de l'équipe.
 
 ## Pour aller encore plus loin dans la pratique des tests
