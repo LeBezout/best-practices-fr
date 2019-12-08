@@ -16,7 +16,7 @@
   * Guides ou manuels utilisateurs (externe)
   * Spécifications
   * FAQ (interne ou externe)
-  
+
 ### Les différents formats
 
 * **Pour la rédaction :**
@@ -26,7 +26,7 @@
 * **Pour l'export :**
   * PDF
   * HTML
-  
+
 ### La documentation implicite
 
 * Les commentaires (attention peuvent rapidement devenir obsolètes ou erronés)
@@ -83,8 +83,8 @@
 * Utilisez l'outil de documentation approprié
   * Adapté au type de documentation
     * Graphiques, schémas, diagrammes : draw.io, ...
-   * Fonctionnelle : page Confluence, ...
-    * Technique
+    * Fonctionnelle : page Confluence, ...
+    * Technique : à valider avec l'équipe de développement
   * Adapté à la population ciblée
     * Développeurs du projet : Markdown intégré au dépôt de source
     * Équipe projet : espace Confluence, ...
@@ -93,4 +93,3 @@
   * Ce journal permet de connaître l'historique et surtout les justifications des grandes décisions techniques prises sur au cours de la vie du projet.
   * Particulièrement utile quand les personnes qui ont prises les décisions ne sont plus la.
   * Ce journal fait partie intégrante du dépôt de sources, le format Markdown est donc le plus adapté, sa structure doit être standardisée.
-  
