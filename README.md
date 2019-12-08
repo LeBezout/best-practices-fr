@@ -10,3 +10,4 @@ Tour d'horizon de bonnes pratiques de développement en français.
 * [Shell](shell.md)
 * [API REST](rest-api.md)
 * [Les tests](tests.md)
+* [La documentation](documentation.md)
