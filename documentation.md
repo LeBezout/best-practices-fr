@@ -51,67 +51,69 @@
 
 :pushpin: La documentation prend du temps il est donc important de se concentrer sur ce qui apporte de la valeur.
 
-* Valider en équipe les besoins ou manques
-* Ne pas dupliquer / ré-écrire / paraphraser une documentation existante : référencer la documentation officielle et ajouter vos spécificités ou vos remarques
-* Considérer l'écriture des ADR (_Architectural Decision Records_)
+* Valider préalablement en équipe les besoins ou manques.
+* Ne pas dupliquer, ré-écrire ou paraphraser une documentation existante : référencer la documentation officielle et ajouter vos éventuelles spécificités ou vos remarques.
+* Considérer l'écriture des ADR (_Architectural Decision Records_) :
   * C'est le journal de toutes les décisions architecturales prises durant la vie du projet.
-  * Ce journal permet de connaître l'historique et surtout les justifications des grandes décisions techniques prises sur au cours de la vie du projet.
-  * Particulièrement utile quand les personnes qui ont prises les décisions ne sont plus la.
+  * Ce journal permet de connaître l'historique et surtout les justifications des grandes décisions techniques prises au cours de la vie du projet.
+  * Il devient particulièrement utile quand les personnes qui ont prises les décisions ne sont plus la et pour les nouveaux arrivants.
   * Ce journal fait partie intégrante du dépôt de sources, le format Markdown est donc le plus adapté, sa structure doit être standardisée.
 
 ### Assurer la maintenabilité
 
 :pushpin: Il n'y a rien de pire qu'une documentation erronée ou obsolète. La documentation pour être utile doit être fiable, à jour et vivante et donc elle doit pouvoir être facilement mise à jour.
 
-* Lever les ambiguïtés :
-  * Écrire au présent, à la voix active
-  * Éviter les synonymes, utiliser toujours le même terme pour désigner la même chose
+* Choisir l'outil validé par l'équipe qui va maintenir la documentation (qui n'est pas forcément celle qui va la lire ou la valider).
+* Éviter les gros pavés, les gros fichiers, favoriser une documentation modulaire, bien découpée.
 * Favoriser les pratiques de type _Documentation as Code_ :
-  * Versioning
-  * Revues collectives
-  * Pull/Merge Request
+  * Gestion des versions et des retours en arrière.
+  * Pratique de revues collectives.
+  * Soumissions de _Pull/Merge Request_.
+* Limiter le copier-coller (blocs de code, ...) qui peut vite engendrer de l'obsolèscence et donc de la maintenance.
 
 ### Améliorer la lisibilité
 
-:pushpin: Personne n'aime lire ou maintenir la documentation il faut donc la rendre la plus claire et lisible possible.
+:pushpin: Personne n'aime lire ou maintenir de la documentation il faut donc la rendre la plus claire et lisible possible.
 
-* Les titres doivent être explicites et clairs
-* Éviter les blocs trop long, être synthétique
-* Rester concis et pertinent, éviter le superflus ou le trop littéraire
-* Éviter les gros pavés, les gros fichiers, favoriser une documentation modulaire
-* Soigner l'orthographe (utiliser des _spell checker_ dans vos outils et IDE) et la ponctuation.
-* Garder le même style et et les mêmes normes tout au long de la documentation :
-  * Polices de caractères
-  * Format des titres et sous-titres
-  * Format des sections (blocs de code, ...)
-  * Format des listes à puces
+* Les titres doivent être explicites et clairs.
+* Éviter les blocs trop longs, essayer d'être synthétique.
+* Rester concis et pertinent, éviter le superflus et le trop littéraire.
+* Soigner l'orthographe et les accords (utiliser des _spell checker_ dans vos outils et IDE) et la ponctuation.
+* Lever les ambiguïtés :
+  * Écrire au présent et à la voix active.
+  * Éviter les synonymes, utiliser toujours le même terme pour désigner la même chose.
+* Garder le même style et les mêmes normes tout au long de la documentation :
+  * Polices de caractères.
+  * Format des titres et sous-titres.
+  * Format des sections (blocs de code, ...).
+  * Format des listes à puces.
 * Ne pas négliger l'ajout de schémas ou d'images, ou d'extraits de code source :
-  * Rend la documentation plus facile à lire, plus compréhensible
-  * Attire le regard, la curiosité
-  * Attention néanmoins aux copie d'écrans et blocs de code qui peuvent vite devenir obsolètes
+  * Rend la documentation plus facile à lire, plus compréhensible.
+  * Attire le regard, attise la curiosité.
+  * Attention néanmoins aux copie d'écrans et blocs de code qui peuvent vite devenir obsolètes.
 
 ### Impliquer toute l'équipe
 
 :pushpin: La documentation est l'effort de toute l'équipe. Il est important que toute l'équipe y soit impliquée.
 
-* C'est un processus collaboratif : plusieurs cerveaux valent mieux qu'un
-* C'est un processus itératif : on a rarement bon du 1er coup, tout seul
-* La documentation doit être revue et validée par l'équipe
+* C'est un processus collaboratif : plusieurs cerveaux valent mieux qu'un.
+* C'est un processus itératif : on a rarement bon du 1er coup, tout seul.
+* La documentation doit être revue et validée par l'équipe.
 
 ### Utilisez l'outil de documentation approprié
 
-:pushpin: Le choix du bon l'outil de rédaction peut permettre de gagner du temps ainsi qu'en qualité.
+:pushpin: Le choix du bon outil de rédaction peut permettre de gagner du temps ainsi qu'en qualité sur le résultat produit.
 
 On choisira un outil :
 
-* adapté au type de documentation
+* adapté au type de documentation :
   * des graphiques, schémas, diagrammes : draw.io, ...
   * une documentation fonctionnelle : page Confluence, ...
-  * une documentation technique : outil et format à valider par l'équipe de développement
-* adapté à la population ciblée
-  * Développeurs du projet : Markdown intégré au dépôt de sources
+  * une documentation technique : outil et format à valider par l'équipe de développement.
+* adapté à la population ciblée :
+  * Développeurs du projet : Markdown intégré au dépôt de sources.
   * Équipe projet : espace Confluence, ...
-  * Utilisateurs du produit : directement intégrée au produit
+  * Utilisateurs du produit : directement intégrée au produit.
 
 ## Annexes
 
@@ -122,7 +124,7 @@ On choisira un outil :
 * [Draw.io](https://www.draw.io/) : outil graphique gratuit de génération de diagrammes avec possibilité d'export dans différents formats.
 * [MagicDraw](https://www.nomagic.com/products/magicdraw) : outil payant
 
-### Annexe 2 : quelques outils de génération de site
+### Annexe 2 : quelques outils de génération de sites
 
 * [GitHub Pages](https://pages.github.com/)
 * [GitLab Pages](https://docs.gitlab.com/ee/user/project/pages/)
