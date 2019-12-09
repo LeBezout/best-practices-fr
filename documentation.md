@@ -131,3 +131,24 @@ On choisira un outil :
 * [Hugo](https://gohugo.io/)
 * [Jekyll](https://jekyllrb.com/)
 * [Apache Maven](https://maven.apache.org/) et tous les types de plugins de _reporting_
+
+### Annexe 3 : outils conseillés pour Markdown
+
+* [Microsoft Visual Studio Code](https://code.visualstudio.com/)
+    * Extension _MarkdownLint_ `davidanson.vscode-markdownlint` _Markdown linting and style checking for Visual Studio Code_
+    * Extension _Markdown Emoji_ `bierner.markdown-emoji` _Adds emoji syntax support to VS Code's built-in markdown preview_
+    * Extension _Markdown Preview Github Styling_ `bierner.markdown-preview-github-styles` _Changes VS Code's built-in markdown preview to match Github's style_
+    * Extension _Code Spell Checker_`streetsidesoftware.code-spell-checker` _Spelling checker for source code_
+    * Extension _French - Code Spell Checker_ `streetsidesoftware.code-spell-checker-french` _French dictionary extension for VS Code_
+
+### Annexe 3 : outils conseillés pour AsciiDoc
+
+* [Microsoft Visual Studio Code](https://code.visualstudio.com/)
+  * Extension _AsciiDoc_ `joaompinto.asciidoctor-vscode` _Provides rich language support for AsciiDoc_
+* [AsciiDocFX](https://asciidocfx.com/)
+* [Ruby](https://www.ruby-lang.org/fr/) installé via [Ruby Version Manager](http://rvm.io/)
+  * Le "gem" [asciidoctor](https://asciidoctor.org/)
+  * Le "gem" asciidoctor-diagram
+  * Le "gem" [asciidoctor-pdf](https://github.com/asciidoctor/asciidoctor-pdf)
+  * Le "gem" rouge (source-highlighter)
+  * Le "gem" asciidoctor-plantuml
