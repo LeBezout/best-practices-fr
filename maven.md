@@ -41,8 +41,7 @@
 * Utiliser `--quiet` pour réduire la verbosité.
 * Utiliser `--fail-fast` ou `--fail-at-end` en fonction de vos besoins.
 * Isoler les fonctionnalités (packaging par exemple) dans des profils séparés pour optimiser les exécutions (sans en abuser pour une meilleure maintenabilité).
-
-:bulb: Penser à configurer correctement vos dépôts Git, notamment le fichier `.gitignore` afin de ne pas remonter des éléments indésirables dans le référentiel.
+* Dans la majorité des cas le _goal_ `install` est inutile (pas la peine de polluer le dépôt local, surtout s'il est partagé (NAS, persistent volume, ...). Utiliser de préférence les _goals_ `package` ou `verify`.
 
 ## Règle 5 : maîtriser vos artefacts
 
@@ -56,8 +55,10 @@
 * Utiliser les fonctionnalités avancées telles que les filtres, les profils, les "assembly".
 * Comme pour les _packages_ Java favoriser l'utilisation des minuscules pour le nommage des artefacts (`groupId`, `artefactId`).
 * Nommer clairement vos composants, par exemple ne répéter pas le `groupId` dans les `artefactId`.
-* Analyser vos dépendances avec `mvn dependency:analyze`, sous l'IDE _Eclipse_ la vue "_Dependency Hierarchy_" est également très pratique.
+* Analyser vos dépendances avec `mvn dependency:analyze`, sous l'IDE _Eclipse_ la vue _"Dependency Hierarchy"_ est également très pratique ou le plugin _"Maven Helper"_ sous _IntelliJ_.
 * Supprimer les artefacts obsolètes ou erronés du référentiel d'entreprise.
+
+:bulb: Penser à configurer correctement vos dépôts Git, notamment le fichier `.gitignore` afin de ne pas remonter des éléments indésirables dans le référentiel.
 
 ## Règle 6 : assurer un build reproductible
 
@@ -76,6 +77,7 @@
 * Mettre à jour régulièrement vers des versions plus récentes vos dépendances.
 * Contrôler les failles de sécurité potentielles via le plugin [OWASP Dependency Check](https://jeremylong.github.io/DependencyCheck/dependency-check-maven/index.html) ou via l'IDE avec [Snyk Vulnerabilities Scanning](https://blog.jetbrains.com/idea/2019/03/catching-vulnerabilities-instantly-in-your-intellij-idea-environment/).
 * N'utiliser pas de versions de Maven trop anciennes (Maven 2.X par exemple).
+* Comme indiqué sur le [site officiel](https://maven.apache.org/security.html) n'utiliser pas la version **3.0.4**.
 
 ## Annexes
 

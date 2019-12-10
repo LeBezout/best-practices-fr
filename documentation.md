@@ -134,6 +134,7 @@ On choisira un outil :
 
 ### Annexe 3 : outils conseillés pour Markdown
 
+* [MarkText]https://marktext.app/) : _Simple and Elegant Markdown Editor : Focused on speed and usability_
 * [Microsoft Visual Studio Code](https://code.visualstudio.com/)
     * Extension _MarkdownLint_ `davidanson.vscode-markdownlint` _Markdown linting and style checking for Visual Studio Code_
     * Extension _Markdown Emoji_ `bierner.markdown-emoji` _Adds emoji syntax support to VS Code's built-in markdown preview_
