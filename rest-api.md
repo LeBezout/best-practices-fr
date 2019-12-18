@@ -57,8 +57,18 @@
 
 * Documenter toute l'API (_Open API Spec_). Exposer la documentation (_Swagger UI_).
 * Utiliser le format ISO 8601 comme format de date.
-* Standardiser et documenter le format des réponses en cas d'erreur.
+* Standardiser et documenter le format des réponses en cas d'erreur, voir la [RFC 7807](https://tools.ietf.org/html/rfc7807).
+
+## Règle 7 : Assurer la maintenabilité
+
+* Ne pas exposer directement les entités JPA :
+  * Il existerait un couplage fort entre l'API et le modèle sous-jacent.
+  * Celà complexifierait la gestion des versions.
+  * Les 2 modèles pourraient pas évoluer séparément : renommage, ajout/suppression, ...
+  * Les entités pourraient être polluer d'annotations qui ne les concernent pas (sérialisation JSON par exemple).
+  * Les associations décrites dans les entités n'ont pas à être exposées directement.
 
 ## Liens utiles
 
 * :gb: [HTTP API Design](https://legacy.gitbook.com/book/geemus/http-api-design)
+* :gb: [Don’t expose your JPA entities in your REST API](https://thoughts-on-java.org/dont-expose-entities-in-api/)

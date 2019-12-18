@@ -9,11 +9,17 @@
 
 ## Avantages de la solution
 
-* **Traçabilité** : historique complet des changements appliqués
-* **Intégrité et cohérence** : cohérence dans l'application des changements et suivi des versions applicatives
-* **Reproductibilité :** solution reproductible d'un environnement à l'autre à l'identique
+* **Traçabilité** :
+  * historique complet des changements appliqués.
+  * versioning avec le code source (et tout ce que celà implique).
+* **Intégrité et cohérence** : cohérence dans l'application des changements et suivi des versions applicatives.
+* **Reproductibilité :**
+  * solution reproductible d'un environnement à l'autre à l'identique.
+  * permet de gagner du temps et limiter les risques liés aux erreurs humaines.
 * **Sécurité :** mise à niveau d'un schéma, possibilité de retour à un état précédent, ...
-* **Indépendance technologique :** indépendant de la typologie du projet ou des langages utilisés (java, .Net, ...), besoin uniquement d'une JVM pour s'exécuter (API JDBC)
+* **Indépendance technologique :**
+  * indépendant de la typologie du projet ou des langages utilisés (java, .Net, ...), besoin uniquement d'une JVM pour s'exécuter (API JDBC).
+  * l'outil permet d'adresser des SGBD différents avec les mêmes descripteurs (H2 pour les tests, MySQL sur le poste du développeur, Oracle en production , ...).
 
 :bulb: Son utilisation est fortement conseillée et est même indispensable dans un contexte agile ou DevOps.
 
@@ -30,7 +36,7 @@ _Liquibase_ pilote via JDBC n'importe quelle base de données. On peut donc l'ex
 Nous avons besoin à minima :
 
 * de l'exécutable java
-* des informations de connexions à la base de données via JDBC (par exemple dans un fichier properties)
+* des informations de connexions à la base de données via JDBC (par exemple dans un fichier properties ou via des arguments)
 * des fichiers _changelog_ contenant les modifications à appliquer
 * du jar liquibase
 

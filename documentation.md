@@ -134,15 +134,15 @@ On choisira un outil :
 
 ### Annexe 3 : outils conseillés pour Markdown
 
-* [MarkText]https://marktext.app/) : _Simple and Elegant Markdown Editor : Focused on speed and usability_
+* [MarkText](https://marktext.app/) : _Simple and Elegant Markdown Editor : Focused on speed and usability_
 * [Microsoft Visual Studio Code](https://code.visualstudio.com/)
-    * Extension _MarkdownLint_ `davidanson.vscode-markdownlint` _Markdown linting and style checking for Visual Studio Code_
-    * Extension _Markdown Emoji_ `bierner.markdown-emoji` _Adds emoji syntax support to VS Code's built-in markdown preview_
-    * Extension _Markdown Preview Github Styling_ `bierner.markdown-preview-github-styles` _Changes VS Code's built-in markdown preview to match Github's style_
-    * Extension _Code Spell Checker_`streetsidesoftware.code-spell-checker` _Spelling checker for source code_
-    * Extension _French - Code Spell Checker_ `streetsidesoftware.code-spell-checker-french` _French dictionary extension for VS Code_
+  * Extension _MarkdownLint_ `davidanson.vscode-markdownlint` _Markdown linting and style checking for Visual Studio Code_
+  * Extension _Markdown Emoji_ `bierner.markdown-emoji` _Adds emoji syntax support to VS Code's built-in markdown preview_
+  * Extension _Markdown Preview Github Styling_ `bierner.markdown-preview-github-styles` _Changes VS Code's built-in markdown preview to match Github's style_
+  * Extension _Code Spell Checker_`streetsidesoftware.code-spell-checker` _Spelling checker for source code_
+  * Extension _French - Code Spell Checker_ `streetsidesoftware.code-spell-checker-french` _French dictionary extension for VS Code_
 
-### Annexe 3 : outils conseillés pour AsciiDoc
+### Annexe 4 : outils conseillés pour AsciiDoc
 
 * [Microsoft Visual Studio Code](https://code.visualstudio.com/)
   * Extension _AsciiDoc_ `joaompinto.asciidoctor-vscode` _Provides rich language support for AsciiDoc_
@@ -153,3 +153,22 @@ On choisira un outil :
   * Le "gem" [asciidoctor-pdf](https://github.com/asciidoctor/asciidoctor-pdf)
   * Le "gem" rouge (source-highlighter)
   * Le "gem" asciidoctor-plantuml
+
+### Annexe 5 : conseils pour la rédaction des Javadocs
+
+* Documenter toutes les classes et méthodes publiques ou _protected_.
+* Préciser les comportements :
+  * Préciser si une méthode peut engendrer un effet de bord (modification d'un élément fourni en paramètre).
+  * Préciser si pour un paramètre de méthode la valeur `null` est acceptée.
+  * Préciser si une méthode peut retourner `null`.
+  * Dans le cas d'une méthode qui retourne une collection, préciser si celle-ci est mutable ou non.
+  * Préciser si une classe est _Thread-Safe_ ou non.
+* Ne pas surcharger inutilement la javadoc d'une méthode si elle n'apporte rien de plus que celle de la méthode parente.
+* Syntaxe :
+  * Utiliser les éléments de syntaxes évolués : `{@link Classe#methode(ParamType)}`, `{@code exemple("xxx");}`, `{@value}`, ...
+  * Utiliser les tags HTML simples et non les tags XHTML. Exemple  `<br>` au lieu de `<br/>`.
+  * Documenter les types génériques utilisés dans une méthode : `@param <T> le type`.
+  * Préciser `@since X.y.Z` (méthodes et classes).
+  * Préciser `@version` (classes, interfaces, enums uniquement).
+* Compléter via `@deprecated raison` si une annotation `@Deprecated` est utilisée.
+* Générer et valider les javadocs simplement en exécutant via Maven la commande `mvn javadoc:javadoc`.
