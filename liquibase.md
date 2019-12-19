@@ -130,6 +130,10 @@ Les contextes sont des **étiquettes** permettant de contrôler les changements 
   * Compatibilité vers MySQL : `sql.syntax_mys=true` pour HSQL ou `MODE=MySQL` pour H2.
 * Utiliser plutôt `liquibase status --verbose` qui affiche le nom des _changesets_ à exécuter plutôt que `liquibase status` qui affiche uniquement le nombre.
 * Pour faire un _rollback_ complet utiliser par exemple `liquibase rollbackToDate 1970-01-01T00:00:00`.
+* Attention à l'utilisation des apostrophes dans les `remarks`. Différents comportements constatés en fonction des tags utilisés ou des SGBD cibles. Il faut parfois les doubler.<!-- Par exemple avec MySQL : -->
+<!--  * `<column` pas besoin de les doubler
+  * `<renameColumn` besoin de doubler
+-->
 
 ### A.2 Data types
 
@@ -178,7 +182,8 @@ Les contextes sont des **étiquettes** permettant de contrôler les changements 
 | `3.6.2` | Java 7 | slf4j-api (1.7.25), logback-classic (1.2.3) | snakeyaml (1.18), spring-core, spring-beans, spring-context (4.3.8.RELEASE), servlet-api (2.4) | |
 | `3.6.3` | Java 7 | slf4j-api (1.7.25), logback-classic (1.2.3) | snakeyaml (1.18), spring-core, spring-beans, spring-context (4.3.8.RELEASE), servlet-api (2.4) | |
 | `3.7.0` | Java 8 | slf4j-api (1.7.25), logback-classic (1.2.3) | snakeyaml (1.23), spring-core, spring-beans, spring-context (4.3.8.RELEASE), servlet-api (2.4) | |
-| `3.8.0` | Java 8 | slf4j-api (1.7.25), logback-classic (1.2.3) | snakeyaml (1.23), spring-core, spring-beans, spring-context (4.3.8.RELEASE), servlet-api (2.4) | Liquibase Community / Pro |
+| `3.8.0` | Java 8 | slf4j-api (1.7.28), logback-classic (1.2.3) | snakeyaml (1.24), spring-core, spring-beans, spring-context (5.0.12.RELEASE), servlet-api (3.1.0) | Liquibase Community / Pro |
+| `3.8.3` | Java 8 | slf4j-api (1.7.28), logback-classic (1.2.3) | snakeyaml (1.24), spring-core, spring-beans, spring-context (5.0.12.RELEASE), servlet-api (3.1.0) | Liquibase-Maven plugin now works with Java 9+ |
 
 > :warning: Liquibase 3.6.x is binary api-incompatible with 3.5.x
 
