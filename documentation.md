@@ -2,6 +2,8 @@
 
 ## Considérations générales
 
+:pushpin: La documentation est un processus complexe et contraignant qui peut être polymorphe et soumis à différentes contraintes.
+
 ### Les différents types
 
 * **La documentation technique**
@@ -29,23 +31,23 @@
 
 ### La documentation implicite
 
-* Les commentaires (attention peuvent rapidement devenir obsolètes ou erronés)
-* La Javadoc
-* Swagger / OpenAPI (documentation d'API)
-* Les tests unitaires
-* Les scénarios de tests
-* Les _changelog_ ou _Release Notes_
-* L'historique des _commits_ Git
-* Les discussions des _issues_ GitLab/GitHub
-* Les discussions de _Merge Requests_ GitLab / _Pull Requests_ GitHub
+* Les commentaires (attention peuvent rapidement devenir obsolètes ou erronés).
+* La Javadoc.
+* Swagger / OpenAPI (documentation d'API).
+* Les tests unitaires.
+* Les scénarios de tests.
+* Les _changelog_ ou _Release Notes_.
+* L'historique des _commits_ Git.
+* Les discussions des _issues_ GitLab/GitHub.
+* Les discussions de _Merge Requests_ GitLab / _Pull Requests_ GitHub.
 
 ### Les contraintes à prendre en compte
 
-* La durée de validité des informations
-* La pertinence des informations
-* La population ciblée (type, niveau de connaissance, ...)
+* La durée de validité des informations.
+* La pertinence des informations.
+* La population ciblée (type, niveau de connaissance, ...).
 
-## Bonnes pratiques
+## Quelques bonnes pratiques
 
 ### Ne documenter que l'essentiel
 
@@ -168,7 +170,7 @@ On choisira un outil :
   * Utiliser les éléments de syntaxes évolués : `{@link Classe#methode(ParamType)}`, `{@code exemple("xxx");}`, `{@value}`, ...
   * Utiliser les tags HTML simples et non les tags XHTML. Exemple  `<br>` au lieu de `<br/>`.
   * Documenter les types génériques utilisés dans une méthode : `@param <T> le type`.
-  * Préciser `@since X.y.Z` (méthodes et classes).
-  * Préciser `@version` (classes, interfaces, enums uniquement).
-* Compléter via `@deprecated raison` si une annotation `@Deprecated` est utilisée.
+  * Préciser depuis quand via `@since X.y.Z`.
+  * Préciser la version courante via `@version` (classes, interfaces, enums uniquement).
+* Compléter via `@deprecated raison` si une annotation `@Deprecated` est utilisée sur un élément.
 * Générer et valider les javadocs simplement en exécutant via Maven la commande `mvn javadoc:javadoc`.

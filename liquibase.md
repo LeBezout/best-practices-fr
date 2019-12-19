@@ -16,10 +16,13 @@
 * **Reproductibilité :**
   * solution reproductible d'un environnement à l'autre à l'identique.
   * permet de gagner du temps et limiter les risques liés aux erreurs humaines.
-* **Sécurité :** mise à niveau d'un schéma, possibilité de retour à un état précédent, ...
+* **Sécurité :**
+  * mise à niveau d'un schéma, possibilité de retour à un état précédent, ...
+  * automatisation : évite les erreurs humaines.
 * **Indépendance technologique :**
   * indépendant de la typologie du projet ou des langages utilisés (java, .Net, ...), besoin uniquement d'une JVM pour s'exécuter (API JDBC).
   * l'outil permet d'adresser des SGBD différents avec les mêmes descripteurs (H2 pour les tests, MySQL sur le poste du développeur, Oracle en production , ...).
+* **Testabilité** : possibilité d'instancier rapidement un environnement de test avec un jeu de données.
 
 :bulb: Son utilisation est fortement conseillée et est même indispensable dans un contexte agile ou DevOps.
 
@@ -86,7 +89,7 @@ Les contextes sont des **étiquettes** permettant de contrôler les changements 
 ### Assurer la maintenabilité
 
 * Organiser vos fichiers de _changelogs_ avec un fichier principal et des fichiers par version applicative comme il est indiqué dans les bonnes pratiques de l'outil (on peut également isoler les données, de test ou d'initialisation tel que des paramètres, dans un dossier dédié, par exemple _data_).
-* Favoriser le format XML pour l'écriture des fichiers _changelogs_, ce format est connu de tous (dev, ops, AD), pris en charge par de nombreux outils (par exemple un simple _browser_) et ne nécessite pas de dépendances externes (fichiers jar).
+* Favoriser le format "natif" XML pour l'écriture des fichiers _changelogs_, ce format est connu de tous (dev, ops, AD), pris en charge par de nombreux outils (par exemple un simple _browser_) et ne nécessite pas de dépendances externes (fichiers jar).
 * Écrire et maintenir à la main vos fichiers changelogs (s'ils sont générés la première fois il faut les revoir : modification des attributs `author` ou `id`, contrôles et ajustement des types, etc...).
 * L'attribut `logicalFilePath` d'un fichier _changelog_ doit uniquement contenir le nom du fichier. Celui-ci doit également **être différent pour chaque fichier**, attention au copier-coller !
 * L'attribut `author` d'un _changeset_ doit être normalisé, utiliser par exemple le nom de l'application ou du composant.
