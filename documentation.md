@@ -121,10 +121,11 @@ On choisira un outil :
 
 ### Annexe 1 : quelques outils de génération de diagrammes
 
-* [PlantUML](https://plantuml.com/fr/) : génération de diagrammes sous forme d'images à partir d'une syntaxe textuelle
-* [Mermaid](https://mermaid-js.github.io/mermaid/#/) : génération de diagrammes à partir d'une syntaxe textuelle, directement insérable dans des fichiers au format Markdown
+* [PlantUML](https://plantuml.com/fr/) : génération de diagrammes sous forme d'images à partir d'une syntaxe textuelle.
+* [Mermaid](https://mermaid-js.github.io/mermaid/#/) : génération de diagrammes à partir d'une syntaxe textuelle, directement insérable dans des fichiers au format Markdown.
+* [Graphviz - Graph Visualization Softwar](https://www.graphviz.org/) : génération de diagrammes à partir d'une syntaxe textuelle, _dot syntax_ par exemple.
 * [Draw.io](https://www.draw.io/) : outil graphique gratuit de génération de diagrammes avec possibilité d'export dans différents formats.
-* [MagicDraw](https://www.nomagic.com/products/magicdraw) : outil payant
+* [MagicDraw](https://www.nomagic.com/products/magicdraw) : outil payant.
 
 ### Annexe 2 : quelques outils de génération de sites
 
