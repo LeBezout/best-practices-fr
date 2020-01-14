@@ -9,17 +9,18 @@
 La documentation doit :
 
 * transmettre l'information utile
-  * de manière asynchrone.
-  * qui doit être partagée (sinon l'oral suffit).
+  * de manière asynchrone
+  * qui doit être partagée
+  * sinon l'oral suffit.
 * pour un produit, faciliter sa prise en main et favoriser son adoption.
 
 ### Les principaux enjeux
 
 La documentation devrait :
 
-* se limiter à la documentation utile.
+* se limiter à l'essentiel, le strict utile.
 * éviter les duplications.
-* rendre la documentation la plus maintenable possible.
+* être la plus maintenable possible.
 * être synchronisée avec le code.
 
 ### Les principales problématiques
@@ -66,6 +67,8 @@ La documentation :
   * HTML
 
 ### La documentation implicite
+
+Il existe différentes autres formes de documentations qui peuvent fournir des éléments complémentaires ou précisions dans le cadre de la compréhension d'un sujet. On pourra noter par exemple :
 
 * Les commentaires (attention peuvent rapidement devenir obsolètes ou erronés).
 * La Javadoc.
@@ -198,10 +201,10 @@ On choisira un outil :
   * Préciser si une classe est _Thread-Safe_ ou non.
 * Ne pas surcharger inutilement la javadoc d'une méthode si elle n'apporte rien de plus que celle de la méthode parente.
 * Syntaxe :
-  * Utiliser les éléments de syntaxes évolués : `{@link Classe#methode(ParamType)}`, `{@code exemple("xxx");}`, `{@value}`, ...
+  * Utiliser les éléments de syntaxe évolués : `{@link Classe#methode(ParamType)}`, `{@code exemple("xxx");}`, `{@value}`, ...
   * Utiliser les tags HTML simples et non les tags XHTML. Exemple  `<br>` au lieu de `<br/>`.
   * Documenter les types génériques utilisés dans une méthode : `@param <T> le type`.
   * Préciser depuis quand via `@since X.y.Z`.
   * Préciser la version courante via `@version` (classes, interfaces, enums uniquement).
 * Compléter via `@deprecated raison` si une annotation `@Deprecated` est utilisée sur un élément.
-* Générer et valider les javadocs simplement en exécutant via Maven la commande `mvn javadoc:javadoc`.
+* Générer et valider les javadocs simplement en exécutant via Maven la commande `mvn javadoc:javadoc`, corriger les avertissements et erreurs remontées.
