@@ -4,6 +4,40 @@
 
 :pushpin: La documentation est un processus complexe et contraignant qui peut être polymorphe et soumis à différentes contraintes.
 
+### Les objectifs
+
+La documentation doit :
+
+* transmettre l'information utile
+  * de manière asynchrone.
+  * qui doit être partagée (sinon l'oral suffit).
+* pour un produit, faciliter sa prise en main et favoriser son adoption.
+
+### Les principaux enjeux
+
+La documentation devrait :
+
+* se limiter à la documentation utile.
+* éviter les duplications.
+* rendre la documentation la plus maintenable possible.
+* être synchronisée avec le code.
+
+### Les principales problématiques
+
+La documentation :
+
+* est souvent absente.
+* est souvent obsolète.
+* est souvent non pertinente.
+* est souvent non motivante à lire et surtout à écrire.
+* vérifie souvent la Loi de "LeBlanc" : _plus tard = jamais_.
+
+### Les contraintes à prendre en compte
+
+* La durée de validité des informations.
+* La pertinence des informations.
+* La population ciblée (type, niveau de connaissance, ...).
+
 ### Les différents types
 
 * **La documentation technique**
@@ -14,6 +48,7 @@
   * Normes de développement
   * Guide de bonnes pratiques
   * FAQ (interne ou externe)
+  * ADR
 * **La documentation fonctionnelle**
   * Guides ou manuels utilisateurs (externe)
   * Spécifications, expressions des besoins
@@ -25,6 +60,7 @@
   * Propriétaire (Word, PPT, Confluence)
   * Markdown
   * Asciidoc
+  * Texte
 * **Pour l'export :**
   * PDF
   * HTML
@@ -35,17 +71,11 @@
 * La Javadoc.
 * Swagger / OpenAPI (documentation d'API).
 * Les tests unitaires.
-* Les scénarios de tests.
+* Les scénarios de tests (Gerkhin, ...).
 * Les _changelog_ ou _Release Notes_.
 * L'historique des _commits_ Git.
 * Les discussions des _issues_ GitLab/GitHub.
 * Les discussions de _Merge Requests_ GitLab / _Pull Requests_ GitHub.
-
-### Les contraintes à prendre en compte
-
-* La durée de validité des informations.
-* La pertinence des informations.
-* La population ciblée (type, niveau de connaissance, ...).
 
 ## Quelques bonnes pratiques
 
