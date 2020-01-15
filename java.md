@@ -16,13 +16,6 @@
 * Le code doit être assez clair pour se passer de commentaires. Limiter leur utilisation car ils deviennent vite obsolètes ou erronés.
 * Les commentaires sous la forme `/** xxx */` (avec 2 \*) sont exclusivement réservés à la Javadoc. Dans le code il faut utiliser soit `//` soit `/* xxx */` (avec 1 \*). :link: :gb: [Kinds Of Comments par _Nicolai Parlog_](https://medium.com/97-things/kinds-of-comments-667a5b505ca8)
 
-## Généralités
-
-* Favoriser l'utilisation des interfaces (`List`, `Map`, `Set`, ...) pour déclarer les objets : `List<String> l = new ArrayList<>();` plutôt que `ArrayList<String> l = new ArrayList<>();`.
-* Favoriser l'utilisation des _builders_ ou méthodes de type _static factory_ par rapport aux constructeurs avec paramètres.
-* Favoriser les implémentations immuables : plus robustes, _thread-safe_, ...
-* Éviter les paramètres booléens car peu clair et potentiellement source d'erreur (inversion).
-
 ## Constantes
 
 * Il ne faut rendre `public` que des constantes qui le sont réellement (utilisées par plusieurs classes) sinon elles doivent être déclarées comme `private` dans les classes qui les utilisent.
@@ -40,12 +33,6 @@
 * Ne pas attraper une exception juste pour la logguer (log & re-throw).
 
 :link: :gb: [Best (and Worst) Java Exception Handling Practices par _David Landup_](https://able.bio/DavidLandup/best-and-worst-java-exception-handling-practices--18h55kh)
-
-## Favoriser le typage fort
-
-* Utiliser des `enum` plutôt que des `String` ou des `int`.
-* Très dangereux sinon en cas de _refactoring_.
-* Éviter la _Primitive Obsession_ : préférer encapsuler les concepts dans des types dédiés même s'ils peuvent être représentés simplement avec un type de base (int, String, ...).
 
 ## Threads et parallélisation
 
@@ -90,7 +77,7 @@
 
 * Ne pas retourner de stream, préférer une collection ou un _array_. Un _stream_ n'est pas un conteneur de données !
 * Attention à l'utilisation de la méthode `parallel()` qui utilise le **common Fork/join Pool** de la JVM. Les risques :
-  * utilisation de tous les processeurs
+  * utilisation de tous les processeurs disponibles
   * pénurie de thread pour les autres tâches
 
 ## JPA
@@ -101,7 +88,7 @@
 * Ne pas utiliser `@Enumerated(EnumType.ORDINAL)`, le simple ajout d'un élément ou un refactoring casserait l'intégrité de la base de données.
 * Les champs de type date doivent être précisés à l’aide de l’annotation `@Temporal`.
 * Pour limiter le nombre de résultats d'une requête utiliser `query.setMaxResults(max);`.
-* Pour les clefs composites favoriser l'utilisation du couple `@Embeddable` / `@EmbeddedId` plutôt que le couple `@Id` / `IdClass`.
+* Pour les clefs composites favoriser l'utilisation du couple `@Embeddable` / `@EmbeddedId` plutôt que le couple `@Id` / `@IdClass`.
 
 ## Injection de dépendances
 
@@ -111,15 +98,24 @@
   * C'est également le pattern appliqué dans Angular.
   * L'annotation (`@Autowired`) devient optionnelle.
 
-## Conception d'API
+## Conception / Design
 
 :link: :gb: [Java API Design Best Practices par _Jonathan Giles_](https://jonathangiles.net/presentations/java-api-design-best-practices/)
 
-* Considérer l'utilisation des _Static Factory Methods_ (Joshua Bloch's Effective Java) :
+* Favoriser l'utilisation des interfaces (`List`, `Map`, `Set`, ...) pour déclarer les objets : `List<String> l = new ArrayList<>();` plutôt que `ArrayList<String> l = new ArrayList<>();`.
+* Favoriser les implémentations immuables : plus robustes, _thread-safe_, ...
+* Éviter les paramètres booléens car peu clair et potentiellement source d'erreur (inversion).
+* Considérer l'utilisation des _Static Factory Methods_ (Joshua Bloch's Effective Java) ou des méthodes de type _builder_ :
   * Les noms des méthodes sont plus parlant sur les intentions que les constructeurs.
-  * Celles-ci peuvent retourner différents types.
+  * On peut donc avoir des méthodes différentes avec des paramètres identiques.
+  * Celles-ci peuvent retourner différents types (sous-types).
   * Celles-ci peuvent encapsuler la logique nécessaire à la création des instances, par exemple on peut utiliser un simple `Objects.requireNonNull(param, "message")`.
   * Celles-ci permettent de contrôler les instanciations, voire les limiter.
+* Encapsuler les `switch` dans une méthode dédiée : permet de faire des `return` de valeurs directement (pas besoin de `break`, le compilateur nous dira si on oublie le `default`, permet de nommer clairement l'intention via le nom de la méthode).
+* Favoriser le typage fort
+  * Utiliser des `enum` plutôt que des `String` ou des `int`.
+  * Très dangereux sinon en cas de _refactoring_.
+  * Éviter la _Primitive Obsession_ : préférer encapsuler les concepts dans des types dédiés même s'ils peuvent être représentés simplement avec un type de base (int, String, ...).
 
 ## Ne pas faire apparaître les éléments implicites
 
@@ -198,7 +194,6 @@ public XXXResponse rechercher(@ApiParam(value = "Le critère de recherche") @Val
 
 * Comparator vs Comparable : On utilise en général `Comparable` pour l'ordre naturel et l'on écrit un ou plusieurs `Comparator` pour les autres besoins, ou si l'on n'est pas le propriétaire de la classe.
 * Ne jamais utiliser la méthode `close` sur un objet `Scanner` initialisé avec `System.in` (sinon celui-ci deviendra inutilisable jusqu'à l'arrêt de la JVM).
-* Encapsuler les `switch` dans une méthode dédiée : permet de faire des `return` de valeurs directement (pas besoin de `break`, le compilateur nous dira si on oublie le `default`, permet de nommer clairement l'intention via le nom de la méthode).
 
 ## Liens
 
