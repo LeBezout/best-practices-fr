@@ -30,8 +30,9 @@ Par exemple _Visual Studio Code_ qui propose quelques extensions :
 
 Autres outils :
 
-* [MarkText]https://marktext.app/) : _Simple and Elegant Markdown Editor : Focused on speed and usability_
+* [MarkText](https://marktext.app/) : _Simple and Elegant Markdown Editor : Focused on speed and usability_
 * Sous Windows [MarkdownPad](http://markdownpad.com/) (la version gratuite se limite à la syntaxe standard, pas de tableaux par exemple)
+* [Notable](https://github.com/notable/notable) : _The Markdown-based note-taking app that doesn't suck._
 * Sous MacOS [Mou](http://mouapp.com/) ou [MarkdownNote](http://www.codingrobots.com/markdownnote/)
 * Sous Gnome [Builder](https://wiki.gnome.org/Apps/Builder)
 * en ligne [StackEdit!](https://stackedit.io/app#) ou [Dillinger](https://dillinger.io/)
