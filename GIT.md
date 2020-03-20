@@ -77,6 +77,8 @@
 * [GIT Cheat Sheet](https://groupe-sii.github.io/cheat-sheets/git/index.html) par _SII_
 * [GIT Cheat Sheet](https://about.gitlab.com/images/press/git-cheat-sheet.pdf) par _GitLab_
 * [GIT Cheat Sheets](https://github.github.com/training-kit/) par _GitHub_
+* :fr: [Git RefCard](https://github.com/ineat/refcards/blob/master/git/FR.md) Co-écrit par _Ludovic Dussart et Gabin Darras_
+* :fr: [Git Cheatsheet](http://ndpsoftware.com/git-cheatsheet.html#loc=local_repo;) par _ndpsoftware.com_
 
 ### Liens
 
