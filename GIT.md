@@ -49,7 +49,7 @@
   * Sous _GitLab_ : via les _Merge Requests_ cocher la case _Delete source branch_.
   * Sous _GitHub_ : via les _Pull Request_ cliquer sur le bouton "_Delete branch_" une fois l'action réalisée.
   * L'option de _squash_ peut également être à considérer **dans certains cas** (attention de ne pas généraliser cette pratique).
-  * Supprimer enfin les branches inutiles de votre réfrentiel local via : `git fetch --prune` puis `git branch -d maFeatureBranch`.
+  * Supprimer enfin les branches inutiles de votre référentiel local via : `git fetch --prune` puis `git branch -d maFeatureBranch`.
 * Éviter de modifier les fichiers avec l'éditeur en ligne de l'hébergeur (_GitLab_, _GitHub_, ...) car on ne profite pas des avantages d'un vrai IDE.
 
 ## Les commits
