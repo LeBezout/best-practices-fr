@@ -60,7 +60,10 @@
 * Écrire des messages de commits clairs, explicites et concis.
   * Favoriser l'impératif.
   * Partager votre norme entre tous les développeurs.
-  * Normaliser les messages peut permettre de générer des _changelogs_ automatiquement : Exemple du framework de test Javascript [Karma](http://karma-runner.github.io/3.0/dev/git-commit-msg.html).
+  * Normaliser les messages peut permettre de générer des _changelogs_ automatiquement. Quelques exemples :
+    * [Norme du framework de test Javascript Karma](http://karma-runner.github.io/3.0/dev/git-commit-msg.html)
+    * [Norme du framework Javascript Angular](https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#-commit-message-guidelines)
+    * [Norme Commits Conventionnels](https://www.conventionalcommits.org/fr/v1.0.0/)
 * Ne pas mélanger différentes choses : un commit = une fonctionnalité / une correction / une refactorisation.
 * Préciser quand c'est possible les numéros des _Issues_, des tickets ou autres tâches (JIRA, ...) dans le message du commit (1 commit par tâche).
 * Éviter les "commit merge" si ce n'est pas nécessaire, utiliser par exemple `git pull --rebase` ou la configuration `pull.rebase=true` par exemple.
