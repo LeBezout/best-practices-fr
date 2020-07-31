@@ -2,7 +2,7 @@
 
 ![logo](images/liquibase_logo.png)
 
-> _Liquibase_ est une bibliothèque open source pour le suivi, la gestion et l'application des changements de schéma de base de données indépendante du SGBD. Elle a été lancé en 2006 pour faciliter le suivi des modifications de la base de données, en particulier dans un environnement de développement logiciel agile. [Wikipédia](https://fr.wikipedia.org/wiki/Liquibase)
+> _Liquibase_ est une bibliothèque open source écrite en Java pour le suivi, la gestion et l'application des changements de schéma de base de données indépendante du SGBD. Elle a été lancé en 2006 pour faciliter le suivi des modifications de la base de données, en particulier dans un environnement de développement logiciel agile. [Wikipédia](https://fr.wikipedia.org/wiki/Liquibase)
 
 * :information_source: Une version commerciale ajoutant certaines fonctionnalités est proposée par la société _Datical_.
 * :information_source: Le produit concurrent principal est [Flyway](https://flywaydb.org/). Les 2 produits sont par exemple nativement intégrés à des solutions telles que _Spring Boot_.
@@ -185,8 +185,13 @@ Les contextes sont des **étiquettes** permettant de contrôler les changements 
 | `3.7.0` | Java 8 | slf4j-api (1.7.25), logback-classic (1.2.3) | snakeyaml (1.23), spring-core, spring-beans, spring-context (4.3.8.RELEASE), servlet-api (2.4) | |
 | `3.8.0` | Java 8 | slf4j-api (1.7.28), logback-classic (1.2.3) | snakeyaml (1.24), spring-core, spring-beans, spring-context (5.0.12.RELEASE), servlet-api (3.1.0) | Liquibase Community / Pro |
 | `3.8.3` | Java 8 | slf4j-api (1.7.28), logback-classic (1.2.3) | snakeyaml (1.24), spring-core, spring-beans, spring-context (5.0.12.RELEASE), servlet-api (3.1.0) | Liquibase-Maven plugin now works with Java 9+ |
-| `3.8.X` / `3.9.X` | Java 8 | slf4j-api (1.7.28), logback-classic (1.2.3) | snakeyaml (1.24), spring-core, spring-beans, spring-context (5.0.12.RELEASE), servlet-api (3.1.0) | :warning: Fournir en plus jaxb/jaxb-impl avec Java 11 |
+| `3.8.X` / `3.9.X` / `3.10.X` | Java 8 | slf4j-api (1.7.28), logback-classic (1.2.3) | snakeyaml (1.24), spring-core, spring-beans, spring-context (5.0.12.RELEASE), servlet-api (3.1.0) | :warning: Fournir en plus jaxb/jaxb-impl avec Java 11 |
+| `4.X` | Java 8 |  slf4j-api (1.7.28), logback-classic (1.2.3) | snakeyaml (1.24), commons-cli (1.4), spring-core, spring-beans, spring-context (5.0.12.RELEASE), servlet-api (3.1.0) | |
 
 > :warning: Liquibase 3.6.x is binary api-incompatible with 3.5.x
 
-:link: <https://github.com/liquibase/liquibase/blob/master/pom.xml>
+:link: <https://github.com/liquibase/liquibase/blob/master/base.pom.xml>
+
+### A.4 Certifications en ligne gratuites
+
+* :gb: [Liquibase Fundamentals Certification](https://learn.liquibase.com/index)
