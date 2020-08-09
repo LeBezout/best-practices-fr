@@ -34,7 +34,7 @@
 
 ![concept](images/liquibase_concepts.png)
 
-_Liquibase_ pilote via JDBC n'importe quelle base de données. On peut donc l'exécuter via un script, une commande java, un programme java, une commande Maven (via un _plugin_), ...
+_Liquibase_ pilote via JDBC n'importe quelle base de données relationnelle. On peut donc l'exécuter via un script, une commande java, un programme java, une commande Maven (via un _plugin_), ...
 
 Nous avons besoin à minima :
 
@@ -65,7 +65,27 @@ Les contextes sont des **étiquettes** permettant de contrôler les changements 
 
 ## Bonnes pratiques de conception des fichiers changelog
 
-:bulb: On pourra préalablement prendre connaissance des recommandations du site officiel sur la [page des _Best Practices_](http://www.liquibase.org/bestpractices.html).
+:bulb: On pourra préalablement prendre connaissance des recommandations du site officiel sur la [page des _Best Practices_](https://www.liquibase.org/get-started/best-practices).
+
+### Utiliser le _workflow_ conseillé par _Liquibase_ en 5 étapes
+
+_Liquibase_ propose un [_workflow_](https://www.liquibase.org/get-started/developer-workflow) en 5 étapes qu'il peut être bon de suivre.
+
+**Étape 1 :** Ajouter le ou les _changesets_ dans le ou les ficheirs _changelogs_
+
+**Étape 2 :** Vérifier les instructions SQL qui seront exécutés :
+  * Exécuter la commande `updateSQL` pour générer le _changelog_ au format SQL.
+  * Contrôler visuellement ces instructions.
+
+**Étape 3 :** _Commiter_ les modications via l'outil de gestion de sources.
+
+**Étape 4 :** Exécuter la commande `update` pour mettre à jour la base cible (peut être une simple base H2 de test).
+
+**Étape 5 :** Vérifier la bonne application des changements demandés. Plusieurs possibilités (cummulables) :
+ * Exécuter la commande `history` pour visualiser la liste des modifications apportées.
+ * Exécuter la commande `status` pour vérifier la cohérence avec les _changelogs_ : aucun _changeset_ ne doit apparaître.
+ * Exécuter la commande `diff` par rapport à une base de référence sur laquelle les modifications n'ont pas encore été apportées.
+ * Contrôler visuellement le schéma de base de données et vérifier l'application des changements (ligne de commande, outil graphique, ...)
 
 ### Assurer la robustesse
 
