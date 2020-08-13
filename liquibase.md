@@ -1,11 +1,10 @@
 # Bonnes pratiques d'utilisation de Liquibase
 
-![logo](images/liquibase_logo.png)
+![logo](https://www.liquibase.com/wp-content/themes/liquibase/assets/img/logo.svg)
 
 > _Liquibase_ est une bibliothèque open source écrite en Java pour le suivi, la gestion et l'application des changements de schéma de base de données indépendante du SGBD. Elle a été lancé en 2006 pour faciliter le suivi des modifications de la base de données, en particulier dans un environnement de développement logiciel agile. [Wikipédia](https://fr.wikipedia.org/wiki/Liquibase)
 
-* :information_source: Une version commerciale ajoutant certaines fonctionnalités est proposée par la société _Datical_.
-* :information_source: Le produit concurrent principal est [Flyway](https://flywaydb.org/). Les 2 produits sont par exemple nativement intégrés à des solutions telles que _Spring Boot_.
+:information_source: Le produit concurrent principal est [Flyway](https://flywaydb.org/). Les 2 produits sont par exemple nativement intégrables à des solutions telles que _Spring Boot_.
 
 ## Avantages de la solution
 
