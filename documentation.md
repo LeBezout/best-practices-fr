@@ -77,7 +77,7 @@ Il existe différentes autres formes de documentations qui peuvent fournir des �
 * Les scénarios de tests (Gerkhin, ...).
 * Les _changelog_ ou _Release Notes_.
 * L'historique des _commits_ Git.
-* Les discussions des _issues_ GitLab/GitHub.
+* Les discussions des _issues_ GitLab / GitHub.
 * Les discussions de _Merge Requests_ GitLab / _Pull Requests_ GitHub.
 
 ## Quelques bonnes pratiques
@@ -208,3 +208,8 @@ On choisira un outil :
   * Préciser la version courante via `@version` (classes, interfaces, enums uniquement).
 * Compléter via `@deprecated raison` si une annotation `@Deprecated` est utilisée sur un élément.
 * Générer et valider les javadocs simplement en exécutant via Maven la commande `mvn javadoc:javadoc`, corriger les avertissements et erreurs remontées.
+
+### Annexe 6 : citations
+
+* _Documentation is a love letter that you write to your future self._ - Damian Conway
+* _Don’t document the problem, fix it._ - Atli Björgvin Oddsson
