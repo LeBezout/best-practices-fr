@@ -70,24 +70,29 @@ Les contextes sont des **étiquettes** permettant de contrôler les changements 
 
 _Liquibase_ propose un [_workflow_](https://www.liquibase.org/get-started/developer-workflow) en 5 étapes qu'il peut être bon de suivre.
 
-**Étape 1 :** Ajouter le ou les _changesets_ dans le ou les ficheirs _changelogs_
+**Étape 1 :** Ajouter le ou les _changesets_ dans le ou les fichiers _changelogs_
 
 **Étape 2 :** Vérifier les instructions SQL qui seront exécutés :
-  * Exécuter la commande `updateSQL` pour générer le _changelog_ au format SQL.
-  * Contrôler visuellement ces instructions.
 
-**Étape 3 :** _Commiter_ les modications via l'outil de gestion de sources.
+* Exécuter la commande `updateSQL` pour générer le _changelog_ au format SQL.
+* Contrôler visuellement ces instructions.
+
+**Étape 3 :** _Commiter_ les modifications via l'outil de gestion de sources.
 
 **Étape 4 :** Exécuter la commande `update` pour mettre à jour la base cible (peut être une simple base H2 de test).
 
-**Étape 5 :** Vérifier la bonne application des changements demandés. Plusieurs possibilités (cummulables) :
- * Exécuter la commande `history` pour visualiser la liste des modifications apportées.
- * Exécuter la commande `status` pour vérifier la cohérence avec les _changelogs_ : aucun _changeset_ ne doit apparaître.
- * Exécuter la commande `diff` par rapport à une base de référence sur laquelle les modifications n'ont pas encore été apportées.
- * Contrôler visuellement le schéma de base de données et vérifier l'application des changements (ligne de commande, outil graphique, ...)
+**Étape 5 :** Vérifier la bonne application des changements demandés. Plusieurs possibilités (cumulables) :
+
+* Exécuter la commande `history` pour visualiser la liste des modifications apportées.
+* Exécuter la commande `status` pour vérifier la cohérence avec les _changelogs_ : aucun _changeset_ ne doit apparaître.
+* Exécuter la commande `diff` par rapport à une base de référence sur laquelle les modifications n'ont pas encore été apportées.
+* Contrôler visuellement le schéma de base de données et vérifier l'application des changements (ligne de commande, outil graphique, ...).
 
 ### Assurer la robustesse
 
+* Éviter le format SQL :
+  * On pert un des intérêts principal de l'outil : généricité.
+  * On ne peut plus profiter des _rollbacks_ générés (_Auto Rollback_).
 * Définir les changements de la manière la plus élémentaire possible (1 changement = 1 _changeset_) ainsi le code de _rollback_ est plus facile à implémenter.
 * Éviter l'utilisation de `includeAll` qui permet d'inclure dans le _changelog_ principal tous les _changelogs_ d'un sous-dossier. Préférer utiliser `include` en nommant explicitement un par un les fichiers pour éviter de prendre en compte des éléments non désirés ou pour pouvoir spécifier des contextes différents.
 * Positionner l'attribut `objectQuotingStrategy` sur le `databaseChangeLog` de plus au niveau (ex ⇒ `db-changelog-master.xml`). La valeur `QUOTE_ONLY_RESERVED_WORDS` est conseillée.
@@ -98,8 +103,11 @@ _Liquibase_ propose un [_workflow_](https://www.liquibase.org/get-started/develo
   * `<property name="current.date" value="sysdate" dbms="oracle"/>`
   * `<property name="current.date" value="current_timestamp" dbms="mysql, hsqldb, h2"/>`
 * Utiliser un contexte et des fichiers dédiés pour créer des jeux de tests.
-* Pour les projets Java :
-  * écrire une classe de test utilisant une base de données "_in memory_" (H2 par exemple) permettant de valider les fichiers _changelogs_, y compris le _rollback_.
+* Intégrer la validation des _changelogs_ à la chaîne CI-CD :
+  * A minima exécuter la commande `validate` pour valider syntaxiquement les _changelogs_.
+  * Exécuter (via script ou via Maven) la commande **update** sur une base de test H2 ou HSQL.
+  * Exécuter ensuite la commande **rollback**, pour tous les _changesets_ afin de vérifier que ceux-ci fonctionnent.
+  * ou pour les projets Java, écrire une classe de test utilisant une base de données "_in memory_" (H2 par exemple) permettant de valider les fichiers _changelogs_, y compris le _rollback_.
   * désactiver la mise à jour automatique de schéma avec _Hibernate_ (`hbm2ddl.auto`) ou JPA 2.1 (`javax.persistence.schema-generation.database.action`).
 * Limiter **au strict minimum** l'usage des `preConditions`.
   * Celles-ci sont souvent signe de _bidouilles_ voire un potentiel détournement de l'outil.
@@ -108,7 +116,7 @@ _Liquibase_ propose un [_workflow_](https://www.liquibase.org/get-started/develo
 ### Assurer la maintenabilité
 
 * Organiser vos fichiers de _changelogs_ avec un fichier principal et des fichiers par version applicative comme il est indiqué dans les bonnes pratiques de l'outil (on peut également isoler les données, de test ou d'initialisation tel que des paramètres, dans un dossier dédié, par exemple _data_).
-* Favoriser le format "natif" XML pour l'écriture des fichiers _changelogs_, ce format est connu de tous (dev, ops, AD), pris en charge par de nombreux outils (par exemple un simple _browser_) et ne nécessite pas de dépendances externes (fichiers jar).
+* Favoriser le format "natif" XML pour l'écriture des fichiers _changelogs_, ce format est connu de tous (dev, ops, AD), pris en charge par de nombreux outils (par exemple un simple _browser_) et ne nécessite pas de dépendances externes (fichiers jar) comme pour JSON ou Yaml (snakeyaml).
 * Aligner la version des schémas XSD avec la version de Liquibase réellement utilisée. [Consulter la liste des XSD disponibles](https://www.liquibase.org/xml/ns/dbchangelog/)
 * Écrire et maintenir à la main vos fichiers changelogs (s'ils sont générés la première fois il faut les revoir : modification des attributs `author` ou `id`, contrôles et ajustement des types, etc...).
 * L'attribut `logicalFilePath` d'un fichier _changelog_ doit uniquement contenir le nom du fichier. Celui-ci doit également **être différent pour chaque fichier**, attention au copier-coller !
@@ -211,6 +219,8 @@ _Liquibase_ propose un [_workflow_](https://www.liquibase.org/get-started/develo
 
 :link: <https://github.com/liquibase/liquibase/blob/master/base.pom.xml>
 
-### A.4 Certifications en ligne gratuites
+### A.4 Certifications et formations en ligne gratuites
 
-* :gb: [Liquibase Fundamentals Certification](https://learn.liquibase.com/index)
+* :gb: [Liquibase Official Trainings](https://learn.liquibase.com/index)
+  * LB101 : Liquibase Fundamentals Certification
+  * LB201 : Liquibase Commands for Troubleshooting (non certifiante)

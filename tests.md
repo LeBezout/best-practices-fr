@@ -13,12 +13,12 @@
 
 ## Maintenabilité
 
+* Il faut apporter au code de test la même attention et la même qualité qu'au code de production.
 * Le code doit être pensé et écrit de façon à ce qu’il soit naturellement et unitairement testable.
 * Les tests doivent être le plus simples possible et rapides à écrire et facilement compréhensibles.
 * Favoriser la lisibilité au détriment parfois de certains principes que l'on applique sur le code "de production" : duplication, _magic numbers_, ...
 * Le nom d'un test doit être normalisé (la lecture du nom doit permettre de savoir exactement ce que va faire le test).
 * Donner un nom le plus explicite possible à la méthode du test, on n'appelle ou on n’utilise jamais une méthode de test, c'est le framework de test / l'IDE qui le fait. Donc il ne faut pas être avare sur les caractères.
-
 
 ## Code Legacy
 
@@ -26,6 +26,7 @@
 * Corriger ou à défaut supprimer des tests échouant par intermittence.
 * Les parties critiques de l'application sont testées en priorité.
 * Approcher de 100% de couverture sur tout le nouveau code.
+* Il n'y a pas de _refactoring_ possible s'il n'y a pas de tests ou si les tests ne sont pas au vert.
 
 ## Ressources
 
