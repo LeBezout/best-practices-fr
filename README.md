@@ -11,3 +11,4 @@ Tour d'horizon de bonnes pratiques de développement en français.
 * [API REST](rest-api.md)
 * [Les tests](tests.md)
 * [La documentation](documentation.md)
+* [Le métier de développeur](developpeur.md)
