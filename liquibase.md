@@ -137,11 +137,15 @@ _Liquibase_ propose un [_workflow_](https://www.liquibase.org/get-started/develo
   * Plusieurs composants ou le même composant en _cluster_ peuvent vouloir mettre à jour la base en même temps. Autant éviter des _locks_ inutiles, voir des erreurs dues à des _timeout_.
   * La base de données peut avoir besoin d'une mise à jour de façon indépendante (sans que l'on ait une _webapp_ à déployer). C'est un composant en tant que tel.
 * Tagger les grandes versions applicatives.
-  * Plusieurs techniques possibles : via la balise `tagDatabase` ou via la commande `tag`.
+  * Plusieurs techniques possibles : via la balise `tagDatabase` ou via la commande `tag` (voir annexe).
   * Plusieurs méthodes possibles : avant ou après les mises à jour.
 * Penser à ne pas oublier et à gérer correctement les _tablespaces_. Utiliser par exemple des _property_ pour gérer l'externalisation de leurs noms qui peut varier d'un environnement à l'autre.
 * Implémenter un élément (une _servlet_, un _WebService_, un _endpoint_, un _MBean_ JMX, ...) permettant de connaître l'état de la base de données (_liquibase status_).
 * Exécuter toujours une commande `status` comme un _dry run_ (exécution à blanc) avant un `update` pour contrôler les mises à jour que l'outil va devoir appliquer.
+* Préférer l'utilisation de la technique du [_Fixing-Forward_ plutôt que du _Rollback_](https://www.liquibase.com/blog/roll-back-database-fix-forward) :
+  * moins risqué (erreurs diverses voire perte de données)
+  * moins complexe
+  * moins d'indisponibilité
 
 ### Assurer la sécurité
 
@@ -162,6 +166,9 @@ _Liquibase_ propose un [_workflow_](https://www.liquibase.org/get-started/develo
 <!--  * `<column` pas besoin de les doubler
   * `<renameColumn` besoin de doubler
 -->
+* La commande `tag` et le _changeset_ `tagDatabase` ont un comportement différent :
+  * Le tag créé avec la commande `tag` est ajouté sur la dernière ligne (dernier _changset_) de la table `DATABASECHANGELOG`. Utilisable pour marquer la fin d'une version.
+  * Le tag créé via l'écriture d'un  _changeset_ de type `tagDatabase`  ajoute une nouvelle ligne (donc un nouveau _changset_) dans la table `DATABASECHANGELOG`. Utilisable pour marquer le début d'une version.
 
 ### A.2 Data types
 
