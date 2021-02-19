@@ -197,7 +197,7 @@ _Liquibase_ propose un [_workflow_](https://www.liquibase.org/get-started/develo
 | mediumint | int | mediumint | mediumint | mediumint |
 | nchar | nchar | nchar | nchar | nchar |
 | nvarchar | nvarchar | nvarchar2 | nvarchar | varchar |
-| umber | numeric | number | numeric | numeric |
+| number | numeric | number | numeric | numeric |
 | smallint | smallint | number(5) | smallint | smallint/smallserial |
 | time | time | date | time | time |
 | timestamp | datetime | timestamp | timestamp | timestamp |
@@ -230,4 +230,5 @@ _Liquibase_ propose un [_workflow_](https://www.liquibase.org/get-started/develo
 
 * :gb: [Liquibase Official Trainings](https://learn.liquibase.com/index)
   * LB101 : Liquibase Fundamentals Certification
-  * LB201 : Liquibase Commands for Troubleshooting (non certifiante)
+  * LB201 : Liquibase Commands for Troubleshooting (intermédiaire - non certifiante)
+  * LB202 : Liquibase and the CI/CD Process (intermédiaire - non certifiante)
