@@ -94,9 +94,10 @@
 
 ### A.2 Version minimale Java requise
 
-> :information_source: Maven 3.3+ require JDK 1.7 or above to execute. [maven.apache.org](https://maven.apache.org/index.html)
+> :information_source: Maven 3.3+ require JDK 1.7 or above to execute. [Maven Releases History](https://maven.apache.org/docs/history.html)
 
-* Java 7 : 3.3.1 -> 3.3.X
+* Java 8 : 4.0.0 -> ...
+* Java 7 : 3.3.1 -> 3.6.X
 * Java 6 : 3.2.1 -> 3.2.5
 * Java 5 : 2.2.0 -> 3.1.1
 * Java 1.4 : 2.0 -> 2.1.0
