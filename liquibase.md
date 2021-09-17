@@ -172,7 +172,7 @@ _Liquibase_ propose un [_workflow_](https://www.liquibase.org/get-started/develo
 
 ### A.2 Data types
 
-* [Liquibase 3.6.x data types mapping table](https://dba-presents.com/index.php/liquibase/216-liquibase-3-6-x-data-types-mapping-table)
+* [Liquibase 3.6.x data types mapping table](https://dba-presents.com/index.php/liquibase/216-liquibase-3-6-x-data-types-mapping-table) | [list of available generic datatypes](https://newbedev.com/liquibase-list-of-available-generic-datatypes) | [All Liquibase types with related SQL & Java types](https://xenovation.com/blog/development/java/java-professional-developer/liquibase-related-sql-java-types)
 * [Oracle 12C Data Types](https://docs.oracle.com/database/121/SQLRF/sql_elements001.htm#SQLRF30020)
 * [MySQL 5.7 Data Types](https://dev.mysql.com/doc/refman/5.7/en/data-types.html)
 * [PostgreSQL Data Types](https://www.postgresql.org/docs/current/datatype.html)
@@ -232,3 +232,5 @@ _Liquibase_ propose un [_workflow_](https://www.liquibase.org/get-started/develo
   * LB101 : Liquibase Fundamentals Certification
   * LB201 : Liquibase Commands for Troubleshooting (intermédiaire - non certifiante)
   * LB202 : Liquibase and the CI/CD Process (intermédiaire - non certifiante)
+  * LB203 : Managing Liquibase Changelogs (intermédiaire - non certifiante)
+  * TC101 : Introduction to Liquibase Test Harness
