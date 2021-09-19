@@ -1,6 +1,6 @@
 # Bonnes pratiques d'utilisation de Liquibase
 
-![logo](https://www.liquibase.com/wp-content/themes/liquibase/assets/img/logo.svg)
+![logo](images/liquibase_logo_blue.svg)
 
 > _Liquibase_ est une bibliothèque open source écrite en Java pour le suivi, la gestion et l'application des changements de schéma de base de données indépendante du SGBD. Elle a été lancé en 2006 pour faciliter le suivi des modifications de la base de données, en particulier dans un environnement de développement logiciel agile. [Wikipédia](https://fr.wikipedia.org/wiki/Liquibase)
 
@@ -10,7 +10,7 @@
 
 * **Traçabilité** :
   * historique complet des changements appliqués.
-  * versioning avec le code source (et tout ce que celà implique).
+  * versioning avec le code source (et tout ce que cela implique).
 * **Intégrité et cohérence** : cohérence dans l'application des changements et suivi des versions applicatives.
 * **Reproductibilité :**
   * solution reproductible d'un environnement à l'autre à l'identique.
@@ -37,7 +37,7 @@ _Liquibase_ pilote via JDBC n'importe quelle base de données relationnelle. On 
 
 Nous avons besoin à minima :
 
-* de l'exécutable java
+* de l'exécutable java (un JDK ou un JRE, 1.8 minimum de la version 3.7.X)
 * des informations de connexions à la base de données via JDBC (par exemple dans un fichier properties ou via des arguments)
 * des fichiers _changelog_ contenant les modifications à appliquer
 * du jar liquibase
