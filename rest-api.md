@@ -7,7 +7,7 @@
 * **PUT** est utilisé pour mettre à jour une instance avec l'intégralité des données.
 * **PUT** est utilisé pour créer une nouvelle instance **si l'ID est fourni par le client** (ce qui est rare).
 * **PATCH** est utilisé pour mettre à jour une instance avec des données partielles.
-* **DELETE** est utilisé pour supprimer un élement, on retournera généralement un statut 204 (_No Content_).
+* **DELETE** est utilisé pour supprimer un élément, on retournera généralement un statut 204 (_No Content_).
 
 ## Règle 2 : Utilisation correcte des status HTTP
 
@@ -36,7 +36,7 @@
 * Pour certains cas **à la marge** on pourra exposer des opérations ou des services, on utilisera alors le verbe http POST et on terminera l'URI par un verbe (`orders/128/print`).
 * Utiliser le pluriel pour identifier les ressources : `orders`, `orders/128`, `users`, `users/256`, ...
 * Standardiser le nommage et ne pas mélanger les styles : `PascalCase`, `camelCase`, `snake_case`, `spinal-­case`, `UPPERCASE`, `lowercase`, en choisir un et s'y tenir sur toute l'API.
-* Pour trier, filtrer ou affiner on utilisera les paramètres de requêtes : `/orders?page=2`, `/orders?state=paied` `/orders?sortBy=name`.
+* Pour trier, filtrer ou affiner on utilisera les paramètres de requêtes : `/orders?page=2`, `/orders?state=payed` `/orders?sortBy=name`.
 
 ## Règle 4 : Assurer la sécurité
 
@@ -63,7 +63,7 @@
 
 * Ne pas exposer directement les entités JPA :
   * Il existerait un couplage fort entre l'API et le modèle sous-jacent.
-  * Celà complexifierait la gestion des versions.
+  * Cela complexifierait la gestion des versions.
   * Les 2 modèles pourraient pas évoluer séparément : renommage, ajout/suppression, ...
   * Les entités pourraient être polluer d'annotations qui ne les concernent pas (sérialisation JSON par exemple).
   * Les associations décrites dans les entités n'ont pas à être exposées directement.

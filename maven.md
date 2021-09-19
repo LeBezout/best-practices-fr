@@ -91,17 +91,18 @@
 * Maven `3.1.1` : 10/2013
 * Maven `3.2.5` : 12/2014
 * Maven `3.6.0` : 10/2018
+* Maven `3.8.2` : 08/2012
 
 ### A.2 Version minimale Java requise
 
 * Java 8 : 4.0.0 -> ...
-* Java 7 : 3.3.1 -> 3.6.X
+* Java 7 : 3.3.1 -> 3.8.X
 * Java 6 : 3.2.1 -> 3.2.5
 * Java 5 : 2.2.0 -> 3.1.1
 * Java 1.4 : 2.0 -> 2.1.0
 
 ### A.3 Liens utiles
 
-* [Lyfecycle](https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html)
+* [Lifecycle](https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html)
 * [Standard Directory Layout](http://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html)
 * [List of predefined Maven properties](https://github.com/cko/predefined_maven_properties/blob/master/README.md)

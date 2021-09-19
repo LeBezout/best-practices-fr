@@ -25,7 +25,7 @@ Celles-ci doivent permette :
 * Principes DRY, KISS, YAGNI, SOC, ...
 * Nommage évocateur, méthodes courtes, ...
 
-##  Profiter des apports des outils Git et GitLab/GitHub
+## Profiter des apports des outils Git et GitLab/GitHub
 
 * Favoriser le mode d'authentification par clef SSH.
 * Favoriser l’utilisation des feature branch et des _Merge/Pull Request_ et pousser régulièrement vos modifications pour éviter de perdre votre travail en cas de crash.
@@ -44,7 +44,7 @@ Celles-ci doivent permette :
 * Pratique des _Merge/Pull Request_.
 * Pratique des revues de code collectives.
 
-##  "Write all things"
+## "Write all things"
 
 * Il est important de pouvoir tout noter, tracer rapidement, dans l'instant pour ne rien oublier et de pouvoir y revenir plus tard en utilisant par exemples des outils comme Trello, Evernote, TodoList, ....
 * Il faut également documenter tous les choix d'architecture ou d'implémentation détaillant les contraintes et/ou les impératifs de chaque situation.
@@ -62,14 +62,14 @@ Celles-ci doivent permette :
 * Partager avec les communautés des développeurs.
 * Documenter / capitaliser.
 
-##  Élargir son spectre et prendre du recul.
+## Élargir son spectre et prendre du recul
 
 * Essayer d'avoir une vision globale en ne se limitant pas à son besoin ou son projet.
 * Se renseigner si une solution n'existe pas déjà ailleurs ou de manière globale.
 * Demander l'avis, voire la validation, des équipes support et d'architecture avant de partir sur une solution technique.
 * Ne pas aller tout le temps sur Internet si une solution interne existe (repo maven ou npm, dockerhub, outillage, ...).
 
-## Participer à des événements ou conférences.
+## Participer à des événements ou conférences
 
 * Pratiquer des Coding Dojos avec d'autres développeurs.
 * Suivre l'actualité et participer aux différentes communautés.

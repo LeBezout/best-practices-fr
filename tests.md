@@ -4,7 +4,7 @@
 ## Principes généraux
 
 * Un test ne doit tester qu'une seule chose : un test = une assertion.
-* Un test doit être autonôme = ne pas dépendre de l'exécution d'un autre test.
+* Un test doit être autonome = ne pas dépendre de l'exécution d'un autre test.
 * S'il doit échouer le test doit bien sur le faire le plus rapidement possible.
 * Respecter le format : Given->When->Then.
 * Pratiquer autant que possible _Test First_ et son évolution _TDD_.
