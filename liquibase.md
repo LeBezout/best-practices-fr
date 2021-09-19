@@ -37,7 +37,7 @@ _Liquibase_ pilote via JDBC n'importe quelle base de données relationnelle. On 
 
 Nous avons besoin à minima :
 
-* de l'exécutable java (un JDK ou un JRE, 1.8 minimum de la version 3.7.X)
+* de l'exécutable java (un JDK ou un JRE, 1.8 minimum depuis la version 3.7.X)
 * des informations de connexions à la base de données via JDBC (par exemple dans un fichier properties ou via des arguments)
 * des fichiers _changelog_ contenant les modifications à appliquer
 * du jar liquibase
@@ -167,8 +167,8 @@ _Liquibase_ propose un [_workflow_](https://www.liquibase.org/get-started/develo
   * `<renameColumn` besoin de doubler
 -->
 * La commande `tag` et le _changeset_ `tagDatabase` ont un comportement différent :
-  * Le tag créé avec la commande `tag` est ajouté sur la dernière ligne (dernier _changset_) de la table `DATABASECHANGELOG`. Utilisable pour marquer la fin d'une version.
-  * Le tag créé via l'écriture d'un  _changeset_ de type `tagDatabase`  ajoute une nouvelle ligne (donc un nouveau _changset_) dans la table `DATABASECHANGELOG`. Utilisable pour marquer le début d'une version.
+  * Le tag créé avec la commande `tag` est ajouté sur la dernière ligne (dernier _changeset_) de la table `DATABASECHANGELOG`. Utilisable pour marquer la fin d'une version.
+  * Le tag créé via l'écriture d'un  _changeset_ de type `tagDatabase`  ajoute une nouvelle ligne (donc un nouveau _changeset_) dans la table `DATABASECHANGELOG`. Utilisable pour marquer le début d'une version.
 
 ### A.2 Data types
 
