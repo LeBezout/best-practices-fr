@@ -40,7 +40,7 @@ Nous avons besoin à minima :
 * de l'exécutable java (un JDK ou un JRE, 1.8 minimum depuis la version 3.7.X)
 * des informations de connexions à la base de données via JDBC (par exemple dans un fichier properties ou via des arguments)
 * des fichiers _changelog_ contenant les modifications à appliquer
-* du jar liquibase
+* du jar liquibase (et de toutes ses dépendances, depuis la version 3.6.X)
 
 ### Changelog
 
