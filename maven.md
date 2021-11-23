@@ -106,3 +106,4 @@
 * [Lifecycle](https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html)
 * [Standard Directory Layout](http://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html)
 * [List of predefined Maven properties](https://github.com/cko/predefined_maven_properties/blob/master/README.md)
+* [JRebel - Maven Options Cheat Sheet](https://www.jrebel.com/blog/maven-cheat-sheet)
