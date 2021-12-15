@@ -91,7 +91,7 @@
 * Maven `3.1.1` : 10/2013
 * Maven `3.2.5` : 12/2014
 * Maven `3.6.0` : 10/2018
-* Maven `3.8.2` : 08/2012
+* Maven `3.8.4` : 11/2021
 
 ### A.2 Version minimale Java requise
 
