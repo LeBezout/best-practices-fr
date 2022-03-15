@@ -2,7 +2,7 @@
 
 :pushpin: Cette page présente quelques bonnes pratiques globales au métier de développeur.
 
-Celles-ci doivent permette :
+Celles-ci doivent permettre :
 
 * de s'épanouir dans son travail
 * de collaborer et partager
@@ -66,7 +66,7 @@ Celles-ci doivent permette :
 
 * L'important est que toute tâche courte (par exemple d'une durée inférieure à 5 minutes) soit faite immédiatement (ou quasiment) et ne soit pas reportée. Voir méthode [GTD (_Get Things Done_)](https://everlaab.com/comment-augmenter-sa-productivite-avec-la-methode-gtd/) de David Allen.
 * Importantes ou pas elles devront être faites donc il faut éviter d'encombrer sa _todo list_ et son esprit en les évacuant rapidement. Plus on a de tâches à réaliser, plus notre mémoire est sollicitée et donc plus on est préoccupé.
-* Pour toutes les autres tâches (donc les plus longues) il faut utiliser un outil de gestion et effectuer un classement via la [matrice d'Eisenhower](https://chef-de-projet.fr/matrice-eisenhower/)
+* Pour toutes les autres tâches (donc les plus longues) il faut utiliser un outil de gestion et effectuer un classement via la [matrice d'Eisenhower](https://chef-de-projet.fr/matrice-eisenhower/).
 
 ## Élargir son spectre et prendre du recul
 
