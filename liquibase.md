@@ -234,3 +234,33 @@ _Liquibase_ propose un [_workflow_](https://www.liquibase.org/get-started/develo
   * LB202 : Liquibase and the CI/CD Process (intermédiaire - non certifiante)
   * LB203 : Managing Liquibase Changelogs (intermédiaire - non certifiante)
   * TC101 : Introduction to Liquibase Test Harness
+
+### A.5 Checklits de synthèse
+
+:pushpin: Cette _checklist_ présente une synthèse des bonnes pratiques qu'il convient de respecter.
+
+| Nuémro | Catégorie | Description | Criticité |
+|:------:|-----------|-------------|:---------:|
+| 1	| Gestion de sources	|	Les fichiers changelogs sont organisés d'une façon cohérente avec un fichier master qui référence les autres fichiers via l'attribut `include` |	:bangbang: |
+| 2	|	Format	|	Utilisation du format recommandé pour les changelogs : XML	| :warning: |
+| 3	|	Format	|	La fonctionnalité `inlcudeAll` n'est pas utilisée |	:bangbang: |
+| 4	|	Format	|	L'attribut `logicalFilePath` est renseigné (correctement, attention au copier-coller) sur chacun des fichiers |	:bangbang: |
+| 5	|	Format	|	La balise `<comment>` est présence quasi systématiquement sur les changesets pour décrire l'action réalisée par celui-ci	| :warning: |
+| 6	|	Format	|	La bonne pratique officielle "_One Change per Changeset_" est appliquée |	:bangbang: |
+| 7	|	Intégration continue |	La validation des fichiers changelogs sur une base volatile (type "_in memory_" ou fichier via H2 par exemple) est réalisée sur l'évènement "_push_"	| :warning: |
+| 8	|	Format	|	Si une base Oracle est utilisée sur les environnements cibles alors les tablespaces sont correctement gérés |	:bangbang: |
+| 9	|	Format	|	La gestion des _Rollback_ est gérée et est basé sur la documentation "Auto-rollback" de chaque changement |	:bangbang: |
+| 10	|	Format	|	Liquibase est principalement utiliser pour gérer de la structure (DDL) et non pas de la donnée	| :warning: |
+| 11	|	Gestion de sources	|	La notion de "_context_" est utilisée pour gérer des données de test pour JUnit ou pour le poste de travail local | :warning: |
+| 12	|	Format	|	Des normes sont mises en oeuvre et partagée pour l'écriture des changelogs : format des attributs id ou author, ...	| :warning: |
+| 13	|	Format	|	Le format SQL (changelog ou import) n'est pas utilisé	| :warning: |
+| 14	|	Configuration	|	Les noms des tables techniques (`DATABASECHANGELOG` et `DATABASECHANGELOGLOCK`) ne sont pas changés |	:bangbang: |
+| 15	|	Exécution	|	L'exécution de Liquibase est décorrélée du déploiement applicatif (n'est pas exécuté automatiquement en sous-marin) mais est automatisée dans un processus dédié |	:bangbang: |
+| 16	|	Format	|	Les grandes versions applicatives sont étiquetées via la balise `tagDatabase`	| :warning: |
+| 17	|	Exécution	|	Une interface ou un _endpoint_ d'administration est implémenté pour diagnostic de l'état de la base de données | :warning: |
+| 18	|	Format	|	Les "_data types_" génériques fournis par Liquibase sont utilisés et favorisés par rapport aux types spécifiques des SGBD cibles	| :warning: |
+| 19	|	Format	|	La version des schémas XSD déclarés dans les fichiers changelogs est alignée avec la version de Liquibase réellement utilisée	| :warning: |
+| 20	|	Intégration continue	|	Un workflow de test et validation est appliqué avant même le déploiement sur le 1er environnement : revue par les pairs, génération et validation du SQL, exécution sur un schéma de test, ... | :warning: |
+
+_Echelle de criticité :_ :warning: -> :bangbang: -> :no_entry:
+
