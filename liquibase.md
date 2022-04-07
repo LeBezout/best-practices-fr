@@ -1,4 +1,4 @@
-# Bonnes pratiques d'utilisation de Liquibase
+# Bonnes pratiques d'utilisation et d'implémentation de Liquibase
 
 ![logo](images/liquibase_logo_blue.svg)
 
@@ -239,7 +239,7 @@ _Liquibase_ propose un [_workflow_](https://www.liquibase.org/get-started/develo
 
 :pushpin: Cette _checklist_ présente une synthèse des bonnes pratiques qu'il convient de respecter.
 
-| Nuémro | Catégorie | Description | Criticité |
+| Numéro | Catégorie | Description | Criticité |
 |:------:|-----------|-------------|:---------:|
 | 1	| Gestion de sources	|	Les fichiers changelogs sont organisés d'une façon cohérente avec un fichier master qui référence les autres fichiers via l'attribut `include` |	:bangbang: |
 | 2	|	Format	|	Utilisation du format recommandé pour les changelogs : XML	| :warning: |
