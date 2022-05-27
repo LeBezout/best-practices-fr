@@ -1,6 +1,6 @@
 # Les bonnes pratiques du développeur
 
-:pushpin: Cette page présente quelques bonnes pratiques globales au métier de développeur.
+:pushpin: Être développeur ne se résume pas à simplement savoir coder, cette page présente quelques bonnes pratiques globales au métier de développeur afin d'élargir sa vision.
 
 Celles-ci doivent permettre :
 
@@ -48,9 +48,8 @@ Celles-ci doivent permettre :
 ## "Write all things"
 
 * Il est important de pouvoir tout noter, tracer rapidement, dans l'instant pour ne rien oublier et de pouvoir y revenir plus tard en utilisant par exemples des outils comme Trello, Evernote, TodoList, ....
-* Il faut également documenter tous les choix d'architecture ou d'implémentation détaillant les contraintes et/ou les impératifs de chaque situation.
-* Détailler également tous les problèmes rencontrés permet de mieux comprendre comment on est arrivée à la solution mise en oeuvre.
-* Envisager l'écriture d'ADR (_Architectural Decision Records_) pour assurer l'historique et maintenir la connaissance sur le projet.
+* Il faut également documenter tous les choix d'architecture ou d'implémentation détaillant les contraintes et/ou les impératifs de chaque situation, envisager donc l'écriture d'ADR (_Architectural Decision Records_) pour assurer l'historique et maintenir la connaissance sur le projet.
+* Détailler également tous les problèmes rencontrés permet de mieux comprendre comment on est arrivé à la solution mise en oeuvre.
 
 ## Etre centré sur la qualité
 
