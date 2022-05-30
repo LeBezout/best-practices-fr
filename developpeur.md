@@ -87,3 +87,8 @@ Celles-ci doivent permettre :
 * Faire intervenir la communauté des développeurs.
 * Demander le support à ses référents techniques (Tech Lead / DevOps).
 * Remonter les alertes à son CP / PO / N+1.
+
+## Ressources
+
+* Vidéo : Conférence Devoxx 2022: [Etre développeur: grandir et se développer (Gaëtan Eleouet)](https://www.youtube.com/watch?v=AcE85HBzAZE)
+* Vidéo : Conférence Devoxx 2022: [Développ(eur|euse) Senior avec 6 ans d’expérience, et après ? (Hugo Lassiege et Dimitri Baeli)](https://www.youtube.com/watch?v=X5MYKj1C2qM)
