@@ -222,7 +222,7 @@ _Liquibase_ propose un [_workflow_](https://www.liquibase.org/get-started/develo
 | `3.8.X` / `3.9.X` / `3.10.X` | Java 8 | slf4j-api (1.7.28), logback-classic (1.2.3) | snakeyaml (1.24), spring-core, spring-beans, spring-context (5.0.12.RELEASE), servlet-api (3.1.0) | :warning: Fournir en plus jaxb/jaxb-impl avec Java 11 |
 | `4.X` | Java 8 |   | snakeyaml (1.30), commons-cli (1.4), spring-core, spring-beans, spring-context (5.0.12.RELEASE), servlet-api (3.1.0) | 4.0.0 : Logging is now based on java.util.Logging with a cleaned up API |
 
-:link: <https://github.com/liquibase/liquibase/blob/master/pom.xml>
+:link: [Parent pom.xml](https://github.com/liquibase/liquibase/blob/master/pom.xml) | [Release Notes](https://docs.liquibase.com/release-notes/home.html)
 
 ### A.4 Certifications et formations en ligne gratuites
 
