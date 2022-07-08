@@ -220,11 +220,24 @@ _Liquibase_ propose un [_workflow_](https://www.liquibase.org/get-started/develo
 | `3.8.0` | Java 8 | slf4j-api (1.7.28), logback-classic (1.2.3) | snakeyaml (1.24), spring-core, spring-beans, spring-context (5.0.12.RELEASE), servlet-api (3.1.0) | Liquibase Community / Pro |
 | `3.8.3` | Java 8 | slf4j-api (1.7.28), logback-classic (1.2.3) | snakeyaml (1.24), spring-core, spring-beans, spring-context (5.0.12.RELEASE), servlet-api (3.1.0) | Liquibase-Maven plugin now works with Java 9+ |
 | `3.8.X` / `3.9.X` / `3.10.X` | Java 8 | slf4j-api (1.7.28), logback-classic (1.2.3) | snakeyaml (1.24), spring-core, spring-beans, spring-context (5.0.12.RELEASE), servlet-api (3.1.0) | :warning: Fournir en plus jaxb/jaxb-impl avec Java 11 |
-| `4.X` | Java 8 |   | snakeyaml (1.30), commons-cli (1.4), spring-core, spring-beans, spring-context (5.0.12.RELEASE), servlet-api (3.1.0) | 4.0.0 : Logging is now based on java.util.Logging with a cleaned up API |
+| `4.X` | Java 8 |   | snakeyaml (1.30), commons-cli (1.4), opencsv (5.6), spring-core, spring (5.2.22.RELEASE), servlet-api (3.1.0) | 4.0.0 : Logging is now based on java.util.Logging with a cleaned up API |
 
 :link: [Parent pom.xml](https://github.com/liquibase/liquibase/blob/master/pom.xml) | [Release Notes](https://docs.liquibase.com/release-notes/home.html)
 
-### A.4 Certifications et formations en ligne gratuites
+### A.4 A propos des Checksums
+
+:link: [All About Changeset Checksums](https://www.liquibase.com/blog/what-affects-changeset-checksums) :
+
+* The checksum is computed after the parameters are applied.
+* Not every change to a changeset impacts the checksum. Here are some examples:
+  * Reformatting whitespace and linebreaks (except within SQL statements)
+  * Changing preconditions
+  * Changing contexts
+  * Changing labels
+  * Adding validCheckSum settings
+  * Changing comments (via native xml/yaml comments or using the comment tag)
+
+### A.5 Certifications et formations en ligne gratuites
 
 * :gb: [Liquibase Official Trainings](https://learn.liquibase.com/index)
   * LB101 : Liquibase Fundamentals Certification
@@ -233,7 +246,7 @@ _Liquibase_ propose un [_workflow_](https://www.liquibase.org/get-started/develo
   * LB203 : Managing Liquibase Changelogs (intermédiaire - non certifiante)
   * TC101 : Introduction to Liquibase Test Harness
 
-### A.5 Checklits de synthèse
+### A.6 Checklits de synthèse
 
 :pushpin: Cette _checklist_ présente une synthèse des bonnes pratiques qu'il convient de respecter.
 
