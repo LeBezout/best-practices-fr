@@ -209,18 +209,20 @@ _Liquibase_ propose un [_workflow_](https://www.liquibase.org/get-started/develo
 
 | Version Liquibase | Version minimale Java | Dépendances obligatoires | Dépendances optionnelles | Remarques |
 |-------------------|-----------------------|--------------------------|--------------------------|-----------|
-| `3.5.3` | Java 6 | | snakeyaml (1.17), spring (2.0.6), servlet-api (2.4) | |
-| `3.5.4` | Java 6 | | snakeyaml (1.17), spring (2.0.6), servlet-api (2.4) | |
-| `3.5.5` | Java 6 | | snakeyaml (1.17), spring (2.0.6), servlet-api (2.4) | |
+| `3.5.3` | Java 6 | :no_entry: | snakeyaml (1.17), spring (2.0.6), servlet-api (2.4) | |
+| `3.5.4` | Java 6 | :no_entry: | " | |
+| `3.5.5` | Java 6 | :no_entry: | " | |
 | `3.6.0` | Java 7 | slf4j-api (1.7.25), logback-classic (1.2.3) | snakeyaml (1.18), spring-core, spring-beans, spring-context (4.3.8.RELEASE), servlet-api (2.4) | |
-| `3.6.1` | Java 7 | slf4j-api (1.7.25), logback-classic (1.2.3) | snakeyaml (1.18), spring-core, spring-beans, spring-context (4.3.8.RELEASE), servlet-api (2.4) | |
-| `3.6.2` | Java 7 | slf4j-api (1.7.25), logback-classic (1.2.3) | snakeyaml (1.18), spring-core, spring-beans, spring-context (4.3.8.RELEASE), servlet-api (2.4) | |
-| `3.6.3` | Java 7 | slf4j-api (1.7.25), logback-classic (1.2.3) | snakeyaml (1.18), spring-core, spring-beans, spring-context (4.3.8.RELEASE), servlet-api (2.4) | |
+| `3.6.1` | Java 7 | " | " | |
+| `3.6.2` | Java 7 | " | " | |
+| `3.6.3` | Java 7 | " | " | |
 | `3.7.0` | Java 8 | slf4j-api (1.7.25), logback-classic (1.2.3) | snakeyaml (1.23), spring-core, spring-beans, spring-context (4.3.8.RELEASE), servlet-api (2.4) | |
 | `3.8.0` | Java 8 | slf4j-api (1.7.28), logback-classic (1.2.3) | snakeyaml (1.24), spring-core, spring-beans, spring-context (5.0.12.RELEASE), servlet-api (3.1.0) | Liquibase Community / Pro |
-| `3.8.3` | Java 8 | slf4j-api (1.7.28), logback-classic (1.2.3) | snakeyaml (1.24), spring-core, spring-beans, spring-context (5.0.12.RELEASE), servlet-api (3.1.0) | Liquibase-Maven plugin now works with Java 9+ |
-| `3.8.X` / `3.9.X` / `3.10.X` | Java 8 | slf4j-api (1.7.28), logback-classic (1.2.3) | snakeyaml (1.24), spring-core, spring-beans, spring-context (5.0.12.RELEASE), servlet-api (3.1.0) | :warning: Fournir en plus jaxb/jaxb-impl avec Java 11 |
-| `4.X` | Java 8 |   | snakeyaml (1.30), commons-cli (1.4), opencsv (5.6), spring-core, spring (5.2.22.RELEASE), servlet-api (3.1.0) | 4.0.0 : Logging is now based on java.util.Logging with a cleaned up API<br>4.14.0 : Split liquibase-core and liquibase-commercial jar |
+| `3.8.3` | Java 8 | " | " | Liquibase-Maven plugin now works with Java 9+ |
+| `3.8.X` / `3.9.X` / `3.10.X` | Java 8 | " | " | :warning: Fournir en plus jaxb/jaxb-impl avec Java 11 |
+| `4.X` | Java 8 | :no_entry: | snakeyaml (1.30), commons-cli (1.4), opencsv (5.6), spring-core, spring (5.2.22.RELEASE), servlet-api (3.1.0) | 4.0.0 : Logging is now based on java.util.Logging with a cleaned up API |
+| `4.14.0` | Java 8 | :no_entry: | " | [Split liquibase-core and liquibase-commercial jar](https://www.liquibase.com/blog/two-jars-beat-as-one) |
+| `4.15.0` | Java 8 | :no_entry: | " | New Liquibase [flow command](https://docs.liquibase.com/tools-integrations/labs/flow.html) |
 
 :link: [Parent pom.xml](https://github.com/liquibase/liquibase/blob/master/pom.xml) | [Release Notes](https://docs.liquibase.com/release-notes/home.html)
 
