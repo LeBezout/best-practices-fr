@@ -71,7 +71,7 @@
 
 * Favoriser l'utilisation des références de méthodes.
 * Ne forcément réinventer des `@FunctionalInterface` il en existe déjà beaucoup de base dans `java.util.function` qui couvrent beaucoup de besoins (Supplier, Consumer, Predicate, Function, BiFunction, ...).
-* Éviter ou limiter l'utilisation des blocs `() -> { /* bloc */ }` en favorisant l'utilisation de méthodes.
+* Éviter ou limiter l'utilisation des blocs `() -> { /* bloc */ }` en favorisant l'utilisation de méthodes. 1 lambda = 1 ligne sinon faire une méthode.
 
 ### Streams
 
@@ -82,7 +82,7 @@
 
 ## JPA
 
-* Favoriser l’utilisation de JPQL / HQL par rapport au SQL et l'API `Criteria`.
+* Favoriser l'utilisation de JPQL / HQL par rapport au SQL et l'API `Criteria`.
 * Favoriser l'utilisation de `NamedQueries`.
 * Éviter l'utilisation de `NativeQueries`.
 * Ne pas utiliser `@Enumerated(EnumType.ORDINAL)`, le simple ajout d'un élément ou un refactoring casserait l'intégrité de la base de données.
