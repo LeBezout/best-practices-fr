@@ -1,14 +1,18 @@
-# Bonnes et mauvaises pratiques d'utilisation de Optional
+# Bonnes et mauvaises pratiques d'utilisation de java.util.Optional
 
 ## Pourquoi Optional ?
+
+José Paumard :
+
+> Cette classe a été introduite pour modéliser le fait qu'une méthode peut très bien ne pas pouvoir retourner de valeur.
 
 Javadoc :
 
 > **Optional is primarily intended for use as a method return type where there is a clear need to represent "no result," and where using null is likely to cause errors.**
 
-Utiliser `Optional` en retour de méthode pour indiquer clairement qu'aucun résultat peut être produit et que ce cas doit généralement être traité par l'appelant.
+Utiliser `java.util.Optional` en retour de méthodes pour indiquer clairement à l'appelant qu'aucun résultat peut être produit et qu'il devra traiter ce cas.
 
-## règles de base et bonnes pratiques
+## Règles de base et bonnes pratiques
 
 * Ne jamais retourner `null` pour un `Optional` ou ne jamais affecter une instance à `null`. Et indirectement ne jamais tester si un `Optional` est `null`.
   * **Une instance d'`optional` ne doit jamais être nulle**.
@@ -51,9 +55,9 @@ Utiliser `Optional` en retour de méthode pour indiquer clairement qu'aucun rés
 * Penser à utiliser les dérivés pour les primitives :
   * `OptionalInt`
   * `OptionalLong`
-  * `OptionalDouble`.
+  * `OptionalDouble`
 * Encapsuler les retours d'une bibliothèque externes dans un `Optional` via `Optional.ofNullable()` (= principe de la Couche d'anti-corruption).
-* Utiliser `Optional` dès que possible.
+* Utiliser `Optional` dès que possible :
   * Le code est dès lors auto-documenté, plus besoin d'aller voir le source pour vérifier si `null` peut être retourné.
   * Ne plus jamais retourner `null`.
 
@@ -67,10 +71,11 @@ Utiliser `Optional` en retour de méthode pour indiquer clairement qu'aucun rés
 
 ### Citations
 
-* **JetBrains** : _`Optional` was designed to provide a limited mechanism for library method return types in which a clear way to represent "no result" was needed_
-* **Brian Goetz** : _You should almost never use it as a field of something or a method parameter._
-* **Joshua Blosh** : _it is almost never appropriate to use an optional as a key, value, or element in a collection or array._
-* **Indrek Ots** : _The problem with `Optional::get` is that it leads us to write the same style of code that we wrote when we explicitly checked for null reference._
+* :gb: **JetBrains** : _`Optional` was designed to provide a limited mechanism for library method return types in which a clear way to represent "no result" was needed_
+* :gb: **Brian Goetz** : _we did have a clear intention when adding this feature, and it was not to be a general purpose Maybe type, as much as many people would have liked us to do so._ [on stackoverflow](https://stackoverflow.com/questions/26327957/should-java-8-getters-return-optional-type/26328555#26328555)
+* :gb: **Brian Goetz** : _You probably should never use it for something that returns an array of results, or a list of results; instead return an empty array or list. You should almost never use it as a field of something or a method parameter._ [on stackoverflow](https://stackoverflow.com/questions/26327957/should-java-8-getters-return-optional-type/26328555#26328555)
+* :gb: **Joshua Blosh** : _it is almost never appropriate to use an optional as a key, value, or element in a collection or array._
+* :gb: **Indrek Ots** : _The problem with `Optional::get` is that it leads us to write the same style of code that we wrote when we explicitly checked for null reference._
 
 ### Historique de la classe
 
@@ -78,18 +83,18 @@ Utiliser `Optional` en retour de méthode pour indiquer clairement qu'aucun rés
   * `of()`, `ofNullable()`, `empty()`
   * `get()`
   * `isPresent()`
-  * `ifPresentOrElse(<Consumer>)`
-  * `filter(Predicate)`
-  * `map(Function)`, `flatMap(Function)`
-  * `orElse()`, `orElseGet(Supplier)`, `orElseThrow(Supplier<Exception>)`
+  * `ifPresentOrElse(Consumer<>)`
+  * `filter(Predicate<>)`
+  * `map(Function)`, `flatMap(Function<>)`
+  * `orElse()`, `orElseGet(Supplier<>)`, `orElseThrow(Supplier<Exception>)`
 * Java 9 - 2017
   * `or(Supplier<Optional>)`
   * `stream()`
-  * `ifPresentOrElse(Consumer, Runnbale)`
+  * `ifPresentOrElse(Consumer<>, Runnbale)`
 * Java 10 - 2018
-  * `orElseThrow()` = nouveau nom de `get`
+  * `orElseThrow()` le nouveau nom de `get` (mais qui n'est pas dépréciée pour autant)
 * Java 11 - 2018
-  * `isEmpty()` = `! isPresent()`
+  * `isEmpty()` comme complément à `isPresent()`
 
 ## Ressources / Références
 
@@ -97,6 +102,7 @@ Utiliser `Optional` en retour de méthode pour indiquer clairement qu'aucun rés
 * :gb: [blog.indrek.io - Misusing Java’s Optional type](https://blog.indrek.io/articles/misusing-java-optional/)
 * :gb: [blog.oracle.com - 12 recipes for using the Optional class as it’s meant to be used](https://blogs.oracle.com/javamagazine/post/12-recipes-for-using-the-optional-class-as-its-meant-to-be-used)
 * :gb: [javacodegeeks - Optional Does Not Supplant All Traditional if-null-else or if-not-null-else Checks](https://www.javacodegeeks.com/2021/09/javas-optional-does-not-supplant-all-traditional-if-null-else-or-if-not-null-else-checks.html)
+* :fr: [blog.paumard.org - Patterns optionels](https://blog.paumard.org/2014/12/07/patterns-optionels/)
 
 ---
-:point_left: [Retour](../README.md)
+:point_left: [Retour](../java.md)
