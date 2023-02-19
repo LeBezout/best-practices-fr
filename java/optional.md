@@ -96,6 +96,18 @@ Utiliser `java.util.Optional` en retour de méthodes pour indiquer clairement à
 * Java 11 - 2018
   * `isEmpty()` comme complément à `isPresent()`
 
+### Présence dans l'API java
+
+Assez peu présent dans le JDK, principalement dans l'API Stream :
+
+* ServiceLoader#findFirst (since java 9)
+* Streams#findFirst
+* Streams#findAny
+* Streams#reduce
+* Streams#min
+* Streams#max
+* HttpsURLConnection#getSSLSession
+
 ## Ressources / Références
 
 * :gb: [dzone.com - Understand when to use Optional](https://dzone.com/refcardz/java-api-best-practices?chapter=14#section-14)
