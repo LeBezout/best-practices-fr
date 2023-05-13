@@ -219,10 +219,12 @@ _Liquibase_ propose un [_workflow_](https://www.liquibase.org/get-started/develo
 | `3.7.0` | Java 8 | slf4j-api (1.7.25), logback-classic (1.2.3) | snakeyaml (1.23), spring-core, spring-beans, spring-context (4.3.8.RELEASE), servlet-api (2.4) | |
 | `3.8.0` | Java 8 | slf4j-api (1.7.28), logback-classic (1.2.3) | snakeyaml (1.24), spring-core, spring-beans, spring-context (5.0.12.RELEASE), servlet-api (3.1.0) | Liquibase Community / Pro |
 | `3.8.3` | Java 8 | " | " | Liquibase-Maven plugin now works with Java 9+ |
+| `3.8.9` | Java 8 | " | " | Major checksum algorithm version 8 |
 | `3.8.X` / `3.9.X` / `3.10.X` | Java 8 | " | " | :warning: Fournir en plus jaxb/jaxb-impl avec Java 11 |
 | `4.X` | Java 8 | :no_entry: | snakeyaml (1.30), commons-cli (1.4), opencsv (5.6), spring-core, spring (5.2.22.RELEASE), servlet-api (3.1.0) | 4.0.0 : Logging is now based on java.util.Logging with a cleaned up API |
 | `4.14.0` | Java 8 | :no_entry: | " | [Split liquibase-core and liquibase-commercial jar](https://www.liquibase.com/blog/two-jars-beat-as-one) |
 | `4.15.0` | Java 8 | :no_entry: | " | New Liquibase [flow command](https://docs.liquibase.com/tools-integrations/labs/flow.html) |
+| `4.22.0` | Java 8 | :no_entry: | " | Major checksum algorithm version 9 |
 
 :link: [Parent pom.xml](https://github.com/liquibase/liquibase/blob/master/pom.xml) | [Release Notes](https://docs.liquibase.com/release-notes/home.html)
 
