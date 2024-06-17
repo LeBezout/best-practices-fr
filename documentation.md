@@ -84,7 +84,7 @@ Il existe différentes autres formes de documentations qui peuvent fournir des �
 
 ### Ne documenter que l'essentiel
 
-:pushpin: La documentation prend du temps il est donc important de se concentrer sur ce qui apporte de la valeur.
+:pushpin: La documentation prend du temps, il est donc important de se concentrer sur ce qui apporte de la valeur.
 
 * Valider préalablement en équipe les besoins ou manques.
 * Ne pas dupliquer, ré-écrire ou paraphraser une documentation existante : référencer la documentation officielle et ajouter vos éventuelles spécificités ou vos remarques.
@@ -108,7 +108,7 @@ Il existe différentes autres formes de documentations qui peuvent fournir des �
 
 ### Améliorer la lisibilité
 
-:pushpin: Personne n'aime lire ou maintenir de la documentation il faut donc la rendre la plus claire et lisible possible.
+:pushpin: Personne n'aime lire ou maintenir de la documentation, il faut donc la rendre la plus claire et lisible possible.
 
 * Les titres doivent être explicites et clairs.
 * Éviter les blocs trop longs, essayer d'être synthétique.
@@ -150,6 +150,12 @@ On choisira un outil :
   * Équipe projet : espace Confluence, ...
   * Utilisateurs du produit : directement intégrée au produit.
 
+## Synthèse : pourquoi documenter son projet ?
+
+* pour soi-même pour pouvoir s'y référer dans 6 moins ou plus.
+* pour les autres développeurs ou ceux qui arriveront prochainement sur le projet.
+* comme pour les tests, impose de devoir reposer les choses, expliquer les concepts, les choix, il peut donc en résulter une remsie en question ou la découverte de problèmes non identifiés initialement.
+  
 ## Annexes
 
 ### Annexe 1 : quelques outils de génération de diagrammes
@@ -159,6 +165,8 @@ On choisira un outil :
 * [Graphviz - Graph Visualization Softwar](https://www.graphviz.org/) : génération de diagrammes à partir d'une syntaxe textuelle, _dot syntax_ par exemple.
 * [Draw.io](https://www.draw.io/) : outil graphique gratuit de génération de diagrammes avec possibilité d'export dans différents formats.
 * [MagicDraw](https://www.nomagic.com/products/magicdraw) : outil payant.
+* [tldraw](https://www.tldraw.com/) : outil graphique simple et gratuit de génération de diagrammes.
+* [Excalidraw](https://excalidraw.com/) : outil graphique simple et gratuit de génération de diagrammes.
 
 ### Annexe 2 : quelques outils de génération de sites
 
